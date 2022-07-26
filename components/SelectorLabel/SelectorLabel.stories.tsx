@@ -1,29 +1,29 @@
 import React from 'react';
-import InputLoginRegister from './InputLoginRegister';
+import SelectorLabel from './SelectorLabel';
 
 export default {
-    title: 'path/to/InputLoginRegister',
-    Component: InputLoginRegister,
+    title: 'path/to/SelectorLabel',
+    Component: SelectorLabel,
 };
 
-export const InputLoginRegisterStorie = (args:{
+export const SelectorLabelStorie = (args:{
     text: string;
     onClick: Function;
     disabled?: boolean;
 }) => (
-    <InputLoginRegister 
+    <SelectorLabel 
         text={args.text}
         disabled={args.disabled}
         onClick={Function}
     />
 );
 
-InputLoginRegisterStorie.argTypes = {
+SelectorLabelStorie.argTypes = {
     text: {control: 'text'},
     disabled: {control: 'boolean'}
 }
 
-InputLoginRegisterStorie.args ={
+SelectorLabelStorie.args ={
     text: 'Test text',
     onClick: () => alert('hello there'),
     disabled: false,

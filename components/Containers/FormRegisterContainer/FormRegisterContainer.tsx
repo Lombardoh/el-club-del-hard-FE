@@ -2,7 +2,7 @@ import styles from './FormRegisterContainer.styles';
 import UserAccessIC from '../UserAccessIC/UserAccessIC';
 import UserAccessSC from '../UserAccessSC/UserAccessSC';
 import L_Text20P from '../../Texts/Left/20P/L_Text20P';
-import InputLoginRegister from '../../InputLoginRegister/InputLoginRegister';
+import InputLoginRegister from '../../InputGeneric/InputGeneric';
 import ButtonPasswordEye from '../../ButtonPasswordEye/ButtonPasswordEye';
 import ButtonBlue from '../../ButtonBlue/ButtonBlue';
 

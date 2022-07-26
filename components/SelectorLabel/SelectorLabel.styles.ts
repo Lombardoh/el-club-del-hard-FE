@@ -14,7 +14,6 @@ const styles = {
         fontSize:'16px',
         $nest:{
             '&:focus':{
-                border: '5px solid #63A8D4',
                 outline: 'none',
             }
         }
