@@ -1,1 +1,1 @@
-export { default } from './ProductCardRow';
+export { default } from './ProductCardRowButtons';

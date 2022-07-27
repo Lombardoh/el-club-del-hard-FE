@@ -1,0 +1,1 @@
+export { default } from './DivP10_F_Center';

@@ -2,7 +2,7 @@ import styles from './ProductCardRowButtons.styles';
 import ButtonWishlist from '../../ButtonWishlist/ButtonWishlist';
 import ButtonCart from '../../ButtonCart/ButtonCart';
 
-function ProductCardRow(props: {
+function ProductCardRowButtons(props: {
     children?: any,
 })
 {
@@ -16,4 +16,4 @@ function ProductCardRow(props: {
     );
 }
 
-export default ProductCardRow;
+export default ProductCardRowButtons;

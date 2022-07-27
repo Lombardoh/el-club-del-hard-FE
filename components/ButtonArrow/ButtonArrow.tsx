@@ -9,7 +9,7 @@ function ButtonArrow(props: {
     return (
         <div
             onClick = { () => props.onClick()}
-            className = {styles.buttonArrow}
+            className = {currentStyle === "buttonArrow" ? styles.buttonArrow: styles.buttonAddSub}
         >
             {props.disabled ? null : props.text}
         </div>

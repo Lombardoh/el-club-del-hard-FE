@@ -7,7 +7,7 @@ const styles = {
     fontWeight: '400',
     lineHeight: '28px',
     textAlign: 'left',
-    color: "#000000",
+    color: "#FFFFFF",
   }),
 };
 

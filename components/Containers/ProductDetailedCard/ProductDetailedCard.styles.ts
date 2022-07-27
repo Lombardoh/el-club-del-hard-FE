@@ -4,14 +4,12 @@ const styles = {
     container: style({
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center',
-        padding: '10px',
-        gap: '20px',
-        width: '150px',
-        height: '60px',
-        backgroundColor: '#FFFFFF',
-    }),
+        padding: '25px',
+        gap: '100px',
+        width: '1600px',
+    })
 }
 
 export default styles;
