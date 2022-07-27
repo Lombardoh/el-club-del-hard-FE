@@ -32,7 +32,7 @@ const UserAccess: NextPage = () => {
             </div>
             <UserAccessMC>
                 <PageTitle title={'Registrarse'} style='left'/>
-                <FormRegisterContainer style=''/>
+                <FormRegisterContainer/>
             </UserAccessMC>
         </div>
         <FooterFullContainer />

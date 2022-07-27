@@ -1,21 +1,20 @@
 import styles from './ButtonBlue.styles';
 import Text24P_W from '../Texts/Center/24P_White/Text24P_W';
 function ButtonBlue(props: {
-    alert: string;
+    alert?: string;
     text: string;
+    type: 'button' | 'submit';
     style: string;
-    onClick: Function;
+    onClick?: Function;
 }){
     let currentStyle = props.style
     return (
-        <div
-            onClick = { () => props.onClick(
-                alert(props.alert)
-            )}
+        <button
             className = {currentStyle=='add' ? styles.add : styles.delete}
+            type={props.type}
         >
             <Text24P_W text={props.text} />
-        </div>
+        </button>
     );
 }
 
