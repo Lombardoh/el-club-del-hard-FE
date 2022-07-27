@@ -10,7 +10,7 @@ import PageTitle from '../components/Containers/PageTitle/PageTitle';
 import FormLoginContainer from '../components/Containers/FormLoginContainer/FormLoginContainer';
 import FormRegisterContainer from '../components/Containers/FormRegisterContainer/FormRegisterContainer';
 
-const Playground: NextPage = () => {
+const UserAccess: NextPage = () => {
     return (<>
         <HeaderTop />
         <NavBar />
@@ -38,4 +38,4 @@ const Playground: NextPage = () => {
         <FooterFullContainer />
     </>)
 }
-export default Playground; 
+export default UserAccess; 

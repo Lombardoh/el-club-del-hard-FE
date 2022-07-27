@@ -5,11 +5,12 @@ import ButtonArrow from '../../ButtonArrow/ButtonArrow';
 
 function ProductRow(props: {
     title: string,
+    style: string,
 }){
-
+    let currentStyle = props.style
     return (
         <div
-            className = {styles.container}
+            className = {currentStyle === "left" ? styles.left: styles.center}
         >
             <Text36P_L text={props.title}/>
             <div style={{
