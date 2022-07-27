@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import FormUploadProduct from '../components/Containers/FormUploadProduct/index';
 
-const Playground: NextPage = () => {
+const UploadProductForm: NextPage = () => {
     return (<>
         <div style={{
             display:'flex', 
@@ -16,4 +16,4 @@ const Playground: NextPage = () => {
         </div>
     </>)
 }
-export default Playground; 
+export default UploadProductForm; 

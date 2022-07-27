@@ -3,25 +3,66 @@ import UserAccessIC from '../UserAccessIC/UserAccessIC';
 import UserAccessSC from '../UserAccessSC/UserAccessSC';
 import L_Text20P from '../../Texts/Left/20P/L_Text20P';
 import InputLoginRegister from '../../InputGeneric/InputGeneric';
+import InputGeneric from '../../InputGeneric/InputGeneric';
 import ButtonPasswordEye from '../../ButtonPasswordEye/ButtonPasswordEye';
 import ButtonBlue from '../../ButtonBlue/ButtonBlue';
+import { useState } from 'react';
 
-function FormRegisterContainer(props: {
-    style: string;
-}){
+function FormRegisterContainer(){
+    const [data, setData] = useState({
+        email: '',
+        password: '',
+        password2: '',
+        username: '',
+    });
+    const handleInputChange = (event) => {
+        setData({
+            ...data,
+            [event.target.name] : event.target.value
+        })
+    }
 
+    const sendData = (event) => {        
+        event.preventDefault()
+        fetch(`${process.env.BACKEND_URL}/accounts/register`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        }).then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+    }
+
+    const onChangeValueHandler = (event) => {
+        handleInputChange(event);
+    }
     return (
-            <div
-                className = {styles.container}
+            <form className={styles.container} 
+            onSubmit={sendData}
             >
                 <UserAccessSC>
                     <UserAccessIC style='container'>
                         <L_Text20P text='Nombre de Usuario'/>
-                        <InputLoginRegister type='text' name='userRegister'/>
+                        <InputGeneric 
+                            type='text' 
+                            name='username' 
+                            onChangeValue={onChangeValueHandler} 
+                            value={data.username}
+                            required={true}
+                        />
                     </UserAccessIC>
                     <UserAccessIC style='container'>
                         <L_Text20P text='Correo Electrónico'/>
-                        <InputLoginRegister type='email' name='email'/>
+                        <InputGeneric 
+                            type='email' 
+                            name='email' 
+                            onChangeValue={onChangeValueHandler} 
+                            value={data.email}
+                            required={true}
+                        />
                     </UserAccessIC>
                     <UserAccessIC style='container'>
                         <L_Text20P text='Contraseña'/>
@@ -33,7 +74,13 @@ function FormRegisterContainer(props: {
                             margin:'-5px 0px',
                             marginBottom:'-25px'
                         }}>
-                            <InputLoginRegister type='password' name='password'/>
+                            <InputGeneric 
+                                type='password' 
+                                name='password' 
+                                onChangeValue={onChangeValueHandler}
+                                value={data.password}
+                                required={true}
+                            />
                             <ButtonPasswordEye />
                         </div>
                     </UserAccessIC>
@@ -46,7 +93,13 @@ function FormRegisterContainer(props: {
                             padding:'0px',
                             margin:'-5px 0px',
                         }}>
-                            <InputLoginRegister type='password' name='password'/>
+                            <InputGeneric 
+                                type='password' 
+                                name='password2' 
+                                onChangeValue={onChangeValueHandler} 
+                                value={data.password2}
+                                required={true}
+                            />
                             <ButtonPasswordEye />
                         </div>
                     </UserAccessIC>
@@ -58,10 +111,10 @@ function FormRegisterContainer(props: {
                         justifyContent:'center',
                         marginTop:'30px'
                     }}>
-                        <ButtonBlue text='Registrarme' alert='Redirection' style='add' onClick={Function} />
+                        <ButtonBlue text='Registrarme' type='submit' style='add' />
                     </div>
                 </UserAccessSC>
-            </div>
+            </form>
             );
     }
         
