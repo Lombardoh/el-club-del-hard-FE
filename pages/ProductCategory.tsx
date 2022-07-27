@@ -18,7 +18,7 @@ import Text20P from '../components/Texts/Center/20P/Text20P';
 import Text32P from '../components/Texts/Center/32P/Text32P';
 
 
-const Playground: NextPage = () => {
+const ProductCategory: NextPage = () => {
     return (<>
         <HeaderTop />
         <NavBar />
@@ -133,4 +133,4 @@ const Playground: NextPage = () => {
         <FooterFullContainer />
     </>)
 }
-export default Playground; 
+export default ProductCategory; 

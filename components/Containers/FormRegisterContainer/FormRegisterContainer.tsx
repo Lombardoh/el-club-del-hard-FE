@@ -5,11 +5,31 @@ import L_Text20P from '../../Texts/Left/20P/L_Text20P';
 import InputLoginRegister from '../../InputGeneric/InputGeneric';
 import ButtonPasswordEye from '../../ButtonPasswordEye/ButtonPasswordEye';
 import ButtonBlue from '../../ButtonBlue/ButtonBlue';
+import { useState } from 'react';
 
-function FormRegisterContainer(props: {
-    style: string;
-}){
+function FormRegisterContainer(){
+    const [data, setData] = useState({
+        email: '',
+        password: '',
+        passwordConfirm: '',
+        username: '',
+    });
 
+    const handleInputChange = (event) => {
+        console.log(event.target.name)
+        console.log(event.target.value)
+        setData({
+            ...data,
+            [event.target.name] : event.target.value
+        })
+    }
+
+    const enviarDatos = (event) => {
+        event.preventDefault()
+        console.log('enviando datos...' + data.username)
+    }
+
+    console.log('FormRegisterContainer', process.env.BACKEND_URL);
     return (
             <div
                 className = {styles.container}
