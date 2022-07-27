@@ -2,13 +2,34 @@ import styles from './ProductRow.styles';
 import Text36P_L from '../../Texts/Left/36P_Bold/L_Text36P_B';
 import ProductCard from '../ProductCard/ProductCard';
 import ButtonArrow from '../../ButtonArrow/ButtonArrow';
+import { useEffect, useState } from 'react';
 
 function ProductRow(props: {
     title: string,
     style: string,
 }){
     let currentStyle = props.style
+    
+    const [data, setData] = useState([])
+    const getData = () => {        
+        fetch(`${process.env.BACKEND_URL}/api/store/products/`, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization' : `Token 0820a53c242e4a8c8cef539f23112e0981fd2809`
+            },
+        }).then(res => res.json())
+        .then(data => setData(data.results))
+        .catch(err => console.log(err))
+    }
+
+    useEffect(() => {
+        getData();
+    }, [data])
+
     return (
+        
         <div
             className = {currentStyle === "left" ? styles.left: styles.center}
         >
@@ -26,66 +47,24 @@ function ProductRow(props: {
                     style={'buttonArrow'}
                     onClick={Function}
                 />
-                <ProductCard 
-                    labelPromo={'En Oferta'} 
-                    labelPromoStyle={'onSale'} 
-                    labelPromoDisabled={false}
-                    labelStock={'En Stock'}
-                    labelStockStyle={'onStock'}
-                    imageURL={'https://mexx-img-2019.s3.amazonaws.com/tumb_procesador-cpu-ryzen_40369_1.jpeg?v252?v348?v928'}
-                    imageAlt={'Product Image'}
-                    productName={'Placa de video XFX AMD Radeon™ RX 6600 Speedster SWFT 210'}
-                    description={'¡12 Cuotas sin Interés!'}
-                    price={'$ 1400.00'}
-                />
-                <ProductCard 
-                    labelPromo={'Más Vendidos'} 
-                    labelPromoStyle={'mostSold'} 
-                    labelPromoDisabled={false}
-                    labelStock={'Sin Stock'}
-                    labelStockStyle={'noStock'}
-                    imageURL={'https://mexx-img-2019.s3.amazonaws.com/tumb_procesador-cpu-ryzen_40369_1.jpeg?v252?v348?v928'}
-                    imageAlt={'Product Image'}
-                    productName={'Placa de video XFX AMD Radeon™ RX 6600 Speedster SWFT 210'}
-                    description={'¡12 Cuotas sin Interés!'}
-                    price={'$ 1400.00'}
-                />
-                <ProductCard 
-                    labelPromo={'En Oferta'} 
-                    labelPromoStyle={'onSale'}
-                    labelPromoDisabled={true}
-                    labelStock={'En Stock'}
-                    labelStockStyle={'onStock'}
-                    imageURL={'https://mexx-img-2019.s3.amazonaws.com/tumb_procesador-cpu-ryzen_40369_1.jpeg?v252?v348?v928'}
-                    imageAlt={'Product Image'}
-                    productName={'Placa de video XFX AMD Radeon™ RX 6600 Speedster SWFT 210'}
-                    description={'¡12 Cuotas sin Interés!'}
-                    price={'$ 1400.00'}
-                />
-                <ProductCard 
-                    labelPromo={'En Oferta'} 
-                    labelPromoStyle={'onSale'} 
-                    labelPromoDisabled={false}
-                    labelStock={'En Stock'}
-                    labelStockStyle={'onStock'}
-                    imageURL={'https://mexx-img-2019.s3.amazonaws.com/tumb_procesador-cpu-ryzen_40369_1.jpeg?v252?v348?v928'}
-                    imageAlt={'Product Image'}
-                    productName={'Placa de video XFX AMD Radeon™ RX 6600 Speedster SWFT 210'}
-                    description={'¡12 Cuotas sin Interés!'}
-                    price={'$ 1400.00'}
-                />
-                <ProductCard 
-                    labelPromo={'En Oferta'} 
-                    labelPromoStyle={'onSale'}
-                    labelPromoDisabled={true}
-                    labelStock={'En Stock'}
-                    labelStockStyle={'onStock'}
-                    imageURL={'https://mexx-img-2019.s3.amazonaws.com/tumb_procesador-cpu-ryzen_40369_1.jpeg?v252?v348?v928'}
-                    imageAlt={'Product Image'}
-                    productName={'Placa de video XFX AMD Radeon™ RX 6600 Speedster SWFT 210'}
-                    description={'¡12 Cuotas sin Interés!'}
-                    price={'$ 1400.00'}
-                />
+                {data ? data.map((product, key) => {
+                    return (<>
+                        <ProductCard 
+                            key={product.id}
+                            labelPromo={product.label} 
+                            labelPromoStyle={'onSale'} 
+                            labelPromoDisabled={product.label != '' ? false : true}
+                            labelStock={'En Stock'}
+                            labelStockStyle={'onStock'}
+                            imageURL={product.image}
+                            imageAlt={product.alt}
+                            productName={product.name}
+                            description={product.description}
+                            price={`$ ${product.price}`}
+                        />
+                    </>)
+                }) : 'Loading...'}
+                
                 <ButtonArrow 
                     text={'▶'}
                     style={'buttonArrow'}
