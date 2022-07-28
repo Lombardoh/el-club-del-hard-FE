@@ -23,7 +23,7 @@ function ProductDetailedCard(props: {
     imageURL: string,
     imageAlt?: string,
     productName: string,
-    description: string,
+    description?: string,
     price: string,
 })
 {
@@ -95,7 +95,7 @@ function ProductDetailedCard(props: {
 
                     <div style={{display:'flex',flexDirection:'row',gap:'50px',padding:'0px 100px'}}>
                         <ButtonWishlist />
-                        <ButtonBlue text='Añadir al Carrito' alert='Producto Añadido' onClick={Function} style='add'/>
+                        <ButtonBlue text='Añadir al Carrito' alert='Producto Añadido' onClick={Function} style='add' type='button'/>
                     </div>
                 </div>
             </div>
