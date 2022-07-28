@@ -7,7 +7,8 @@ const styles = {
         gap:'20px',
         justifyContent:'flex-end',
         alignItems:'center',
-        padding:'10px'
+        padding:'10px',
+        height:'100%'
     })
 }
 

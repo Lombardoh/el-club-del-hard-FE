@@ -10,7 +10,7 @@ function ButtonBlueDelete(props: {
     let currentStyle = props.style
     return (
         <button
-            className = {currentStyle=='add' ? styles.add : styles.unavaible}
+            className = {currentStyle=='add' ? styles.delete : styles.unavaible}
             type={props.type}
         >
             <Text16P_W text={props.text} />
