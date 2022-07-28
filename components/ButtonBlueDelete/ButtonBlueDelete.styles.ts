@@ -1,15 +1,15 @@
 import {style} from 'typestyle';
 
 const styles = {
-    add: style({
+    delete: style({
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         padding: "10px 20px",
         gap: "10px",
-        height: "48px",
-        background: "#63A8D4",
+        height: "40px",
+        background: "#BBDDF2",
         border: '0px',
         borderRadius: "4px",
         $nest:{
@@ -25,7 +25,7 @@ const styles = {
         alignItems: "center",
         padding: "10px 20px",
         gap: "10px",
-        height: "48px",
+        height: "40px",
         background: "#D1DEDE",
         border: '0px',
         borderRadius: "4px",

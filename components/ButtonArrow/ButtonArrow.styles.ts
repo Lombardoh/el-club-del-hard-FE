@@ -27,7 +27,7 @@ const styles = {
         padding: "10px",
         gap: "10px",
         width: "30px",
-        height: "50px",
+        height: "40px",
         background: "#9E9E9E",
         borderRadius: "50px",
         color:"white",

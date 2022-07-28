@@ -1,6 +1,6 @@
-import styles from './ButtonBlue.styles';
-import Text24P_W from '../Texts/Center/24P_White/Text24P_W';
-function ButtonBlue(props: {
+import styles from './ButtonBlueDelete.styles';
+import Text16P_W from '../Texts/Center/16P_White/Text16P_W';
+function ButtonBlueDelete(props: {
     alert?: string;
     text: string;
     type: 'button' | 'submit';
@@ -13,9 +13,9 @@ function ButtonBlue(props: {
             className = {currentStyle=='add' ? styles.add : styles.unavaible}
             type={props.type}
         >
-            <Text24P_W text={props.text} />
+            <Text16P_W text={props.text} />
         </button>
     );
 }
 
-export default ButtonBlue;
+export default ButtonBlueDelete;
