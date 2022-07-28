@@ -10,12 +10,11 @@ function ProductRow(props: {
 
     const [data, setData] = useState([])
     const getData = () => {        
-        fetch(`${process.env.BACKEND_URL}/api/store/products/`, {
+        fetch(`http://159.203.185.201:8080/api/store/products/`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization' : `Token 0820a53c242e4a8c8cef539f23112e0981fd2809`
             },
         }).then(res => res.json())
         .then(data => setData(data.results))
@@ -47,7 +46,8 @@ function ProductRow(props: {
                 />
                 {data ? data.map((product, key) => {
                     return (<>
-                        <ProductCard 
+                        {product.image ?
+                            <ProductCard 
                             key={product.id}
                             labelPromo={product.label} 
                             labelPromoStyle={'onSale'} 
@@ -59,10 +59,9 @@ function ProductRow(props: {
                             productName={product.name}
                             description={product.description}
                             price={`$ ${product.price}`}
-                        />
+                        />: null}
                     </>)
                 }) : 'Loading...'}
-                
                 <ButtonArrow 
                     text={'▶'}
                     style={'buttonArrow'}
