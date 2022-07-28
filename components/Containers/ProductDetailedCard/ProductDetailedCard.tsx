@@ -38,7 +38,7 @@ function ProductDetailedCard(props: {
                 <Image
                 src={props.imageURL}
                 alt={props.imageAlt}
-                width={580}
+                width={560}
                 height={400}
             />
             </div>
