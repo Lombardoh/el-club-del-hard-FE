@@ -1,6 +1,6 @@
 import styles from './FooterInsideTop.styles';
 import Text36P from '../../Texts/Center/36P_White_Bold/Text36P_W';
-import Text24P_L from '../../Texts/Left/24P/L_Text24P';
+import Text24P_L from '../../Texts/Left/24P_W/L_Text24P_W';
 
 function FooterInsideTop(props: {
     title: string,

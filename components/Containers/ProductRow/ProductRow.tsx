@@ -6,8 +6,10 @@ import { useEffect, useState } from 'react';
 
 function ProductRow(props: {
     title: string,
+    style: string,
 }){
-
+    let currentStyle = props.style
+    
     const [data, setData] = useState([])
     const getData = () => {        
         fetch(`http://159.203.185.201:8080/api/store/products/`, {
@@ -28,7 +30,7 @@ function ProductRow(props: {
     return (
         
         <div
-            className = {styles.container}
+            className = {currentStyle === "left" ? styles.left: styles.center}
         >
             <Text36P_L text={props.title}/>
             <div style={{
