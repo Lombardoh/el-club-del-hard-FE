@@ -17,7 +17,6 @@ function ProductCard(props: {
     imageURL: string,
     imageAlt?: string,
     productName: string,
-    description: string,
     price: string,
 })
 {
@@ -42,7 +41,6 @@ function ProductCard(props: {
                 height={200}
             />
             <Text20P text={props.productName} />
-            <Text20P text={props.description} />
             <ProductCardRow disabled={false}>
                 <Text22P text={props.price} />
                 <ProductCardRowButtons />

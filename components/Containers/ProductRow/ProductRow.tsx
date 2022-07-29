@@ -12,7 +12,7 @@ function ProductRow(props: {
     
     const [data, setData] = useState([])
     const getData = () => {        
-        fetch(`http://159.203.185.201:8080/api/store/products/`, {
+        fetch(`${process.env.BACKEND_URL}/api/store/products/`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -59,7 +59,6 @@ function ProductRow(props: {
                             imageURL={product.image}
                             imageAlt={product.alt}
                             productName={product.name}
-                            description={product.description}
                             price={`$ ${product.price}`}
                         />: null}
                     </>)
