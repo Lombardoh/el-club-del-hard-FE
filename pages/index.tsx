@@ -5,6 +5,7 @@ import ProductRow from '../components/Containers/ProductRow/ProductRow';
 import BannerContainer from '../components/Containers/BannerContainer/index';
 import { CarouselItem } from '../components/Containers/BannerContainer/BannerContainer';
 import HeaderTop from '../components/Containers/HeaderTop/HeaderTop';
+import LabelBreaker from '../components/LabelBreaker/index';
 
 const Home: NextPage = () => {
   return (<>
@@ -21,10 +22,20 @@ const Home: NextPage = () => {
         src={"https://www.zotac.com/download/files/styles/org/public/news/images/2018rtxgraphicscards_2060banner_1920x580.jpg?itok=1ubl0PUj"}
       />
     </BannerContainer>
-      <ProductRow title={'Productos 1'} />
-      <ProductRow title={'Productos 2'} />
-      <ProductRow title={'Productos 3'} />
-      <FooterFullContainer />
+    <div style={{
+      display:'flex', 
+      flexDirection:'column', 
+      justifyContent:'center', 
+      alignItems:'center',
+      margin:'0px 20px',
+    }}>
+      <ProductRow title={'Productos 1'} style='left' />
+      <LabelBreaker style={'horizontalBreaker'} />
+      <ProductRow title={'Productos 2'} style='left' />
+      <LabelBreaker style={'horizontalBreaker'} />
+      <ProductRow title={'Productos 3'} style='left' />
+    </div>
+    <FooterFullContainer />
     </>)
 }
 export default Home; 

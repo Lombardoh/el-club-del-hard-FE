@@ -1,0 +1,1 @@
+export {default} from './Text28P_B';
