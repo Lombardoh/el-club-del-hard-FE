@@ -1,36 +1,37 @@
 import styles from './NavBar.styles';
-import ButtonMainNavBar from '../../ButtonMainNavBar/ButtonMainNavBar';
+import {useEffect, useState} from 'react';
+import NextLink from '../../../node_modules/next/link';
+
 function NavBar(props: {}){
+    const [buttonTextDisabled, setButtonTextDisabled] = useState(false);
+
+    useEffect(() => {
+        setButtonTextDisabled(window.innerWidth < 495);
+        console.log(buttonTextDisabled, window.innerWidth);
+        if(window.innerWidth){
+            window.addEventListener('resize', () => {
+                setButtonTextDisabled(window.innerWidth < 495);
+                console.log(buttonTextDisabled, window.innerWidth);
+            });
+        }
+    }, [buttonTextDisabled]);  
 
     return (
         <div
             className = {styles.container}
         >
-            <ButtonMainNavBar 
-                text={"Categorias"} 
-                disabled={false} 
-                style={"buttonMainNavBar"}
-                onClick={Function} />
-            <ButtonMainNavBar 
-                text={"Button 1"} 
-                disabled={false} 
-                style={"buttonMainNavBar"}
-                onClick={Function} />
-            <ButtonMainNavBar 
-                text={"Button 2"} 
-                disabled={false} 
-                style={"buttonMainNavBar"}
-                onClick={Function} />
-            <ButtonMainNavBar 
-                text={"Mi cuenta"} 
-                disabled={false} 
-                style={"buttonMainNavBar"}
-                onClick={Function} />
-            <ButtonMainNavBar 
-                text={"Help"} 
-                disabled={false} 
-                style={"buttonMainNavBar"}
-                onClick={Function} />
+            {buttonTextDisabled ? null :
+            <>
+                <NextLink href='/categories' className={styles.link} >
+                    <a className={styles.text}>Categorias</a>
+                </NextLink>
+                <NextLink href='/account' >
+                    <a className={styles.text}>Mi cuenta</a>
+                </NextLink>
+                <NextLink href='/help' >
+                    <a className={styles.text}>Ayuda</a>
+                </NextLink>
+            </>}
         </div>
     );
 }

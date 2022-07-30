@@ -3,25 +3,33 @@ import ButtonCartHeader from '../../ButtonCartHeader/ButtonCartHeader';
 import ButtonWishHeader from '../../ButtonWishHeader/ButtonWishHeader';
 import ButtonSearchHeader from '../../ButtonSearchHeader/ButtonSearchHeader';
 import Image from '../../../node_modules/next/image';
+import HamburgerMenu from '../../Containers/HamburgerMenu/HamburgerMenu';
+import React, {useEffect, useState} from 'react';
 
 function HeaderTop(props: {}){
-
+    
     return (
         <div
             className = {styles.container}
-        >
-            <Image
-                src={require('./LogoCDH.png')}
-                alt={'logo'}
-                width={150}
-                height={150}
-            />
-            <div style={{display: "flex", gap:"50px", alignItems:"center"}}>
-                <ButtonSearchHeader />
+        >            
+            <div className={styles.logoContainer}>
+                <Image
+                    src={require('./LogoCDH.png')}
+                    alt={'logo'}
+                    className={styles.logo}
+                />  
             </div>
-            <div style={{display: "flex", gap:"50px"}}>
-                <ButtonWishHeader />
-                <ButtonCartHeader />
+            <div className={styles.rightContainer}>
+                <div className={styles.searchBar}>
+                    <ButtonSearchHeader />
+                </div>
+                <div className={styles.rightMenu}>
+                    <ButtonWishHeader />
+                    <ButtonCartHeader />
+                </div>
+                <div className={styles.hamburgerMenu}>
+                    <HamburgerMenu />
+                </div>
             </div>
         </div>
     );

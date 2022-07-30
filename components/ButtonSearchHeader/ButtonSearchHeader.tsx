@@ -3,17 +3,10 @@ import { BsSearch } from 'react-icons/bs';
 import React, {useState} from 'react';
 import {IconContext} from 'react-icons';
 
-function ButtonSearchHeader(props: {}){
+function ButtonSearchHeader(){
         return (
-            <IconContext.Provider value={{className: 'shared-class', size: "40"}}>
-                <div
-                    onClick = {() => (
-                        alert('A Buscar')
-                    )}
-                    className = {styles.cart}
-                >
+            <IconContext.Provider value={{className: styles.searchBar}}>          
                     <BsSearch />
-                </div>
             </IconContext.Provider>
         );
 }

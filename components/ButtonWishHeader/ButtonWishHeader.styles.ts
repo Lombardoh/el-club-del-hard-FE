@@ -18,7 +18,7 @@ const styles = {
                 cursor: 'pointer'
             }
         }
-    })
+    }),
 }
 
 export default styles;
