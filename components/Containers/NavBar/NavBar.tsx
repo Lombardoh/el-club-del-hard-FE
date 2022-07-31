@@ -7,11 +7,9 @@ function NavBar(props: {}){
 
     useEffect(() => {
         setButtonTextDisabled(window.innerWidth < 495);
-        console.log(buttonTextDisabled, window.innerWidth);
         if(window.innerWidth){
             window.addEventListener('resize', () => {
                 setButtonTextDisabled(window.innerWidth < 495);
-                console.log(buttonTextDisabled, window.innerWidth);
             });
         }
     }, [buttonTextDisabled]);  

@@ -33,14 +33,7 @@ function ProductRow(props: {
             className = {currentStyle === "left" ? styles.left: styles.center}
         >
             <Text36P_L text={props.title}/>
-            <div style={{
-            display:"flex",
-            flexDirection:"row",
-            justifyContent:"space-between",
-            alignItems:"center",
-            padding:"20px",
-            gap:"20px",
-            }}>
+            <div className={styles.productRow}>
                 <ButtonArrow 
                     text={'◀'}
                     style={'buttonArrow'}
@@ -48,7 +41,7 @@ function ProductRow(props: {
                 />
                 {data ? data.map((product, key) => {
                     return (<>
-                        {product.image ?
+                        {product.image && key % 2==0?
                             <ProductCard 
                             key={product.id}
                             labelPromo={product.label} 
@@ -64,6 +57,7 @@ function ProductRow(props: {
                     </>)
                 }) : 'Loading...'}
                 <ButtonArrow 
+                    right={true}
                     text={'▶'}
                     style={'buttonArrow'}
                     onClick={Function}

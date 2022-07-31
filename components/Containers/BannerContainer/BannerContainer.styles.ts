@@ -8,12 +8,6 @@ const styles = {
     inner: style({
         whiteSpace: 'nowrap',
     }),
-    carouselItem: style({
-        display: 'inline-flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '100%',
-    }),
     controls: style({
         display: 'flex',
         justifyContent: 'center',

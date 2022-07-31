@@ -1,6 +1,16 @@
 import {style} from 'typestyle';
 
 const styles = {
+    right: style({
+        $nest: {
+            '@media (max-width: 768px)': {
+                position: 'absolute',
+                right: '20%',
+                top: '440px',
+                left: 'auto',
+            }
+        }
+    }),
     buttonArrow: style({
         display: "flex",
         flexDirection: "column",
@@ -14,8 +24,12 @@ const styles = {
         borderRadius: "50px",
         color:"white",
         $nest:{
-            '&:hover':{
-                cursor: 'pointer'
+            '@media (max-width: 768px)':{
+                position: 'absolute',
+                width: "25px",
+                height: "30px",
+                top: '440px',
+                left: '20%',
             }
         }
     }),

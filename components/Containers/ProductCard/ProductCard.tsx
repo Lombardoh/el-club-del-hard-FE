@@ -5,7 +5,6 @@ import LabelPromo from '../../LabelPromo/LabelPromo';
 import LabelStock from '../../LabelStock/LabelStock';
 import Text20P from '../../Texts/Center/20P/Text20P';
 import Text22P from '../../Texts/Center/22P/Text22P';
-import Text24P from '../../Texts/Center/24P/Text24P';
 import ProductCardRowButtons from '../ProductCardRowButtons/index';
 
 function ProductCard(props: {
@@ -41,7 +40,7 @@ function ProductCard(props: {
                 height={200}
             />
             <Text20P text={props.productName} />
-            <ProductCardRow disabled={false}>
+            <ProductCardRow disabled={false} flex='column'>
                 <Text22P text={props.price} />
                 <ProductCardRowButtons />
             </ProductCardRow>
