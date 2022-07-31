@@ -10,6 +10,11 @@ const styles = {
         gap: '10px',
         width: '100%',
         backgroundColor: '#636DD4',
+        $nest: {
+            '@media (max-width: 768px)': {
+                flexDirection: 'column',
+            }
+        }
     })
 }
 
