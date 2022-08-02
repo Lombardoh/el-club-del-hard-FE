@@ -43,16 +43,30 @@ const styles = {
         position: 'relative',
         display: "flex",
         flexDirection: "row",
-        justifyContent: "space-between",
+        justifyContent: "space-around",
         alignItems: "center",
-        padding: "20px",
-        gap: "20px",
         $nest: {
             '@media (max-width: 768px)': {
                 padding: "10px",
                 marginTop: "10px",
             }
         }
+    }),
+    carousel: style({
+        overflow: 'hidden',
+        width: '1350px',
+        paddingLeft: '65px',
+        display:'flex', 
+        flexDirection: 'row',
+        marginLeft: '60px',
+        gap: '20px',
+    }),
+    inner: style({
+        whiteSpace: 'nowrap',
+    }),
+    controls: style({
+        display: 'flex',
+        justifyContent: 'center',
     }),
 }
 

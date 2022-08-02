@@ -9,8 +9,9 @@ function ProductRow(props: {
     style: string,
 }){
     let currentStyle = props.style
-    
+    const [activeIndex, setActiveIndex] = useState(0);
     const [data, setData] = useState([])
+
     const getData = () => {        
         fetch(`${process.env.BACKEND_URL}/api/store/products/`, {
             method: 'GET',
@@ -21,12 +22,31 @@ function ProductRow(props: {
         }).then(res => res.json())
         .then(data => setData(data.results))
         .catch(err => console.log(err))
+    }   
+
+    const handleClick = (index: number, limit: number) => {
+        if (index >= limit){
+        index = 0
+        }
+        setActiveIndex(index);
     }
 
     useEffect(() => {
-        getData();
-    }, [data])
-
+        if(data.length === 0){
+            getData();
+            return
+        }
+        const interval = setInterval(() => {
+            handleClick(activeIndex + 1, data.length/4);
+            console.log(data.length)
+        }, 3000);
+        return () => {
+            if(interval){
+                clearInterval(interval);
+            }
+        };
+    });
+    
     return (
         
         <div
@@ -39,23 +59,27 @@ function ProductRow(props: {
                     style={'buttonArrow'}
                     onClick={Function}
                 />
-                {data ? data.map((product, key) => {
-                    return (<>
-                        {product.image && key % 2==0?
-                            <ProductCard 
-                            key={product.id}
-                            labelPromo={product.label} 
-                            labelPromoStyle={'onSale'} 
-                            labelPromoDisabled={product.label != '' ? false : true}
-                            labelStock={'En Stock'}
-                            labelStockStyle={'onStock'}
-                            imageURL={product.image}
-                            imageAlt={product.alt}
-                            productName={product.name}
-                            price={`$ ${product.price}`}
-                        />: null}
-                    </>)
-                }) : 'Loading...'}
+                <div className={styles.carousel}>
+                    {data ? data.map((product, key) => {
+                        return (<>
+                            {
+                                <div key={`${key}`} style={{transition: 'transform 0.3s',
+                                transform: `translateX(-${activeIndex*320}px)`,}}>
+                                    <ProductCard
+                                        labelPromo={product.label} 
+                                        labelPromoStyle={'onSale'} 
+                                        labelPromoDisabled={product.label != '' ? false : true}
+                                        labelStock={'En Stock'}
+                                        labelStockStyle={'onStock'}
+                                        imageURL={product.image}
+                                        imageAlt={product.alt}
+                                        productName={product.name}
+                                        price={`$ ${product.price}`}
+                                    />
+                                </div>}
+                        </>)
+                    }) : 'Loading...'}
+                </div>
                 <ButtonArrow 
                     right={true}
                     text={'▶'}
