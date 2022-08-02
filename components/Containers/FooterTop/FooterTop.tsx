@@ -17,7 +17,7 @@ function FooterTop(props: {}){
                 content1='Horario de Atención: Lunes a Viernes - 8hs a 17hs'
                 content2='Medio de Soporte: Whatsapp - ** ***-****'
             />
-            <FooterInsideTop 
+            <FooterInsideTop
                 title='Redes Sociales'
                 content1='iconos'
             />

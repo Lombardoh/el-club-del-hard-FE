@@ -77,9 +77,9 @@ function ProductDetailedCard(props: {
                     <L_Text24P text={props.description} />
                 </div>
 
-                <div style={{display:'flex',flexDirection:'row',gap:'50px',justifyContent:'center',alignItems:'center'}}>
+                <div className={styles.priceMC}>
                     <Text24P_B text={props.price} />
-                    <div style={{display:'flex',flexDirection:'row',gap:'20px',justifyContent:'center',alignItems:'center'}}>
+                    <div className={styles.priceSC}>
                         <ButtonArrow 
                             text={'-'}
                             style={'buttonAddSub'}
@@ -93,7 +93,7 @@ function ProductDetailedCard(props: {
                         />
                     </div>
 
-                    <div style={{display:'flex',flexDirection:'row',gap:'50px',padding:'0px 100px'}}>
+                    <div className={styles.buttonsMC}>
                         <ButtonWishlist />
                         <ButtonBlue text='Añadir al Carrito' alert='Producto Añadido' onClick={Function} style='add' type='button'/>
                     </div>

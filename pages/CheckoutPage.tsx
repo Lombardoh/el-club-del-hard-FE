@@ -14,7 +14,7 @@ const WishlistPage: NextPage = () => {
 
         <DivP10_F_Center style='column'>
             <PageTitle title='Checkout' style='center' />
-            <div style={{width:'100%',display:'flex',flexDirection:'row',justifyContent:'center', padding:'0px 50px 100px',gap:'50px'}}>
+            <div style={{width:'100%',display:'flex',flexDirection:'row',justifyContent:'space-around', padding:'0px 50px 100px',gap:'50px'}}>
                 <div style={{display:'flex',flexDirection:'column',gap:'20px'}}>
                     <p>Form para identidad</p>
                     <p>Form para Direccion</p>
