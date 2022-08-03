@@ -29,7 +29,7 @@ const styles = {
             '@media (max-width: 768px)':{
                 position: 'absolute',
                 top: '540px',
-                left: '150px',
+                left: '160px',
                 width: "40px",
                 height: "30px",
             },
