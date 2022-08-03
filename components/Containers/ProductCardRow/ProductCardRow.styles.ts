@@ -9,8 +9,12 @@ const styles = {
         padding: '10px',
         gap: '10px',
         width: '100%',
-        height: '60px',
         backgroundColor: '#FFFFFF',
+        $nest:{
+            '@media (max-width: 1370px)': {
+                justifyContent:'center'
+            },
+        }
     }),
     noPromo: style({
         display: 'flex',
@@ -20,8 +24,12 @@ const styles = {
         padding: '10px',
         gap: '10px',
         width: '100%',
-        height: '60px',
         backgroundColor: '#FFFFFF',
+        $nest:{
+            '@media (max-width: 1370px)': {
+                justifyContent:'center'
+            },
+        }
     }),
 }
 

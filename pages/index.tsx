@@ -27,7 +27,7 @@ const Home: NextPage = () => {
       flexDirection:'column', 
       justifyContent:'center', 
       alignItems:'center',
-      margin:'0px 20px',
+      margin:'25px 20px',
     }}>
       <ProductRow title={'Productos 1'} style='left' />
       <LabelBreaker style={'horizontalBreaker'} />

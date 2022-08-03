@@ -5,14 +5,29 @@ import Image from '../../../node_modules/next/image';
 export const  CarouselItem = (props: {
   src: string
 }) => {
+  const [imgSize, setimgSize] = useState(
+    { width: 1920, height: 500 }
+  );
+  const [imgLoaded, setImgLoaded] = useState(false);
+    
+    useEffect(() => {
+        if(window.innerWidth){
+            setImgLoaded(true);
+            window.addEventListener('resize', () => {
+              if(window.innerWidth > 768){
+                setimgSize({ width: 1920, height: 500 });
+              }else{
+                setimgSize({ width: window.innerWidth, height: 130 });
+              }
+            });
+        }
+    }, [imgLoaded]);
   return(
-    <div className={styles.carouselItem}>
-       <Image
-        width={1920}
-        height={400}
-        src={`${props.src}`}
-      />
-    </div>
+      <Image
+      width={imgSize.width}
+      height={imgSize.height}
+      src={`${props.src}`}
+    />
   );
 };
 

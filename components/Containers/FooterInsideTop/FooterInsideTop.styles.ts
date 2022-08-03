@@ -10,6 +10,11 @@ const styles = {
         gap: '40px',
         width: '626.67px',
         backgroundColor: '#636DD4',
+        $nest: {
+            '@media (max-width: 768px)': {
+                width: '360px',
+            }
+        }
     })
 }
 

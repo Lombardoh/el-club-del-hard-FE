@@ -9,8 +9,11 @@ function ProductRow(props: {
     style: string,
 }){
     let currentStyle = props.style
-    
+    const [activeIndex, setActiveIndex] = useState(0);
     const [data, setData] = useState([])
+    const [windowWidth, setWindowWidth] = useState(0);
+    let displacement = 320;
+
     const getData = () => {        
         fetch(`${process.env.BACKEND_URL}/api/store/products/`, {
             method: 'GET',
@@ -21,49 +24,83 @@ function ProductRow(props: {
         }).then(res => res.json())
         .then(data => setData(data.results))
         .catch(err => console.log(err))
+    }   
+
+    const handleClick = (index: number, limit: number) => {
+        if (index >= limit){
+        index = 0
+        }
+        setActiveIndex(index);
     }
 
     useEffect(() => {
-        getData();
-    }, [data])
-
+        if(data.length === 0){
+            getData();
+            return
+        }
+        const interval = setInterval(() => {
+            handleClick(activeIndex + 1, data.length-4);
+            console.log(data.length)
+        }, 3000);
+        return () => {
+            if(interval){
+                clearInterval(interval);
+            }
+        };
+    });
+    
+    useEffect(() => {
+        setWindowWidth(window.innerWidth);
+        if(windowWidth){
+            window.addEventListener('resize', () => {
+                setWindowWidth(window.innerWidth);
+                if (window.innerWidth > 1370) {
+                    displacement = 320
+                } else if (window.innerWidth > 760) {
+                    displacement = 255
+                } else if (window.innerWidth > 370) {
+                    displacement = 191
+                } else {displacement =155}
+                console.log(displacement)
+            });
+        }
+    }, [windowWidth]);
+    
     return (
         
         <div
             className = {currentStyle === "left" ? styles.left: styles.center}
         >
             <Text36P_L text={props.title}/>
-            <div style={{
-            display:"flex",
-            flexDirection:"row",
-            justifyContent:"space-between",
-            alignItems:"center",
-            padding:"20px",
-            gap:"20px",
-            }}>
+            <div className={styles.productRow}>
                 <ButtonArrow 
                     text={'◀'}
                     style={'buttonArrow'}
                     onClick={Function}
                 />
-                {data ? data.map((product, key) => {
-                    return (<>
-                        {product.image ?
-                            <ProductCard 
-                            key={product.id}
-                            labelPromo={product.label} 
-                            labelPromoStyle={'onSale'} 
-                            labelPromoDisabled={product.label != '' ? false : true}
-                            labelStock={'En Stock'}
-                            labelStockStyle={'onStock'}
-                            imageURL={product.image}
-                            imageAlt={product.alt}
-                            productName={product.name}
-                            price={`$ ${product.price}`}
-                        />: null}
-                    </>)
-                }) : 'Loading...'}
+                <div className={styles.carousel}>
+                    {data ? data.map((product, key) => {
+                        return (<>
+                            {product.image ? 
+                                <div key={`${key}`} style={{transition: 'transform 0.3s',
+                                transform: `translateX(-${activeIndex*displacement}px)`,}}>
+                                    <ProductCard
+                                        labelPromo={product.label} 
+                                        labelPromoStyle={'onSale'} 
+                                        labelPromoDisabled={product.label != '' ? false : true}
+                                        labelStock={'En Stock'}
+                                        labelStockStyle={'onStock'}
+                                        imageURL={product.image}
+                                        imageAlt={product.alt}
+                                        productName={product.name}
+                                        price={`$ ${product.price}`}
+                                    />
+                                </div> : null}
+                        </>)
+                    }) : 'Loading...'}
+                </div>
                 <ButtonArrow 
+                    right={true}
                     text={'▶'}
                     style={'buttonArrow'}
                     onClick={Function}
