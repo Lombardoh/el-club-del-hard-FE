@@ -6,17 +6,20 @@ const styles = {
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",        
-        margin: "50px auto 20px auto", 
-        width: "80%",
+        margin: "50px auto 30px auto", 
+        width: "70%",
         height: "5px",
         background: "#63A8D4",
         borderRadius: "8px",
         $nest: {
             '@media (max-width: 768px)': {
-                width: "95%",
-                margin: "auto",
-                marginTop: "50px",
-            }
+                width: "60%",
+                margin: "30px auto 50px auto", 
+            },
+            '@media (max-width: 360px)' : {
+                width: "60%",
+                margin: "40px auto 30px auto", 
+            },
         }
     }),
     verticalBreaker: style({

@@ -5,10 +5,12 @@ const styles = {
         $nest: {
             '@media (max-width: 768px)': {
                 position: 'absolute',
-                right: '20%',
-                top: '440px',
-                left: 'auto',
-            }
+                top: '540px',
+                marginLeft: "300px",
+            },
+            '@media (max-width: 360px)' : {
+                marginLeft: "100px",
+            },
         }
     }),
     buttonArrow: style({
@@ -21,16 +23,22 @@ const styles = {
         width: "40px",
         height: "60px",
         background: "#63A8D4",
-        borderRadius: "50px",
+        borderRadius: "15px",
         color:"white",
         $nest:{
             '@media (max-width: 768px)':{
                 position: 'absolute',
-                width: "25px",
+                top: '540px',
+                left: '150px',
+                width: "40px",
                 height: "30px",
-                top: '440px',
-                left: '20%',
-            }
+            },
+            '&:hover':{
+                cursor: 'pointer'
+            },
+            '@media (max-width: 360px)' : {
+                left: "87px",
+            },
         }
     }),
     buttonAddSub: style({

@@ -11,6 +11,8 @@ function ProductRow(props: {
     let currentStyle = props.style
     const [activeIndex, setActiveIndex] = useState(0);
     const [data, setData] = useState([])
+    const [windowWidth, setWindowWidth] = useState(0);
+    let displacement = 320;
 
     const getData = () => {        
         fetch(`${process.env.BACKEND_URL}/api/store/products/`, {
@@ -37,7 +39,7 @@ function ProductRow(props: {
             return
         }
         const interval = setInterval(() => {
-            handleClick(activeIndex + 1, data.length/4);
+            handleClick(activeIndex + 1, data.length-4);
             console.log(data.length)
         }, 3000);
         return () => {
@@ -46,6 +48,23 @@ function ProductRow(props: {
             }
         };
     });
+    
+    useEffect(() => {
+        setWindowWidth(window.innerWidth);
+        if(windowWidth){
+            window.addEventListener('resize', () => {
+                setWindowWidth(window.innerWidth);
+                if (window.innerWidth > 1370) {
+                    displacement = 320
+                } else if (window.innerWidth > 760) {
+                    displacement = 255
+                } else if (window.innerWidth > 370) {
+                    displacement = 191
+                } else {displacement =155}
+                console.log(displacement)
+            });
+        }
+    }, [windowWidth]);
     
     return (
         
@@ -62,9 +81,9 @@ function ProductRow(props: {
                 <div className={styles.carousel}>
                     {data ? data.map((product, key) => {
                         return (<>
-                            {
+                            {product.image ? 
                                 <div key={`${key}`} style={{transition: 'transform 0.3s',
-                                transform: `translateX(-${activeIndex*320}px)`,}}>
+                                transform: `translateX(-${activeIndex*displacement}px)`,}}>
                                     <ProductCard
                                         labelPromo={product.label} 
                                         labelPromoStyle={'onSale'} 
@@ -76,7 +95,7 @@ function ProductRow(props: {
                                         productName={product.name}
                                         price={`$ ${product.price}`}
                                     />
-                                </div>}
+                                </div> : null}
                         </>)
                     }) : 'Loading...'}
                 </div>

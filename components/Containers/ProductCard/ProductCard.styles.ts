@@ -5,6 +5,7 @@ const styles = {
         display: 'flex',
         flexDirection: 'column',   
         alignItems: 'center',
+        justifyContent: 'space-between',
         padding: '10px',
         gap: '30px',
         width: '300px',
@@ -13,10 +14,17 @@ const styles = {
         boxShadow: '0px 4px 4px rgba(0,0,0,0.25)',
         borderRadius: '8px',
         $nest: {
+            '@media (max-width: 1370px)': {
+                width: '240px',
+                height: '500px',
+            },
             '@media (max-width: 768px)': {
-                width: '165px',
-                height: '410px',
-            }
+                width: '180px',
+                height: '500px',
+            },
+            '@media (max-width: 360px)' : {
+                width:'150px',
+            },
         }
     })
 }
