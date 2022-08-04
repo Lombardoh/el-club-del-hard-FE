@@ -40,7 +40,7 @@ function ProductCard(props: {
                 height={200}
             />
             <Text20P text={props.productName} />
-            <ProductCardRow disabled={false} flex='column'>
+            <ProductCardRow disabled={false} lastRow={true}>
                 <Text22P text={props.price} />
                 <ProductCardRowButtons />
             </ProductCardRow>

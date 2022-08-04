@@ -40,7 +40,6 @@ function ProductRow(props: {
         }
         const interval = setInterval(() => {
             handleClick(activeIndex + 1, data.length-4);
-            console.log(data.length)
         }, 3000);
         return () => {
             if(interval){
@@ -60,8 +59,7 @@ function ProductRow(props: {
                     displacement = 255
                 } else if (window.innerWidth > 370) {
                     displacement = 191
-                } else {displacement =155}
-                console.log(displacement)
+                } else {displacement = 155}
             });
         }
     }, [windowWidth]);

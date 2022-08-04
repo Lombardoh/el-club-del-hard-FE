@@ -15,6 +15,7 @@ const styles = {
                 justifyContent:'center'
             },
         }
+
     }),
     noPromo: style({
         display: 'flex',
@@ -28,6 +29,15 @@ const styles = {
         $nest:{
             '@media (max-width: 1370px)': {
                 justifyContent:'center'
+            },
+        }
+    }),
+    lastRow: style({
+        display: 'flex',
+        flexDirection: 'row',
+        $nest:{
+            '@media (max-width: 790px)': {
+                flexDirection: 'column',
             },
         }
     }),
