@@ -4,7 +4,7 @@ import ButtonWishHeader from '../../ButtonWishHeader/ButtonWishHeader';
 import ButtonSearchHeader from '../../ButtonSearchHeader/ButtonSearchHeader';
 import Image from '../../../node_modules/next/image';
 import HamburgerMenu from '../../Containers/HamburgerMenu/HamburgerMenu';
-import React, {useEffect, useState} from 'react';
+import Link from 'next/link';
 
 function HeaderTop(props: {}){
     
@@ -13,11 +13,16 @@ function HeaderTop(props: {}){
             className = {styles.container}
         >            
             <div className={styles.logoContainer}>
-                <Image
-                    src={require('./LogoCDH.png')}
-                    alt={'logo'}
-                    className={styles.logo}
-                />  
+            <Link href="/">
+                <a>
+                    <Image
+                        src={require('./LogoCDH.png')}
+                        alt={'logo'}
+                        className={styles.logo}
+                    />  
+                </a>
+            </Link>
+                
             </div>
             <div className={styles.rightContainer}>
                 <div className={styles.searchBar}>

@@ -2,13 +2,16 @@ import styles from './FormRegisterContainer.styles';
 import UserAccessIC from '../UserAccessIC/UserAccessIC';
 import UserAccessSC from '../UserAccessSC/UserAccessSC';
 import L_Text20P from '../../Texts/Left/20P/L_Text20P';
-import InputLoginRegister from '../../InputGeneric/InputGeneric';
+
 import InputGeneric from '../../InputGeneric/InputGeneric';
 import ButtonPasswordEye from '../../ButtonPasswordEye/ButtonPasswordEye';
 import ButtonBlue from '../../ButtonBlue/ButtonBlue';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 function FormRegisterContainer(){
+    const axios = require('axios').default;
+    const usernameError = useRef(null);
+    const emailError = useRef(null);
     const [data, setData] = useState({
         email: '',
         password: '',
@@ -24,16 +27,31 @@ function FormRegisterContainer(){
 
     const sendData = (event) => {        
         event.preventDefault()
-        fetch(`${process.env.BACKEND_URL}/accounts/register`, {
-            method: 'POST',
+        let body = JSON.stringify(data)
+        console.log(body)
+        axios.post(`${process.env.BACKEND_URL}/accounts/register`, 
+        {   
+            email: data.email, 
+            username: data.username,
+            password: data.password, 
+            password2: data.password2
+        },
+        {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
-        }).then(res => res.json())
-        .then(data => console.log(data))
-        .catch(err => console.log(err))
+                }
+            })
+        .then(function (response) {
+            // handle success
+            console.log(response);
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error.response.status);
+            emailError.current.innerHTML = error.response.data.email
+            usernameError.current.innerHTML = error.response.data.username;
+        })
     }
 
     const onChangeValueHandler = (event) => {
@@ -53,6 +71,7 @@ function FormRegisterContainer(){
                             value={data.username}
                             required={true}
                         />
+                        <div ref={usernameError} />
                     </UserAccessIC>
                     <UserAccessIC style='container'>
                         <L_Text20P text='Correo Electrónico'/>
@@ -63,6 +82,7 @@ function FormRegisterContainer(){
                             value={data.email}
                             required={true}
                         />
+                        <div ref={emailError} />
                     </UserAccessIC>
                     <UserAccessIC style='container'>
                         <L_Text20P text='Contraseña'/>

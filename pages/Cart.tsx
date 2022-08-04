@@ -1,18 +1,12 @@
 import { NextPage } from 'next';
-import HeaderTop from '../components/Containers/HeaderTop/index';
-import NavBar from '../components/Containers/NavBar/NavBar';
-import FooterFullContainer from '../components/Containers/FooterFullContainer/FooterFullContainer';
 import DivP10_F_Center from '../components/Containers/GenericContainers/DivP10_F_Center/DivP10_F_Center';
 import PageTitle from '../components/Containers/PageTitle/PageTitle';
 
 import ProductCartCard from '../components/Containers/ProductCartCard/ProductCartCard';
 import CartSubtotalCard from '../components/Containers/CartSubtotalCard/index';
 
-const WishlistPage: NextPage = () => {
+const Cart: NextPage = () => {
     return (<>
-        <HeaderTop />
-        <NavBar />
-
         <DivP10_F_Center style='column'>
             <PageTitle title='Carrito de Compras' style='center' />
             <div style={{width:'100%',display:'flex',justifyContent:'center', padding:'0px 50px 100px',gap:'50px'}}>
@@ -62,7 +56,6 @@ const WishlistPage: NextPage = () => {
                 </div>
             </div>
         </DivP10_F_Center>
-        <FooterFullContainer />
     </>)
 }
-export default WishlistPage; 
+export default Cart; 

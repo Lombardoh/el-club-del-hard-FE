@@ -20,11 +20,11 @@ function NavBar(props: {}){
         >
             {buttonTextDisabled ? null :
             <>
-                <NextLink href='/categories' className={styles.link} >
+                <NextLink href='/ProductCategory' className={styles.link} >
                     <a className={styles.text}>Categorias</a>
                 </NextLink>
-                <NextLink href='/account' >
-                    <a className={styles.text}>Mi cuenta</a>
+                <NextLink href='/Login' >
+                    <a className={styles.text}>Ingresar</a>
                 </NextLink>
                 <NextLink href='/help' >
                     <a className={styles.text}>Ayuda</a>

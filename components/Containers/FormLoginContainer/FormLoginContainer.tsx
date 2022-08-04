@@ -9,10 +9,39 @@ import ClickableContainer from '../ClickableContainer/ClickableContainer';
 import ButtonBoxCheck from '../../ButtonBoxCheck/ButtonBoxCheck';
 import Text16P from '../../Texts/Center/16P/Text16P';
 import Text16P_B from '../../Texts/Center/16P_Bold/Text16P_B';
+import { useState } from 'react';
 
 function FormLoginContainer(props: {
     style: string;
 }){
+    const [data, setData] = useState({
+        username: '',
+        password: ''
+    });
+    const handleInputChange = (event) => {
+        setData({
+            ...data,
+            [event.target.name] : event.target.value
+        })
+    }
+
+    const sendData = (event) => {        
+        event.preventDefault()
+        fetch(`${process.env.BACKEND_URL}/accounts/register`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        }).then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+    }
+
+    const onChangeValueHandler = (event) => {
+        handleInputChange(event);
+    }
 
     return (
             <div
@@ -21,7 +50,13 @@ function FormLoginContainer(props: {
                 <UserAccessSC>
                     <UserAccessIC style='container'>
                         <L_Text20P text='Nombre de Usuario'/>
-                        <InputLoginRegister type='text' name='userLogin'/>
+                        <InputLoginRegister 
+                            type='text' 
+                            name='userLogin'
+                            onChangeValue={onChangeValueHandler}
+                            value={data.username}
+                            required={true}
+                        />
                     </UserAccessIC>
                     <UserAccessIC style='container'>
                         <L_Text20P text='Contraseña'/>
@@ -32,7 +67,13 @@ function FormLoginContainer(props: {
                             padding:'0px',
                             margin:'-5px 0px',
                         }}>
-                            <InputLoginRegister type='password' name='password'/>
+                            <InputLoginRegister 
+                                type='password' 
+                                name='password'
+                                onChangeValue={onChangeValueHandler}
+                                value={data.password}
+                                required={true}
+                                />
                             <ButtonPasswordEye />
                         </div>
                     </UserAccessIC>

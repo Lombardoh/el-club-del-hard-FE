@@ -12,16 +12,12 @@ import ProductFilterContainer from '../components/Containers/ProductFilterContai
 import InsideFilterContainers from '../components/Containers/InsideFilterContainers/InsideFilterContainers';
 import ButtonFilterSelector from '../components/ButtonFilterSelector/ButtonFilterSelector';
 import BrandFilterContainer from '../components/Containers/BrandFilterContainer/BrandFilterContainer';
-import ClickableContainer from '../components/Containers/ClickableContainer/ClickableContainer';
-
 import Text20P from '../components/Texts/Center/20P/Text20P';
 import Text32P from '../components/Texts/Center/32P/Text32P';
 
 
 const ProductCategory: NextPage = () => {
     return (<>
-        <HeaderTop />
-        <NavBar />
 
         <div style={{
             display:'flex', 
@@ -127,10 +123,7 @@ const ProductCategory: NextPage = () => {
                     </PageNavigationContainer>
                 </div>
             </DefaultMainContainer>
-
         </div>
-
-        <FooterFullContainer />
     </>)
 }
 export default ProductCategory; 
