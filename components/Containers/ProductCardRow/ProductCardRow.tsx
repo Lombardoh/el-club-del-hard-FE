@@ -1,15 +1,18 @@
 import styles from './ProductCardRow.styles';
+import { useState, useEffect } from 'react';
 
 function ProductCardRow(props: {
     children?: any,
     disabled: boolean,
-    flex?: 'row' | 'column',
+    lastRow?: boolean,
 })
 {
+    let currentClass = props.disabled ? styles.noPromo : styles.container;
+    currentClass += props.lastRow ? ' ' + styles.lastRow : '';
+    console.log(currentClass)
     return (
         <div
-            className = {props.disabled ? styles.noPromo : styles.container}
-            style={props.flex ? {flexDirection: props.flex} : {flexDirection: 'row'}}
+            className = {currentClass}
         >
             {props.children}
         </div>

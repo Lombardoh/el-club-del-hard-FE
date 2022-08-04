@@ -55,13 +55,14 @@ function ProductCard(props: {
                 width={280}
                 height={200}
             />
+
             <div className = {styles.nameMC}>
                 {windowWidth<770 ? 
                     <Text14P_B text={props.productName} /> :
                     <Text18P_B text={props.productName} /> 
                 }
             </div>
-            <ProductCardRow disabled={false} flex='row'>
+            <ProductCardRow disabled={false} lastRow={true}>
                 {windowWidth<400 ? 
                     <Text18P_B_Price text={props.price} /> :
                     <Text22P_B_Price text={props.price} /> 
