@@ -9,7 +9,6 @@ function ProductCardRow(props: {
 {
     let currentClass = props.disabled ? styles.noPromo : styles.container;
     currentClass += props.lastRow ? ' ' + styles.lastRow : '';
-    console.log(currentClass)
     return (
         <div
             className = {currentClass}

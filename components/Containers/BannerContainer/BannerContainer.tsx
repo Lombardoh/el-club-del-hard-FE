@@ -37,7 +37,7 @@ function BannerContainer(props: {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleClick = (index: number) => {
-    if (index >= 3){
+    if (index >= 2){
       index = 0
     }
     setActiveIndex(index);
