@@ -3,9 +3,14 @@ import Image from '../../../node_modules/next/image';
 import ProductCardRow from '../ProductCardRow/ProductCardRow';
 import LabelPromo from '../../LabelPromo/LabelPromo';
 import LabelStock from '../../LabelStock/LabelStock';
-import Text20P from '../../Texts/Center/20P/Text20P';
-import Text22P from '../../Texts/Center/22P/Text22P';
+import Text14P_B from '../../Texts/Center/14P_B/Text14P_B';
+import Text18P_B from '../../Texts/Center/18P_B/Text18P_B';
+
+import Text18P_B_Price from '../../Texts/Center/18P_B_Price/Text18P_B_Price';
+import Text22P_B_Price from '../../Texts/Center/22P_B_Price/Text22P_B_Price';
+
 import ProductCardRowButtons from '../ProductCardRowButtons/index';
+import {useState, useEffect} from 'react';
 
 function ProductCard(props: {
     labelPromo: string,
@@ -19,6 +24,17 @@ function ProductCard(props: {
     price: string,
 })
 {
+    const [windowWidth, setWindowWidth] = useState(0);
+    
+    useEffect(() => {
+        setWindowWidth(window.innerWidth);
+        if(windowWidth){
+            window.addEventListener('resize', () => {
+                setWindowWidth(window.innerWidth);
+            });
+        }
+    }, [windowWidth]);
+
     return (
         <div
             className = {styles.container}
@@ -39,9 +55,17 @@ function ProductCard(props: {
                 width={280}
                 height={200}
             />
-            <Text20P text={props.productName} />
-            <ProductCardRow disabled={false} flex='column'>
-                <Text22P text={props.price} />
+            <div className = {styles.nameMC}>
+                {windowWidth<770 ? 
+                    <Text14P_B text={props.productName} /> :
+                    <Text18P_B text={props.productName} /> 
+                }
+            </div>
+            <ProductCardRow disabled={false} flex='row'>
+                {windowWidth<400 ? 
+                    <Text18P_B_Price text={props.price} /> :
+                    <Text22P_B_Price text={props.price} /> 
+                }
                 <ProductCardRowButtons />
             </ProductCardRow>
         </div>

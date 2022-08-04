@@ -66,7 +66,7 @@ const styles = {
         flexDirection: 'row',
         margin: '0px 10px',
         gap: '20px',
-        minHeight: '520px',
+        minHeight: '530px',
         $nest:{
             '@media (max-width: 1370px)' : {
                 width:'1050px',

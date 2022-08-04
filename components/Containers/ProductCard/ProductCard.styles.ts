@@ -16,7 +16,7 @@ const styles = {
         $nest: {
             '@media (max-width: 1370px)': {
                 width: '240px',
-                height: '500px',
+                height: '520px',
             },
             '@media (max-width: 768px)': {
                 width: '180px',
@@ -26,7 +26,17 @@ const styles = {
                 width:'150px',
             },
         }
-    })
+    }),
+    nameMC: style({
+        height:'70px',
+        display:'flex',
+        justifyContent:'center',
+        $nest: {
+            '@media (max-width: 400px)' : {
+                height:'60px',
+            },
+        }
+    }),
 }
 
 export default styles;
