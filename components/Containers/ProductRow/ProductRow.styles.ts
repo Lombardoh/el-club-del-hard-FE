@@ -52,7 +52,7 @@ const styles = {
                 padding: "10px",
                 marginTop: "10px",
             },
-            '@media (max-width: 360px)' : {
+            '@media (max-width: 400px)' : {//before was 360
                 width:'340px',
                 padding:'0px'
             },
@@ -78,7 +78,7 @@ const styles = {
                 width:'600px',
                 gap:'10px',
             },
-            '@media (max-width: 360px)' : {
+            '@media (max-width: 400px)' : {//before was 360
                 width:'330px',
                 gap:'5px',
                 paddingLeft: '15px',
