@@ -4,7 +4,8 @@ const styles = {
     container: style({
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
         padding: '0px',
         gap: '0px',
         width: '100%',

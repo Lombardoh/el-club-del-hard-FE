@@ -5,14 +5,13 @@ const styles = {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
-        padding: '10px 200px',
+        padding: '5px 20px',
         gap: '100px',
         width: '100%',
         minHeight: '20px',
         backgroundColor: '#6181BC',
         $nest: {
-            '@media screen and (max-width: 600px)': {
-                padding: '10px 20px',
+            '@media (max-width: 700px)': {
                 gap: '40px',
             }
         }
@@ -25,18 +24,21 @@ const styles = {
         }
     }),
     text: style({
-        fontSize: "32px",
-        fontFamily: '',
-        fontWeight: "400",
-        color: "#FFFFFF",
-        textAlign: "center",
-        minWidth: "100px",
+        display: "none",
         $nest: {
-            '@media screen and (max-width: 600px)': {
-                fontSize: '24px',
+            '@media (min-width: 497px)': {
+                display: "block",
+                fontSize: "24px",
+                fontFamily: '',
+                fontWeight: "400",
+                color: "#FFFFFF",
+                padding: "10px",
+            },
+            '@media (min-width: 600px)': {
+                fontSize: '32px',
             }
         }
-    })
+    }),
 }
 
 export default styles;
