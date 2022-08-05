@@ -14,11 +14,13 @@ function FooterInsideTop(props: {
             className = {styles.container}
         >
             <Text36P text={props.title} />
+            
             <div>
-                <Text24P_L text={props.content1} /><br></br>
-                <Text24P_L text={props.content2} /><br></br>
+                <Text24P_L text={props.content1} /><br></br> 
+                <Text24P_L text={props.content2} /><br></br> 
                 <Text24P_L text={props.content3} /><br></br>
             </div>
+
         </div>
     );
 }
