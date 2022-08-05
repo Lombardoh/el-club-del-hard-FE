@@ -5,7 +5,7 @@
   "homepage": "https://YamiTL.github.io/el-club-del-hard-FE",
   "scripts": {
     "dev": "next dev",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build && next export",
     "deploy": "gh-pages -d build",
     "build": "next build && next export",
     "start": "next start",

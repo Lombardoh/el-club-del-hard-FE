@@ -86,7 +86,7 @@ function FormLoginContainer(props: {
                         marginRight:'210px',
                         gap:'30px'
                     }}>
-                        <ButtonBlue text='Login' alert='Redirection' style='add' onClick={Function} />
+                        <ButtonBlue type='button' text='Login' alert='Redirection' style='add' onClick={Function} />
                         <ClickableContainer alert='clicked' onClick={Function} style='row'>
                             <ButtonBoxCheck />
                             <Text16P text='Recuérdame' />
