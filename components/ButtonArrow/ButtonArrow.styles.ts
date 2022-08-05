@@ -8,7 +8,7 @@ const styles = {
                 top: '540px',
                 marginLeft: "300px",
             },
-            '@media (max-width: 360px)' : {
+            '@media (max-width: 400px)' : {//before was 360
                 marginLeft: "100px",
             },
         }
@@ -36,7 +36,7 @@ const styles = {
             '&:hover':{
                 cursor: 'pointer'
             },
-            '@media (max-width: 360px)' : {
+            '@media (max-width: 400px)' : {//before was 360
                 left: "87px",
             },
         }
