@@ -9,11 +9,16 @@ import ClickableContainer from '../ClickableContainer/ClickableContainer';
 import ButtonBoxCheck from '../../ButtonBoxCheck/ButtonBoxCheck';
 import Text16P from '../../Texts/Center/16P/Text16P';
 import Text16P_B from '../../Texts/Center/16P_Bold/Text16P_B';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+
+import InputGeneric from '../../InputGeneric/InputGeneric';
+import Link from '../../../node_modules/next/link';
 
 function FormLoginContainer(props: {
     style: string;
 }){
+    const axios = require('axios').default;
+    const usernameError = useRef(null);
     const [data, setData] = useState({
         username: '',
         password: ''
@@ -50,13 +55,14 @@ function FormLoginContainer(props: {
                 <UserAccessSC>
                     <UserAccessIC style='container'>
                         <L_Text20P text='Nombre de Usuario'/>
-                        <InputLoginRegister 
+                        <InputGeneric 
                             type='text' 
-                            name='userLogin'
-                            onChangeValue={onChangeValueHandler}
+                            name='username' 
+                            onChangeValue={onChangeValueHandler} 
                             value={data.username}
                             required={true}
                         />
+                        <div ref={usernameError} className={styles.errorMsg} />
                     </UserAccessIC>
                     <UserAccessIC style='container'>
                         <L_Text20P text='Contraseña'/>
@@ -86,15 +92,23 @@ function FormLoginContainer(props: {
                         marginRight:'210px',
                         gap:'30px'
                     }}>
-                        <ButtonBlue type='button' text='Login' alert='Redirection' style='add' onClick={Function} />
-                        <ClickableContainer alert='clicked' onClick={Function} style='row'>
+                        <ButtonBlue type='button' text='Login' style='add' />
+                        <ClickableContainer style='row'>
                             <ButtonBoxCheck />
                             <Text16P text='Recuérdame' />
                         </ClickableContainer>
                     </div>
-                    <ClickableContainer alert={'Redirection'} onClick={Function} style='current'>
-                        <Text16P_B text='¿Olvidaste tu contraseña?' />
-                    </ClickableContainer>
+                    <div style={{display:'flex',flexDirection:'column',alignItems:'flex-end',gap:'10px'}}>
+                        <Link href={'/Register'}>
+                            <a>
+                                <Text16P_B text='¿No tenes Cuenta? ¡Resgistrate aquí!' />
+                            </a>
+                        </Link>
+                        <ClickableContainer style='current'>
+                            <Text16P_B text='¿Olvidaste tu contraseña?' />
+                        </ClickableContainer>
+                    </div>
+                    
                 </UserAccessSC>
             </div>
         );

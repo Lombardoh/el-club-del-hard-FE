@@ -8,6 +8,9 @@ import ButtonPasswordEye from '../../ButtonPasswordEye/ButtonPasswordEye';
 import ButtonBlue from '../../ButtonBlue/ButtonBlue';
 import { useRef, useState } from 'react';
 
+import Link from '../../../node_modules/next/link';
+import Text16P_B from '../../Texts/Center/16P_Bold/Text16P_B';
+
 function FormRegisterContainer(){
     const axios = require('axios').default;
     const usernameError = useRef(null);
@@ -71,7 +74,7 @@ function FormRegisterContainer(){
                             value={data.username}
                             required={true}
                         />
-                        <div ref={usernameError} />
+                        <div ref={usernameError} className={styles.errorMsg} />
                     </UserAccessIC>
                     <UserAccessIC style='container'>
                         <L_Text20P text='Correo Electrónico'/>
@@ -82,7 +85,7 @@ function FormRegisterContainer(){
                             value={data.email}
                             required={true}
                         />
-                        <div ref={emailError} />
+                        <div ref={emailError} className={styles.errorMsg} />
                     </UserAccessIC>
                     <UserAccessIC style='container'>
                         <L_Text20P text='Contraseña'/>
@@ -123,6 +126,11 @@ function FormRegisterContainer(){
                             <ButtonPasswordEye />
                         </div>
                     </UserAccessIC>
+                    <Link href={'/Login'}>
+                        <a>
+                            <Text16P_B text='¿Ya tenes Cuenta? ¡Ingresa aquí!' />
+                        </a>
+                    </Link>
                     <div style={{
                         width:'100%',
                         display:'flex',
