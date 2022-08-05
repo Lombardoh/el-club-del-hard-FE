@@ -128,7 +128,7 @@ function FormRegisterContainer(){
                     </UserAccessIC>
                     <Link href={'/Login'}>
                         <a>
-                            <Text16P_B text='¿Ya tenes Cuenta? ¡Ingresa aquí!' />
+                            <Text16P_B text='¿Ya tenés Cuenta? ¡Ingresa aquí!' />
                         </a>
                     </Link>
                     <div style={{
