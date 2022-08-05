@@ -44,7 +44,7 @@ const styles = {
     }),
     logo: style({
         objectFit: 'cover',
-        position: 'absolute !important',
+        position: 'absolute',
         $nest: {
             '@media screen and (max-width: 496px)': {
                 minWidth: '60px !important',
