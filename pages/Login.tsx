@@ -13,7 +13,6 @@ const Login: NextPage = () => {
             alignItems:'flex-start',
             padding:'0px',
             paddingBottom:'90px',
-            gap: '10px',
         }}>
             <UserAccessMC>
                 <PageTitle title={'Ingresar'} style='center' />

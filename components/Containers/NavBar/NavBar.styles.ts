@@ -26,7 +26,7 @@ const styles = {
     text: style({
         display: "none",
         $nest: {
-            '@media (min-width: 497px)': {
+            '@media (min-width: 501px)': {
                 display: "block",
                 fontSize: "24px",
                 fontFamily: '',

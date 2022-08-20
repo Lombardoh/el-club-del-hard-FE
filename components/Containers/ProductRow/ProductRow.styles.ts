@@ -78,7 +78,7 @@ const styles = {
                 width:'600px',
                 gap:'10px',
             },
-            '@media (max-width: 400px)' : {//before was 360
+            '@media (max-width: 500px)' : {//before was 360
                 width:'330px',
                 gap:'5px',
                 paddingLeft: '15px',

@@ -36,7 +36,7 @@ const styles = {
         display: 'flex',
         flexDirection: 'row',
         $nest:{
-            '@media (max-width: 790px)': {
+            '@media (max-width: 1400px)': {
                 flexDirection: 'column',
             },
         }

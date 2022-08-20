@@ -89,7 +89,7 @@ function FormLoginContainer(props: {
                         alignItems:'center',
                         justifyContent:'flex-start',
                         marginTop:'20px',
-                        marginRight:'210px',
+                        marginRight:'auto',
                         gap:'30px'
                     }}>
                         <ButtonBlue type='button' text='Login' style='add' />

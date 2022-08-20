@@ -11,7 +11,7 @@ const styles = {
         height: '170px',
         backgroundColor: '#FFFFFF',
         $nest: {
-            '@media screen and (max-width: 496px)': {
+            '@media screen and (max-width: 500px)': {
                 padding: '10px 10px',
                 height: '80px',
             },
@@ -23,7 +23,7 @@ const styles = {
         justifyContent: 'space-around',
         width: '60%',
         $nest: {
-            '@media screen and (max-width: 496px)': {
+            '@media screen and (max-width: 500px)': {
                 padding: '10px 10px',
                 height: '80px',
                 justifyContent: 'right',
@@ -46,7 +46,7 @@ const styles = {
         objectFit: 'cover',
         position: 'absolute',
         $nest: {
-            '@media screen and (max-width: 496px)': {
+            '@media screen and (max-width: 500px)': {
                 minWidth: '60px !important',
                 minHeight: '60px !important',
             },
@@ -57,7 +57,7 @@ const styles = {
         gap:"50px", 
         alignItems:"center",
         $nest: {
-            '@media screen and (max-width: 496px)': {
+            '@media screen and (max-width: 500px)': {
                 
             },
         },
@@ -65,7 +65,7 @@ const styles = {
     hamburgerMenu: style({
         display: "none",
         $nest: {
-            '@media (max-width: 496px)': {
+            '@media (max-width: 500px)': {
                 display: "flex",
             },
         },
@@ -74,7 +74,7 @@ const styles = {
         display: "flex", 
         gap:"50px",
         $nest: {
-            '@media only screen and (max-width: 496px)': {
+            '@media only screen and (max-width: 500px)': {
                 display: 'none',
             },
         },

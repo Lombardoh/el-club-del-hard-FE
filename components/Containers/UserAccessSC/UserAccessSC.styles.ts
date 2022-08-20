@@ -11,7 +11,11 @@ const styles = {
         width: '580px',
         border: '3px solid #63A8D4',
         borderRadius: '8px',
-        boxShadow:'0px 4px 10px rgba(0, 0, 0, 0.15)'
+        boxShadow:'0px 4px 10px rgba(0, 0, 0, 0.15)',
+        $nest: {
+            '@media (max-width: 768px)': {
+                width:'100%',
+        }}
     })
 }
 
