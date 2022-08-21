@@ -27,17 +27,10 @@ const styles = {
         color:"white",
         $nest:{
             '@media (max-width: 768px)':{
-                position: 'absolute',
-                top: '540px',
-                left: '160px',
-                width: "40px",
-                height: "30px",
+                display:'none'
             },
             '&:hover':{
                 cursor: 'pointer'
-            },
-            '@media (max-width: 400px)' : {//before was 360
-                left: "87px",
             },
         }
     }),

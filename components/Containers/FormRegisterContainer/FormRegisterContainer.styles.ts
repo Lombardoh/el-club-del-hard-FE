@@ -4,11 +4,10 @@ const styles = {
     container: style({
         display: 'flex',
         flexDirection: 'column',
-        $nest:{
-            '@media (min-width: 900px)': { 
-                width: '626.67px',
-            },
-        }
+            $nest: {
+                '@media (max-width: 768px)': {
+                    width:'85%'
+            }}
     }),
     errorMsg: style({
         color:'red',
