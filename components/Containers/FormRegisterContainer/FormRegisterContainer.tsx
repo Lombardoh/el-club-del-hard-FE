@@ -30,8 +30,6 @@ function FormRegisterContainer(){
 
     const sendData = (event) => {        
         event.preventDefault()
-        let body = JSON.stringify(data)
-        console.log(body)
         axios.post(`${process.env.BACKEND_URL}/accounts/register`, 
         {   
             email: data.email, 

@@ -32,15 +32,20 @@ function FormLoginContainer(props: {
 
     const sendData = (event) => {        
         event.preventDefault()
-        fetch(`${process.env.BACKEND_URL}/accounts/register`, {
-            method: 'POST',
+        axios.post(`${process.env.BACKEND_URL}/accounts/login`,
+        {
+            username: data.username,
+            password: data.password
+        },
+        {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
-        }).then(res => res.json())
-        .then(data => console.log(data))
+            },   
+        })
+        .then(res => {
+            localStorage.setItem('token', res.data.token);
+        })
         .catch(err => console.log(err))
     }
 
@@ -49,8 +54,9 @@ function FormLoginContainer(props: {
     }
 
     return (
-            <div
+            <form
                 className = {styles.container}
+                onSubmit={sendData}
             >
                 <UserAccessSC>
                     <UserAccessIC style='container'>
@@ -92,7 +98,7 @@ function FormLoginContainer(props: {
                         marginRight:'210px',
                         gap:'30px'
                     }}>
-                        <ButtonBlue type='button' text='Login' style='add' />
+                        <ButtonBlue type='submit' text='Login' style='add'  />
                         <ClickableContainer style='row'>
                             <ButtonBoxCheck />
                             <Text16P text='Recuérdame' />
@@ -110,7 +116,7 @@ function FormLoginContainer(props: {
                     </div>
                     
                 </UserAccessSC>
-            </div>
+            </form>
         );
     }
 
