@@ -12,32 +12,8 @@ import BrandFilterContainer from '../components/Containers/BrandFilterContainer/
 import Text20P from '../components/Texts/Center/20P/Text20P';
 import Text32P from '../components/Texts/Center/32P/Text32P';
 
-import ProductCategoryMC from '../components/Containers/ProductCategoryMC/ProductCategoryMC';
-
-import { useEffect, useState } from 'react';
-import ProductCard from '../components/Containers/ProductCard/ProductCard';
 
 const ProductCategory: NextPage = () => {
-    const [data, setData] = useState([])
-    const getData = () => {        
-        fetch(`${process.env.BACKEND_URL}/api/store/products/`, {
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-        }).then(res => res.json())
-        .then(data => setData(data.results))
-        .catch(err => console.log(err))
-    }   
-    useEffect(() => {
-        if(data.length === 0){
-            getData();
-            return
-        }
-    });
-    
-
     return (<>
 
         <div style={{
@@ -49,14 +25,13 @@ const ProductCategory: NextPage = () => {
         }}>
             <PageTitle title={'Product Category'} style='center' />
             <DefaultMainContainer>
-                {/*
                 <div style={{
                     display:'flex',
                     flexDirection:'column', 
                     justifyContent:'center', 
                     alignItems:'center',
                     gap:'10px',
-                    padding:'10px 90px 10px 70px',
+                    padding:'10px 90px 10px 10px',
                 }}>
                     <ProductFilterContainer>
                         <InsideFilterContainers style='outer'>
@@ -95,7 +70,6 @@ const ProductCategory: NextPage = () => {
                         </InsideFilterContainers>
                     </ProductFilterContainer>
                 </div>
-                */}
 
                 <div style={{
                     display:'flex',
@@ -103,9 +77,8 @@ const ProductCategory: NextPage = () => {
                     justifyContent:'center', 
                     alignItems:'center',
                     gap:'10px',
-                    padding:'0px 0px 100px 0px',
+                    padding:'0px 0px 40px 0px',
                 }}>
-                    {/*
                     <PageNavigationContainer>
                         <ButtonPageNumber 
                             indexNumber={'1'}
@@ -124,30 +97,11 @@ const ProductCategory: NextPage = () => {
                             style={'final'}
                             onClick={Function} />
                     </PageNavigationContainer>
-                    */}
 
-                    <ProductCategoryMC>
-                    {data ? data.map((product, key) => {
-                        return (<>
-                            {product.image ? 
-                                <div key={`${key}`}>
-                                    <ProductCard
-                                        labelPromo={product.label} 
-                                        labelPromoStyle={'onSale'} 
-                                        labelPromoDisabled={product.label != '' ? false : true}
-                                        labelStock={'En Stock'}
-                                        labelStockStyle={'onStock'}
-                                        imageURL={product.image}
-                                        imageAlt={product.alt}
-                                        productName={product.name}
-                                        price={`$ ${product.price}`}
-                                    />
-                                </div> : null}
-                        </>)
-                    }) : 'Loading...'}
-                    </ProductCategoryMC>
-                    
-                    {/*
+                    <ProductRowCategory />
+                    <ProductRowCategory />
+                    <ProductRowCategory />
+
                     <PageNavigationContainer>
                         <ButtonPageNumber 
                             indexNumber={'1'}
@@ -166,8 +120,6 @@ const ProductCategory: NextPage = () => {
                             style={'final'}
                             onClick={Function} />
                     </PageNavigationContainer>
-                    */}
-                    
                 </div>
             </DefaultMainContainer>
         </div>

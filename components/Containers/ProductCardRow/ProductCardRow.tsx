@@ -1,5 +1,4 @@
 import styles from './ProductCardRow.styles';
-import { useState, useEffect } from 'react';
 
 function ProductCardRow(props: {
     children?: any,
