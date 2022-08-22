@@ -13,6 +13,7 @@ import ProductCardRowButtons from '../ProductCardRowButtons/index';
 import {useState, useEffect} from 'react';
 
 function ProductCard(props: {
+    product_pk: number,
     labelPromo: string,
     labelPromoStyle: string,
     labelPromoDisabled: boolean,
@@ -25,7 +26,6 @@ function ProductCard(props: {
 })
 {
     const [windowWidth, setWindowWidth] = useState(0);
-    
     useEffect(() => {
         setWindowWidth(window.innerWidth);
         if(windowWidth){
@@ -67,7 +67,7 @@ function ProductCard(props: {
                     <Text18P_B_Price text={props.price} /> :
                     <Text22P_B_Price text={props.price} /> 
                 }
-                <ProductCardRowButtons />
+                <ProductCardRowButtons product_pk={props.product_pk} />
             </ProductCardRow>
         </div>
     );

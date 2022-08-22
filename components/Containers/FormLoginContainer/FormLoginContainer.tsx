@@ -9,20 +9,22 @@ import ClickableContainer from '../ClickableContainer/ClickableContainer';
 import ButtonBoxCheck from '../../ButtonBoxCheck/ButtonBoxCheck';
 import Text16P from '../../Texts/Center/16P/Text16P';
 import Text16P_B from '../../Texts/Center/16P_Bold/Text16P_B';
-import { useRef, useState } from 'react';
-
+import { useEffect, useRef, useState } from 'react';
+import { useRouter } from '../../../node_modules/next/router';
 import InputGeneric from '../../InputGeneric/InputGeneric';
 import Link from '../../../node_modules/next/link';
 
 function FormLoginContainer(props: {
     style: string;
 }){
+    const router = useRouter();
     const axios = require('axios').default;
     const usernameError = useRef(null);
     const [data, setData] = useState({
         username: '',
         password: ''
     });
+
     const handleInputChange = (event) => {
         setData({
             ...data,
@@ -45,6 +47,8 @@ function FormLoginContainer(props: {
         })
         .then(res => {
             localStorage.setItem('token', res.data.token);
+            localStorage.setItem('username', res.data.username);
+            router.reload()
         })
         .catch(err => console.log(err))
     }
@@ -52,6 +56,10 @@ function FormLoginContainer(props: {
     const onChangeValueHandler = (event) => {
         handleInputChange(event);
     }
+
+    useEffect(() => {
+        localStorage.getItem('token') ? router.push('/') : null;
+    });
 
     return (
             <form

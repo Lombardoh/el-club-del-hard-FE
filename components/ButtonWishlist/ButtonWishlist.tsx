@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 import {IconContext} from 'react-icons';
 
 function ButtonWishlist(props: {
-
+    product_pk: number,
 }){
     const [favourite, setFavourite] = useState<boolean>(false)
     return (

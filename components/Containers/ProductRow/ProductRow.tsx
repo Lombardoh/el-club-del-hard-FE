@@ -83,6 +83,7 @@ function ProductRow(props: {
                                 <div key={`${key}`} style={{transition: 'transform 0.3s',
                                 transform: `translateX(-${activeIndex*displacement}px)`,}}>
                                     <ProductCard
+                                        product_pk={product.pk}
                                         labelPromo={product.label} 
                                         labelPromoStyle={'onSale'} 
                                         labelPromoDisabled={product.label != '' ? false : true}
