@@ -132,6 +132,7 @@ const ProductCategory: NextPage = () => {
                             {product.image ? 
                                 <div key={`${key}`}>
                                     <ProductCard
+                                        product_pk={product.pk}
                                         labelPromo={product.label} 
                                         labelPromoStyle={'onSale'} 
                                         labelPromoDisabled={product.label != '' ? false : true}

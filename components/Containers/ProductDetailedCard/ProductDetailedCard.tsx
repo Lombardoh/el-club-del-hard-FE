@@ -94,7 +94,7 @@ function ProductDetailedCard(props: {
                     </div>
 
                     <div style={{display:'flex',flexDirection:'row',gap:'50px',padding:'0px 100px'}}>
-                        <ButtonWishlist />
+                        <ButtonWishlist product_pk={1} />
                         <ButtonBlue text='Añadir al Carrito' alert='Producto Añadido' onClick={Function} style='add' type='button'/>
                     </div>
                 </div>
