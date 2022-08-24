@@ -10,14 +10,20 @@ const styles = {
         gap: '10px',
         width: '100%',
     }),
-    forToS: style({
+    forMobile: style({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',
         justifyContent: 'center',
-        padding: '0px 20px',
-        gap: '0px',
+        padding: '10px',
+        gap: '10px',
         width: '100%',
+        marginBottom:'-20px',
+        $nest:{
+            '@media (min-width: 1300px)': {
+                flexDirection:'row',
+            },
+        }
     }),
 }
 
