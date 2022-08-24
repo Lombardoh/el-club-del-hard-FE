@@ -1,30 +1,30 @@
 import React from 'react';
-import LabelBreakerUserData from './LabelBreakerUserDataUserData';
+import LabelBreakerUserOrder from './LabelBreakerUserOrderUserData';
 
 export default {
-    title: 'labels/LabelBreakerUserData',
-    Component: LabelBreakerUserData,
+    title: 'labels/LabelBreakerUserOrder',
+    Component: LabelBreakerUserOrder,
 };
 
-export const LabelBreakerUserDataStorie = (args:{
+export const LabelBreakerUserOrderStorie = (args:{
     text: string;
     style: string;
     disabled?: boolean;
 }) => (
-    <LabelBreakerUserData 
+    <LabelBreakerUserOrder 
         text={args.text}
         disabled={args.disabled}
         style={args.style}
     />
 );
 
-LabelBreakerUserDataStorie.argTypes = {
+LabelBreakerUserOrderStorie.argTypes = {
     text: {control: 'text'},
     disabled: {control: 'boolean'},
     style: {control: 'text'}
 }
 
-LabelBreakerUserDataStorie.args ={
+LabelBreakerUserOrderStorie.args ={
     text: 'Test text',
     style: 'onSale',
     disabled: false,

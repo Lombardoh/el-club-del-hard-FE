@@ -5,6 +5,7 @@ import UserPageMC from '../components/Containers/UserPageMC/UserPageMC';
 import UserPageSC from '../components/Containers/UserPageSC/UserPageSC';
 import UserAccessIC from '../components/Containers/UserAccessIC/UserAccessIC';
 
+import DivP0_F_Center from '../components/Containers/GenericContainers/DivP0_F_Center/DivP0_F_Center';
 import DivP0_F_Center_nh from '../components/Containers/GenericContainers/DivP0_F_Center_nh/DivP0_F_Center_nh';
 import InputGeneric from '../components/InputGeneric/InputGeneric';
 
@@ -14,7 +15,9 @@ import L_Text20P from '../components/Texts/Left/20P/L_Text20P';
 import LabelBreakerUserData from '../components/LabelBreakerUserData/LabelBreakerUserData';
 import ButtonBlue from '../components/ButtonBlue/ButtonBlue';
 
-const Playground: NextPage = () => {
+import ButtonUserPageBrowsing from '../components/ButtonUserPageBrowsing/ButtonUserPageBrowsing';
+
+const UserPageInfo: NextPage = () => {
   const [windowWidth, setWindowWidth] = useState(0);
     useEffect(() => {
         setWindowWidth(window.innerWidth);
@@ -30,7 +33,14 @@ const Playground: NextPage = () => {
     <UserPageMC>
       {/* navigation buttons (user info / compras) */}
       
-      <UserPageSC>
+      <DivP0_F_Center style='column'>
+        <div style={{display:'flex',flexDirection:'row'}}>
+            <ButtonUserPageBrowsing href='/UserPageInfo' text='User Info' style='left' onClick={Function} />
+            <ButtonUserPageBrowsing href='/UserPageOrders' text='Mis Compras' style='right' onClick={Function} />
+        </div>
+      </DivP0_F_Center>
+
+      <UserPageSC style='row'>
         {/* info */}
         <DivP0_F_Center_nh style='smaller'>
           <UserAccessIC style='container'>
@@ -219,4 +229,4 @@ const Playground: NextPage = () => {
     </UserPageMC>
     </>)
 }
-export default Playground;
+export default UserPageInfo;
