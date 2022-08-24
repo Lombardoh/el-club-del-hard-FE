@@ -8,16 +8,21 @@ const styles = {
         justifyContent: 'center',
         padding: '0px',
         width: '100%',
+        marginTop:'-20px'
     }),
-    row: style({
+    smaller: style({
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         padding: '0px',
-        width: '100%',
-        height: '100px'
+        width: '75%',
+        $nest:{
+            '@media (max-width: 1300px)': {
+                width: '100%',
+            },
+        }
     }),
 }
 
-export default styles;
+export default styles; 

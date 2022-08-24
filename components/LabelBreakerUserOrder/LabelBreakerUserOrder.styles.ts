@@ -6,29 +6,17 @@ const styles = {
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",        
-        margin: "50px auto 30px auto", 
-        width: "70%",
-        height: "5px",
+        margin: "0px", 
+        width: "80%",
+        height: "2px",
         background: "#63A8D4",
         borderRadius: "8px",
-        $nest: {
-            '@media (max-width: 768px)': {
-                width: "60%",
-                margin: "30px auto 50px auto", 
-            },
-            '@media (max-width: 360px)' : {
-                width: "60%",
-                margin: "40px auto 30px auto", 
-            },
-        }
     }),
     verticalBreaker: style({
         margin: "20px",
         gap: "0px",
-
         width: "7px",
         height: "250px",
-
         background: "#63A8D4",
         borderRadius: "8px",
     }),
@@ -37,4 +25,4 @@ const styles = {
     })
 }
 
-export default styles;
+export default styles; 

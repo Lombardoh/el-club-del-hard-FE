@@ -2,8 +2,8 @@ import styles from './InputGeneric.styles';
 function InputGeneric(props: {
     type: 'text'|'number'|'password'|'email'|'textarea'|'file',
     name: string,
-    onChangeValue: (event: React.ChangeEvent<HTMLInputElement>) => void,
-    value: string,
+    onChangeValue?: (event: React.ChangeEvent<HTMLInputElement>) => void,
+    value?: string,
     required?: boolean,
 }){
     let currentClassName=`${styles.input}`

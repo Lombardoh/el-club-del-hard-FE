@@ -7,7 +7,7 @@ const styles = {
         alignItems: 'center',
         justifyContent: 'center',
         padding: '0px',
-        width: '100%',
+        width: '260px',
     }),
     row: style({
         display: 'flex',
@@ -15,8 +15,7 @@ const styles = {
         alignItems: 'center',
         justifyContent: 'center',
         padding: '0px',
-        width: '100%',
-        height: '100px'
+        width: '250px',
     }),
 }
 
