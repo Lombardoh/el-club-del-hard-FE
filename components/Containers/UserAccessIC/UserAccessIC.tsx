@@ -8,7 +8,7 @@ function UserAccessIC(props: {
     const currentStyle=props.style
     return (
         <div
-            className = {currentStyle === "container" ? styles.container : styles.forMobile}
+            className = {currentStyle === "container" ? styles.container : styles.forToS}
         >
             {props.children}
         </div>

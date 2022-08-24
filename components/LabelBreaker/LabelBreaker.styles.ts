@@ -23,10 +23,17 @@ const styles = {
         }
     }),
     verticalBreaker: style({
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: "0px",
         margin: "20px",
         gap: "0px",
-        width: "7px",
-        height: "250px",
+
+        width: "5px",
+        height: "600px",
+
         background: "#63A8D4",
         borderRadius: "8px",
     }),

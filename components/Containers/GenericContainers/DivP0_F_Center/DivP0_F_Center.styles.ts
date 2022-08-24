@@ -8,6 +8,7 @@ const styles = {
         justifyContent: 'center',
         padding: '0px',
         width: '100%',
+        height: '100px'
     }),
     row: style({
         display: 'flex',

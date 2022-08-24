@@ -18,7 +18,7 @@ const styles = {
             '@media (min-width: 1200px)': {
                 padding: "0 65px",
             },
-            '@media (min-width: 1350px)': {
+            '@media (min-width: 1368px)': {
                 padding: "0 145px",
             },
             '@media (min-width: 1920px)': {
