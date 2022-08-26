@@ -6,7 +6,9 @@ import Image from '../../../node_modules/next/image';
 import HamburgerMenu from '../../Containers/HamburgerMenu/HamburgerMenu';
 import Link from 'next/link';
 
-function HeaderTop(props: {}){
+function HeaderTop(props: {
+    onClick?: any
+    }){
     return (
         <div
             className = {styles.container}
@@ -32,7 +34,7 @@ function HeaderTop(props: {}){
                     <ButtonCartHeader />
                 </div>
                 <div className={styles.hamburgerMenu}>
-                    <HamburgerMenu />
+                    <HamburgerMenu onClick={props.onClick}/>
                 </div>
             </div>
         </div>

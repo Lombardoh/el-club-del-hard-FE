@@ -1,13 +1,17 @@
-import { AppProps } from 'next/app'
+import { AppProps } from '../node_modules/next/app'
 import '../styles/globals.css'
-import HeaderTop from '../components/Containers/HeaderTop/HeaderTop'
-import NavBar from '../components/Containers/NavBar/NavBar'
+import TopBar from '../components/Containers/TopBar/TopBar'
 import FooterFullContainer from '../components/Containers/FooterFullContainer/FooterFullContainer'
+import Image from '../node_modules/next/image';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return <>
-  <HeaderTop />
-  <NavBar />
+  <TopBar />
+  <Image
+      width={1920}
+      height={268}
+      src={require('./banner.png')}
+    />
   <Component {...pageProps}/>
   <FooterFullContainer />
   </>
