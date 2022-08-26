@@ -8,9 +8,7 @@ function NavBar(props: {}){
     useEffect(() => {
         setButtonTextDisabled(window.innerWidth < 495);
         if(window.innerWidth){
-            console.log('window.innerWidth');
             setUser(localStorage.getItem('username'))
-            console.log(user);
             window.addEventListener('resize', () => {
                 setButtonTextDisabled(window.innerWidth < 495);
             });
@@ -32,22 +30,23 @@ function NavBar(props: {}){
                 <NextLink href='/ProductCategory' className={styles.link} >
                     <a className={styles.text}>Categorias</a>
                 </NextLink>
-                {user ? <>
-                    <NextLink href='/Profile' >
+                {user ? 
+                    <NextLink href='/UserPageInfo' >
                     <a className={styles.text}>Bienvenido {user}</a>
                     </NextLink>
-                    <NextLink href='/' >
-                        <a className={styles.text} onClick={handleClick}>Salir</a>
-                    </NextLink> </>:
+                    :
                     <NextLink href='/Login' >
                         <a className={styles.text}>Ingresar</a>
                     </NextLink>
+                    
                 }
-                
-                
                 <NextLink href='/help' >
                     <a className={styles.text}>Ayuda</a>
                 </NextLink>
+                {user ?
+                <NextLink href='/' >
+                <a className={styles.text} onClick={handleClick}>Salir</a>
+            </NextLink> : null}
             </>}
         </div>
     );

@@ -5,10 +5,9 @@ import LabelPromo from '../../LabelPromo/LabelPromo';
 import LabelStock from '../../LabelStock/LabelStock';
 import Text14P_B from '../../Texts/Center/14P_B/Text14P_B';
 import Text18P_B from '../../Texts/Center/18P_B/Text18P_B';
-
 import Text18P_B_Price from '../../Texts/Center/18P_B_Price/Text18P_B_Price';
 import Text22P_B_Price from '../../Texts/Center/22P_B_Price/Text22P_B_Price';
-
+import Link from '../../../node_modules/next/link';
 import ProductCardRowButtons from '../ProductCardRowButtons/index';
 import {useState, useEffect} from 'react';
 
@@ -49,12 +48,16 @@ function ProductCard(props: {
                     disabled={false} 
                     style={props.labelStockStyle}/>
             </ProductCardRow>
-            <Image
-                src={props.imageURL}
-                alt={props.imageAlt}
-                width={280}
-                height={200}
-            />
+            <Link href={{pathname: '/ProductPage', query:{'product_pk': props.product_pk}}}>
+                <a>
+                <Image
+                    src={props.imageURL}
+                    alt={props.imageAlt}
+                    width={280}
+                    height={200}
+                />
+                </a>
+            </Link>
 
             <div className = {styles.nameMC}>
                 {windowWidth<770 ? 

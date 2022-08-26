@@ -12,11 +12,11 @@ function ProductWishlistCard(props: {
         <div
             className = {styles.container}
         >
-            <div style={{display:'flex',flexDirection:'column',gap:'50px'}}>
+            <div style={{display:'flex',flexDirection:'column', gap:'50px'}}>
                 <Text32P_B text={props.title} />
                 <Text24P_B text={props.price} />
             </div>
-            <ButtonBlue text='Finalizar la Compra' alert='Redirection to Checkout' onClick={Function} style='add' type='button'/>
+            <ButtonBlue text='Finalizar la Compra' onClick={()=>console.log('click')}style='add' type='button'/>
         </div>
     );
 }

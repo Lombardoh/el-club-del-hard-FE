@@ -12,6 +12,7 @@ const Cart: NextPage = () => {
     const [cartTotal, setCartTotal] = useState(0)
     const axios = require('axios').default;
 
+    
     const getData = () => {        
         axios.get(`${process.env.BACKEND_URL}/api/cart/cart/`,
         {
@@ -23,11 +24,16 @@ const Cart: NextPage = () => {
         }).then(res => {
             setDataFetched(true)
             setData(res.data[1].cart)
-            setCartTotal(res.data[0].cart_total)
-            console.log(data )
+            setCartTotal(parseInt(res.data[0].cart_total))
         })
         .catch(err => console.log(err))
     } 
+
+    const childToParent = (price : number) => {
+        setCartTotal(cartTotal + price)
+        console.log('child data', price)
+    }
+
 
     useEffect(() => {
         getData();
@@ -43,6 +49,7 @@ const Cart: NextPage = () => {
                             {cartItem.product.image ?
                                 <div key={`${key}`}>
                                     <ProductCartCard 
+                                        childToParent={childToParent}
                                         product_id={cartItem.product.pk}
                                         labelPromo={cartItem.product.label} 
                                         labelPromoStyle={'onSale'} 

@@ -8,8 +8,8 @@ const styles = {
         alignItems: "center",
         padding: "2px 0px",
         gap: "10px",
-        width: "60px",
-        height: "60px",
+        width: "30px",
+        height: "30px",
         background: "inherit",
         $nest:{
             '&:hover':{

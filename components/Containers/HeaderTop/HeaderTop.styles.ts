@@ -72,7 +72,7 @@ const styles = {
     }),
     rightMenu: style({
         display: "flex", 
-        gap:"50px",
+        gap:"0px",
         $nest: {
             '@media only screen and (max-width: 500px)': {
                 display: 'none',

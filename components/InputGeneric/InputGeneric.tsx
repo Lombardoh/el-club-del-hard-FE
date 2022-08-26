@@ -3,7 +3,7 @@ function InputGeneric(props: {
     type: 'text'|'number'|'password'|'email'|'textarea'|'file',
     name: string,
     onChangeValue?: (event: React.ChangeEvent<HTMLInputElement>) => void,
-    value?: string,
+    value?: any,
     required?: boolean,
 }){
     let currentClassName=`${styles.input}`

@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 function ButtonWishHeader(props: {}){
         return (
-            <IconContext.Provider value={{className: 'shared-class', size: "50"}}>
+            <IconContext.Provider value={{className: 'shared-class', size: "25"}}>
                 <div
                     className = {styles.cart}
                 >

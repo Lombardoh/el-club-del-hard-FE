@@ -5,13 +5,14 @@ function ButtonBlue(props: {
     text: string;
     type: 'button' | 'submit';
     style: string;
-    onClick?: Function;
+    onClick?: any;
 }){
     let currentStyle = props.style
     return (
         <button
             className = {currentStyle=='add' ? styles.add : styles.unavaible}
             type={props.type}
+            onClick={props.onClick}
         >
             <Text24P_W text={props.text} />
         </button>

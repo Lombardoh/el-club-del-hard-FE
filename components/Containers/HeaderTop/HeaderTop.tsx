@@ -7,7 +7,6 @@ import HamburgerMenu from '../../Containers/HamburgerMenu/HamburgerMenu';
 import Link from 'next/link';
 
 function HeaderTop(props: {}){
-    
     return (
         <div
             className = {styles.container}

@@ -1,82 +1,131 @@
 import { NextPage } from 'next';
-import { useRef, useState, useEffect } from 'react';
-
+import { useState, useEffect } from 'react';
+import User from '../components/interfaces/interfaces'
 import UserPageMC from '../components/Containers/UserPageMC/UserPageMC';
 import UserPageSC from '../components/Containers/UserPageSC/UserPageSC';
 import UserAccessIC from '../components/Containers/UserAccessIC/UserAccessIC';
-
 import DivP0_F_Center from '../components/Containers/GenericContainers/DivP0_F_Center/DivP0_F_Center';
 import DivP0_F_Center_nh from '../components/Containers/GenericContainers/DivP0_F_Center_nh/DivP0_F_Center_nh';
 import InputGeneric from '../components/InputGeneric/InputGeneric';
-
 import ButtonPasswordEye from '../components/ButtonPasswordEye/ButtonPasswordEye';
 import L_Text20P from '../components/Texts/Left/20P/L_Text20P';
-
 import LabelBreakerUserData from '../components/LabelBreakerUserData/LabelBreakerUserData';
 import ButtonBlue from '../components/ButtonBlue/ButtonBlue';
-
 import ButtonUserPageBrowsing from '../components/ButtonUserPageBrowsing/ButtonUserPageBrowsing';
 
 const UserPageInfo: NextPage = () => {
+  const [data, setData] = useState<User>()
+  const [dataFetched, setDataFetched] = useState(false)
+  const axios = require('axios').default;
   const [windowWidth, setWindowWidth] = useState(0);
-    useEffect(() => {
-        setWindowWidth(window.innerWidth);
-        if(windowWidth){
-            window.addEventListener('resize', () => {
-                setWindowWidth(window.innerWidth);
-            });
-        }
-    }, [windowWidth]);
+
+  const getData = () => {    
+    axios.get(`${process.env.BACKEND_URL}/api/accounts/accounts/`,
+    {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Token  ${localStorage.getItem('token')}`
+        },   
+    }).then(res => {
+        setDataFetched(true)
+        setData(res.data)
+    })
+    .catch(err => console.log(err))
+  } 
+  
+  useEffect(() => {
+    getData();
+  }, [dataFetched]);
+
+  const sendData = () => {
+    axios.put(`${process.env.BACKEND_URL}/api/accounts/accounts/`,
+    {
+      data
+    },
+    {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Token  ${localStorage.getItem('token')}`
+        },  
+    }).then(res =>console.log(res.data['message']))
+  } 
+  
+  useEffect(() => {
+      setWindowWidth(window.innerWidth);
+      if(windowWidth){
+          window.addEventListener('resize', () => {
+              setWindowWidth(window.innerWidth);
+          });
+      }
+  }, [windowWidth]);
+
+  const onChangeValueHandler = (event) => {
+    handleInputChange(event)
+  }
+
+  const handleInputChange = (event) => {
+    setData({
+        ...data,
+        [event.target.name] : event.target.value
+    })
+  }
+
+  const handleClick = () => {
+    sendData();
+  }
 
   return (<>
-
-    <UserPageMC>
-      {/* navigation buttons (user info / compras) */}
-      
+  {dataFetched ?
+    <UserPageMC>      
       <DivP0_F_Center style='column'>
         <div style={{display:'flex',flexDirection:'row'}}>
             <ButtonUserPageBrowsing href='/UserPageInfo' text='User Info' style='left' onClick={Function} />
             <ButtonUserPageBrowsing href='/UserPageOrders' text='Mis Compras' style='right' onClick={Function} />
         </div>
       </DivP0_F_Center>
-
       <UserPageSC style='row'>
-        {/* info */}
         <DivP0_F_Center_nh style='smaller'>
           <UserAccessIC style='container'>
             <L_Text20P text='Nombre de Usuario'/>
             <InputGeneric 
               type='text' 
               name='username' 
-              // onChangeValue={onChangeValueHandler} 
-              // value={data.username}
+              onChangeValue={onChangeValueHandler} 
+              value={data['username']}
               required={true}
             />
-            {/* <div ref={usernameError} className={styles.errorMsg} /> */}
           </UserAccessIC>
-
           <UserAccessIC style='container'>
             <L_Text20P text='Correo Electrónico'/>
             <InputGeneric 
               type='email' 
               name='email' 
-              // onChangeValue={onChangeValueHandler} 
-              // value={data.email}
+              onChangeValue={onChangeValueHandler} 
+              value={data['email']}
               required={true}
             />
-            {/* <div ref={emailError} className={styles.errorMsg} /> */}
             </UserAccessIC>
-
             <UserAccessIC style='container'>
               <L_Text20P text='Nombre y Apellido'/>
               <InputGeneric 
-                type='email' 
-                name='email' 
-                // onChangeValue={onChangeValueHandler} 
-                // value={data.email}
+                type='text' 
+                name='first_name' 
+                onChangeValue={onChangeValueHandler} 
+                value={data['first_name']}
                 required={true}
               />
-              {/* <div ref={emailError} className={styles.errorMsg} /> */}
+            </UserAccessIC>
+            <UserAccessIC style='container'>
+              <L_Text20P text='Nombre y Apellido'/>
+              <InputGeneric 
+                type='text' 
+                name='last_name' 
+                onChangeValue={onChangeValueHandler} 
+                value={data['last_name']}
+                required={true}
+              />
             </UserAccessIC>
         </DivP0_F_Center_nh>
         
@@ -84,8 +133,6 @@ const UserPageInfo: NextPage = () => {
           <LabelBreakerUserData style={'horizontalBreaker'} /> :
           <LabelBreakerUserData style={'verticalBreaker'} />
         }
-        
-        {/* direccion */}
         <DivP0_F_Center_nh style='column'>
           <UserAccessIC style='forMobile'>
               <UserAccessIC style='container'>
@@ -93,12 +140,12 @@ const UserPageInfo: NextPage = () => {
                     <div style={{width:'100%',marginTop:'0px'}}>
                     <InputGeneric 
                       type='text' 
-                      name='provincia' 
-                      // onChangeValue={onChangeValueHandler} 
-                      // value={data.provincia}
+                      name='province' 
+                      onChangeValue={onChangeValueHandler} 
+                      value={data['province']}
                       required={true}
                     />
-                    {/* <div ref={emailError} className={styles.errorMsg} /> */}
+                    
                   </div>
               </UserAccessIC>
               <UserAccessIC style='container'>
@@ -106,12 +153,11 @@ const UserPageInfo: NextPage = () => {
                 <div style={{width:'100%',marginTop:'0px'}}>
                   <InputGeneric 
                     type='text' 
-                    name='direccion' 
-                    // onChangeValue={onChangeValueHandler} 
-                    // value={data.direccion}
+                    name='street' 
+                    onChangeValue={onChangeValueHandler} 
+                    value={data['street']}
                     required={true}
                   />
-                  {/* <div ref={emailError} className={styles.errorMsg} /> */}
                 </div>
               </UserAccessIC>
             </UserAccessIC>
@@ -122,53 +168,50 @@ const UserPageInfo: NextPage = () => {
                 <div style={{width:'100%',marginTop:'0px'}}>
                   <InputGeneric 
                     type='text' 
-                    name='ciudad' 
-                    // onChangeValue={onChangeValueHandler} 
-                    // value={data.ciudad}
+                    name='city' 
+                    onChangeValue={onChangeValueHandler} 
+                    value={data['city']}
                     required={true}
                   />
-                  {/* <div ref={emailError} className={styles.errorMsg} /> */}
                 </div>
               </UserAccessIC>
               <UserAccessIC style='container'>
-                <L_Text20P text='Número'/>
+                <L_Text20P text='Número de telefono'/>
                 <div style={{width:'100%',marginTop:'0px'}}>
                   <InputGeneric 
-                    type='text' 
-                    name='numero' 
-                    // onChangeValue={onChangeValueHandler} 
-                    // value={data.numero}
+                    type='number' 
+                    name='phone_number' 
+                    onChangeValue={onChangeValueHandler} 
+                    value={data['phone_number']}
                     required={true}
                   />
-                  {/* <div ref={emailError} className={styles.errorMsg} /> */}
                 </div>
               </UserAccessIC>
             </UserAccessIC>
+            
             <UserAccessIC style='forMobile'>
               <UserAccessIC style='container'>
                 <L_Text20P text='Barrio / Localidad'/>
                 <div style={{width:'100%',marginTop:'0px'}}>
                   <InputGeneric 
                     type='text' 
-                    name='barrio' 
-                    // onChangeValue={onChangeValueHandler} 
-                    // value={data.barrio}
+                    name='neighborhood' 
+                    onChangeValue={onChangeValueHandler} 
+                    value={data['neighborhood']}
                     required={true}
                   />
-                  {/* <div ref={emailError} className={styles.errorMsg} /> */}
                 </div>
               </UserAccessIC>
               <UserAccessIC style='container'>
                 <L_Text20P text='Codigo Postal'/>
                 <div style={{width:'100%',marginTop:'0px'}}>
                   <InputGeneric 
-                    type='text' 
-                    name='postal' 
-                    // onChangeValue={onChangeValueHandler} 
-                    // value={data.postal}
+                    type='number' 
+                    name='postal_code' 
+                    onChangeValue={onChangeValueHandler} 
+                    value={data['postal_code']}
                     required={true}
                   />
-                  {/* <div ref={emailError} className={styles.errorMsg} /> */}
                 </div>
               </UserAccessIC>
             </UserAccessIC>
@@ -178,8 +221,6 @@ const UserPageInfo: NextPage = () => {
           <LabelBreakerUserData style={'horizontalBreaker'} /> :
           <LabelBreakerUserData style={'verticalBreaker'} />
         }
-
-        {/* contraseña */}
         <DivP0_F_Center_nh style='smaller'>
           <UserAccessIC style='container'>
             <L_Text20P text='Contraseña Actual'/>
@@ -187,8 +228,8 @@ const UserPageInfo: NextPage = () => {
               <InputGeneric 
                 type='password' 
                 name='password' 
-                // onChangeValue={onChangeValueHandler}
-                // value={data.password}
+                onChangeValue={onChangeValueHandler}
+                value={data['password']}
                 required={true}
                 />
               <ButtonPasswordEye />
@@ -200,8 +241,8 @@ const UserPageInfo: NextPage = () => {
                 <InputGeneric 
                   type='password' 
                   name='password2' 
-                  // onChangeValue={onChangeValueHandler} 
-                  // value={data.password2}
+                  onChangeValue={onChangeValueHandler} 
+                  value={''}
                   required={true}
                 />
                 <ButtonPasswordEye />
@@ -213,8 +254,8 @@ const UserPageInfo: NextPage = () => {
                 <InputGeneric 
                   type='password' 
                   name='password2' 
-                  // onChangeValue={onChangeValueHandler} 
-                  // value={data.password2}
+                  onChangeValue={onChangeValueHandler} 
+                  value={''}
                   required={true}
                 />
                 <ButtonPasswordEye />
@@ -224,9 +265,9 @@ const UserPageInfo: NextPage = () => {
       </UserPageSC>
 
       <div style={{marginRight:'40px'}}>
-        <ButtonBlue text='Guardar' style={'add'} type='submit'/>
+        <ButtonBlue onClick={handleClick} text='Guardar' style={'add'} type='button'/>
       </div>
     </UserPageMC>
-    </>)
+    : 'Loading'}</>)
 }
 export default UserPageInfo;

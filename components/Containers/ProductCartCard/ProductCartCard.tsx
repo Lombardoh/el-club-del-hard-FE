@@ -7,9 +7,11 @@ import ButtonBlueDelete from '../../ButtonBlueDelete/ButtonBlueDelete';
 import ButtonArrow from '../../ButtonArrow/ButtonArrow';
 import WishlistPC from '../WishlistPC/WishlistPC';
 import WishlistBC from '../WishlistBC/WishlistBC';
-import {useState} from 'react';
+import { useState } from 'react';
+import Router from "next/router";
 
 function ProductCartCard(props: {
+    childToParent: any,
     product_id: number,
     quantity: number,
     labelPromo: string,
@@ -29,10 +31,11 @@ function ProductCartCard(props: {
     const axios = require('axios').default;
     const [cartQuantity, setCartQuantity] = useState(props.quantity);
     const [totalPrice, setTotalPrice ] = useState(props.total_price)
-    let price = props.price;
+    let price : number  = Number(props.price);
 
     const sendData = (action) => {        
     let quantity = action === '+' ? 1 : action === '-' ? -1: 0;
+    console.log('quantity', cartQuantity)
     axios.post(`${process.env.BACKEND_URL}/api/cart/cart/`,
         {   
             product: props.product_id,
@@ -47,20 +50,28 @@ function ProductCartCard(props: {
         })
         .then(res => {
             setCartQuantity(cartQuantity + quantity)
+            if(cartQuantity + quantity < 1){
+                handleDeleteConfirmation() ? Router.reload(): null;
+            }
             setTotalPrice(eval(totalPrice + action + price))
-            console.log(res)
         })
         .catch(err => console.log(err))
     }
 
-    const handleClick = (action) => {
+    const handleClick = (action : string) => {
+        props.childToParent(price)
         sendData(action)
     }
 
-    const handleDelete = () => {
+    const handleDeleteConfirmation = () => {
         const confirmBox = window.confirm('¿Estás seguro de que quieres eliminar este producto?');
-        if(confirmBox) {
+        return confirmBox;
+    }
+
+    const handleDelete = () => {
+        if(handleDeleteConfirmation()) {
             sendData('/')
+            Router.reload();
         }
     }
 
