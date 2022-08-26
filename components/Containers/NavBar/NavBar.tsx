@@ -2,7 +2,9 @@ import styles from './NavBar.styles';
 import {useEffect, useState} from 'react';
 import NextLink from '../../../node_modules/next/link';
 
-function NavBar(props: {}){
+function NavBar(props:{
+    open?: boolean
+}){
     const [buttonTextDisabled, setButtonTextDisabled] = useState(false);
     const [user, setUser] = useState(null);
     useEffect(() => {
@@ -21,13 +23,11 @@ function NavBar(props: {}){
         setUser(null);
     }
 
+    let currentNavStyle = props.open ? styles.nav + ' ' + styles.open : styles.nav;
     return (
-        <div
-            className = {styles.container}
-        >
-            {buttonTextDisabled ? null :
-            <>
-                <NextLink href='/ProductCategory' className={styles.link} >
+        <div className = {styles.container}>
+            <div className={currentNavStyle}>
+            <NextLink href='/ProductCategory' className={styles.link} >
                     <a className={styles.text}>Categorias</a>
                 </NextLink>
                 {user ? 
@@ -47,7 +47,7 @@ function NavBar(props: {}){
                 <NextLink href='/' >
                 <a className={styles.text} onClick={handleClick}>Salir</a>
             </NextLink> : null}
-            </>}
+            </div>     
         </div>
     );
 }

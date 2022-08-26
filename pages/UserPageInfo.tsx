@@ -108,7 +108,7 @@ const UserPageInfo: NextPage = () => {
             />
             </UserAccessIC>
             <UserAccessIC style='container'>
-              <L_Text20P text='Nombre y Apellido'/>
+              <L_Text20P text='Nombre'/>
               <InputGeneric 
                 type='text' 
                 name='first_name' 
@@ -118,7 +118,7 @@ const UserPageInfo: NextPage = () => {
               />
             </UserAccessIC>
             <UserAccessIC style='container'>
-              <L_Text20P text='Nombre y Apellido'/>
+              <L_Text20P text='Apellido'/>
               <InputGeneric 
                 type='text' 
                 name='last_name' 

@@ -2,11 +2,15 @@ import styles from './HamburgerMenu.styles';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import {IconContext} from 'react-icons';
 
-function HamburgerMenu(){
+function HamburgerMenu(props: {
+        onClick?: any
+        }){
         return (
-            <IconContext.Provider value={{className: styles.hamburgerMenu}}>
-                    <GiHamburgerMenu color={'#6181BC'} />
-            </IconContext.Provider>
+                <button onClick={props.onClick} className={styles.noStyle}>
+                        <IconContext.Provider value={{className: styles.hamburgerMenu}}>
+                                <GiHamburgerMenu color={'#6181BC'} />
+                        </IconContext.Provider>
+                </button>
         );
 }
 

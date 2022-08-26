@@ -1,6 +1,15 @@
 import {style} from 'typestyle';
 
 const styles = {
+    noStyle: style({
+        background: 'none',
+        color: 'inherit',
+        border: 'none',
+        padding: 0,
+        font: 'inherit',
+        cursor: 'pointer',
+        outline: 'inherit',
+    }),
     hamburgerMenu: style({
         display: "flex",
         flexDirection: "column",
