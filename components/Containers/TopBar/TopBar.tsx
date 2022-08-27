@@ -1,6 +1,7 @@
 import NavBar from '../NavBar/NavBar'
 import HeaderTop from '../HeaderTop/HeaderTop'
 import React, {useState} from 'react'
+import styles from './TopBar.styles'
 
 function TopBar(){
     const [open, setOpen] = useState(false)
@@ -9,10 +10,10 @@ function TopBar(){
         setOpen(!open)
     }
     return (
-        <>
+        <div className={styles.container}>
         <HeaderTop onClick={handleClick}/>
         <NavBar open={open}/>
-        </>
+        </div>
     );
 }
 

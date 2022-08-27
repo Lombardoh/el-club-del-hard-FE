@@ -70,7 +70,7 @@ const Cart: NextPage = () => {
                     }) : 'Loading...'}
                 </div>
                 <div style={{height:'450px',width:'450px',display:'flex',justifyContent:'center'}}>
-                    <CartSubtotalCard title='Subtotal de Productos' price={cartTotal.toString()}/>
+                    <CartSubtotalCard title='Total de Productos' price={cartTotal.toString()}/>
                 </div>
             </div>
         </DivP10_F_Center>

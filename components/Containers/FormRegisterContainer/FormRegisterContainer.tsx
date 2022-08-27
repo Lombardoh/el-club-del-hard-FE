@@ -1,18 +1,19 @@
+import { useRef, useState } from 'react';
 import styles from './FormRegisterContainer.styles';
 import UserAccessIC from '../UserAccessIC/UserAccessIC';
 import UserAccessSC from '../UserAccessSC/UserAccessSC';
 import L_Text20P from '../../Texts/Left/20P/L_Text20P';
-
 import InputGeneric from '../../InputGeneric/InputGeneric';
 import ButtonPasswordEye from '../../ButtonPasswordEye/ButtonPasswordEye';
 import ButtonBlue from '../../ButtonBlue/ButtonBlue';
-import { useRef, useState } from 'react';
-
 import Link from '../../../node_modules/next/link';
 import Text16P_B from '../../Texts/Center/16P_Bold/Text16P_B';
 
+import UsernameValidator from '../../validations/UsernameValidator/UsernameValidator';
+
 function FormRegisterContainer(){
     const axios = require('axios').default;
+    const {message, loading, error} = UsernameValidator('')
     const usernameError = useRef(null);
     const emailError = useRef(null);
     const [data, setData] = useState({
@@ -58,6 +59,12 @@ function FormRegisterContainer(){
     const onChangeValueHandler = (event) => {
         handleInputChange(event);
     }
+
+    const usernameValueHandler = (event) => {
+        handleInputChange(event)
+        const {message, loading, error} = UsernameValidator('')
+        console.log(message,loading,error)
+    }
     return (
             <form className={styles.container} 
             onSubmit={sendData}
@@ -68,7 +75,7 @@ function FormRegisterContainer(){
                         <InputGeneric 
                             type='text' 
                             name='username' 
-                            onChangeValue={onChangeValueHandler} 
+                            onChangeValue={usernameValueHandler} 
                             value={data.username}
                             required={true}
                         />

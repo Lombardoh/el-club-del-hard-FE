@@ -92,36 +92,38 @@ function ProductCartCard(props: {
                     <L_Text24P text={props.productName} />
                 </DivP10_F_Center>
             </div>
-            <WishlistPC style='row'>
-                <Text24P_B text={totalPrice.toString()} />
-                <WishlistBC>
-                    <ButtonArrow 
-                        text={'-'}
-                        style={'buttonAddSub'}
-                        onClick={() => handleClick('-')}
-                    />
-                    <L_Text24P text={cartQuantity.toString()}/>
-                    <ButtonArrow 
-                        text={'+'}
-                        style={'buttonAddSub'}
-                        onClick={() => handleClick('+')}
-                    />
-                </WishlistBC>
-            </WishlistPC>
-                    
-            <div style={{
-                width:'300px',
-                height:'200px',
-            }}>
-                <WishlistBC>
-                    <ButtonBlueDelete 
-                        text='Eliminar del Carrito' 
-                        alert='Producto Eliminado' 
-                        onClick={handleDelete} 
-                        style={props.wishButtonStyle} 
-                        type='button'
+            <div style={{display:'flex'}}>
+                <WishlistPC style='row'>
+                    <Text24P_B text={totalPrice.toString()} />
+                    <WishlistBC>
+                        <ButtonArrow 
+                            text={'-'}
+                            style={'buttonAddSub'}
+                            onClick={() => handleClick('-')}
                         />
-                </WishlistBC>
+                        <L_Text24P text={cartQuantity.toString()}/>
+                        <ButtonArrow 
+                            text={'+'}
+                            style={'buttonAddSub'}
+                            onClick={() => handleClick('+')}
+                        />
+                    </WishlistBC>
+                </WishlistPC>
+                        
+                <div style={{
+                    width:'300px',
+                    height:'200px',
+                }}>
+                    <WishlistBC>
+                        <ButtonBlueDelete 
+                            text='Eliminar del Carrito' 
+                            alert='Producto Eliminado' 
+                            onClick={handleDelete} 
+                            style={props.wishButtonStyle} 
+                            type='button'
+                            />
+                    </WishlistBC>
+                </div>
             </div>
         </div>
     );

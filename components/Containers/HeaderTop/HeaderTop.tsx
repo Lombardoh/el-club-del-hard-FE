@@ -27,10 +27,11 @@ function HeaderTop(props: {
             </div>
             <div className={styles.rightContainer}>
                 <div className={styles.searchBar}>
-                    <ButtonSearchHeader />
+                    {/* <ButtonSearchHeader /> */}
                 </div>
                 <div className={styles.rightMenu}>
-                    <ButtonWishHeader />
+                    {/* <ButtonWishHeader /> */}
+                    <ButtonSearchHeader />
                     <ButtonCartHeader />
                 </div>
                 <div className={styles.hamburgerMenu}>

@@ -5,9 +5,11 @@ import {IconContext} from 'react-icons';
 
 function ButtonSearchHeader(){
         return (
-            <IconContext.Provider value={{className: styles.searchBar}}>          
+            <div style={{marginTop: '15px;'}}>
+                <IconContext.Provider value={{className: styles.searchBar}}>          
                     <BsSearch />
-            </IconContext.Provider>
+                </IconContext.Provider>
+            </div>
         );
 }
 
