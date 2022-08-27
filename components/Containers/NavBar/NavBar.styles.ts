@@ -32,8 +32,6 @@ const styles = {
                 borderTop: '20px solid #6181BC',
                 borderLeft: '10px solid #6181BC',
                 borderBottom: '10px solid #6181BC',
-                height:'100vh',
-                justifyContent:'start',
                 alignItems:'end',
                 padding:'30px'
             }

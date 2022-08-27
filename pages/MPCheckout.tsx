@@ -7,7 +7,7 @@ import UserAccessIC from '../components/Containers/UserAccessIC/UserAccessIC';
 import DivP0_F_Center_nh from '../components/Containers/GenericContainers/DivP0_F_Center_nh/DivP0_F_Center_nh';
 import InputGeneric from '../components/InputGeneric/InputGeneric';
 import L_Text20P from '../components/Texts/Left/20P/L_Text20P';
-import LabelBreakerCheckout from '../components/LabelBreakerCheckou';
+import LabelBreakerCheckout from '../components/LabelBreakerCheckout/LabelBreakerCheckout';
 import ButtonBlue from '../components/ButtonBlue/ButtonBlue';
 import L_Text20P_B from '../components/Texts/Left/20P_Bold/L_Text20P_B';
 
