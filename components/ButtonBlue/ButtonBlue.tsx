@@ -6,6 +6,7 @@ function ButtonBlue(props: {
     type: 'button' | 'submit';
     style: string;
     onClick?: any;
+    disabled?: boolean
 }){
     let currentStyle = props.style
     return (
@@ -13,6 +14,7 @@ function ButtonBlue(props: {
             className = {currentStyle=='add' ? styles.add : styles.unavaible}
             type={props.type}
             onClick={props.onClick}
+            disabled={props.disabled}
         >
             <Text24P_W text={props.text} />
         </button>
