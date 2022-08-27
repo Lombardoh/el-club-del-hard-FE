@@ -66,7 +66,7 @@ function ProductCard(props: {
                 }
             </div>
             <ProductCardRow disabled={false} lastRow={true}>
-                {windowWidth<400 ? 
+                {windowWidth<770 ? 
                     <Text18P_B_Price text={props.price} /> :
                     <Text22P_B_Price text={props.price} /> 
                 }

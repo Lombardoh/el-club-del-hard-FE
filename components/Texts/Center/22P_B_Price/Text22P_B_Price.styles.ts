@@ -2,7 +2,7 @@ import { style } from 'typestyle';
 
 const styles = {
   text: style({
-    fontSize: '22px',
+    fontSize: '20px',
     fontFamily: '',
     fontWeight: '700',
     lineHeight: '28px',
