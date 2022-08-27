@@ -11,6 +11,7 @@ function ProductRow(props: {
     let currentStyle = props.style
     const [activeIndex, setActiveIndex] = useState(0);
     const [data, setData] = useState([])
+    const [dataFetched, setDataFecthed] = useState(false)
     const [windowWidth, setWindowWidth] = useState(0);
     let displacement = 320;
 
@@ -22,7 +23,10 @@ function ProductRow(props: {
                 'Content-Type': 'application/json',
             },
         }).then(res => res.json())
-        .then(data => setData(data.results))
+        .then(data => {
+            setData(data.results)
+            setDataFecthed(true)
+        })
         .catch(err => console.log(err))
     }   
 
@@ -34,10 +38,10 @@ function ProductRow(props: {
     }
 
     useEffect(() => {
-        if(data.length === 0){
-            getData();
-            return
-        }
+        getData();
+    }, [dataFetched])
+
+    useEffect(() => {
         const interval = setInterval(() => {
             handleClick(activeIndex + 1, data.length-4);
         }, 3000);

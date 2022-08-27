@@ -20,8 +20,10 @@ const styles = {
         $nest: {
             '@media (max-width: 700px)': {
                 width: '80%',
+                height: '100vh',
                 background: '#ffffff',
                 flexDirection: 'column',
+                justifyContent: 'start',
                 position: 'fixed',
                 zIndex: 10,
                 gap: '40px',

@@ -7,7 +7,6 @@ function TopBar(){
 
     const handleClick = (event) => {
         setOpen(!open)
-        console.log(event.target, open)
     }
     return (
         <>

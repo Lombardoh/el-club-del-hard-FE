@@ -24,6 +24,7 @@ function NavBar(props:{
     }
 
     let currentNavStyle = props.open ? styles.nav + ' ' + styles.open : styles.nav;
+    
     return (
         <div className = {styles.container}>
             <div className={currentNavStyle}>
