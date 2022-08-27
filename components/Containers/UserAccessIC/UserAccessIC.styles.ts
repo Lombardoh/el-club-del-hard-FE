@@ -15,8 +15,8 @@ const styles = {
         flexDirection: 'column',
         alignItems: 'flex-start',
         justifyContent: 'center',
-        padding: '10px',
-        gap: '10px',
+        padding: '10px 0px',
+        gap: '0px',
         width: '100%',
         marginBottom:'-20px',
         $nest:{
