@@ -11,7 +11,7 @@ const styles = {
         marginBottom: '50px',
         gap: '25px',
         width: '100%',
-        height: '500px',
+        height: '550px',
         backgroundColor: '#FFFFFF',
         $nest: {
             '@media (max-width: 768px)': {

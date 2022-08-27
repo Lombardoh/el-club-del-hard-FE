@@ -29,13 +29,19 @@ const styles = {
                 gap: '40px',
                 transform: 'translateX(100vw)',
                 transition: '0.5s ease-in-out',
-                borderTop: '1px solid #6181BC',
+                borderTop: '20px solid #6181BC',
+                borderLeft: '10px solid #6181BC',
+                borderBottom: '10px solid #6181BC',
+                height:'100vh',
+                justifyContent:'start',
+                alignItems:'end',
+                padding:'30px'
             }
         }
     }),
     open: style({
         $nest: {
-            '@media (max-width: 700px)': {
+            '@media (max-width: 800px)': {
                 transform: 'translateX(30vw)',
                 transition: '0.5s ease-in-out',
             }
@@ -43,7 +49,7 @@ const styles = {
     }),
     link: style({
         $nest: {
-            '@media screen and (max-width: 600px)': {
+            '@media screen and (max-width: 800px)': {
                 width: '100%',
             }
         }
@@ -51,16 +57,21 @@ const styles = {
     text: style({
         display: 'flex',
         $nest: {
-            '@media (min-width: 501px)': {
+            '@media (min-width: 800px)': {
                 display: "block",
-                fontSize: "24px",
+                fontSize: "32px",
                 fontFamily: '',
                 fontWeight: "400",
                 color: "#FFFFFF",
                 padding: "10px",
             },
-            '@media (min-width: 600px)': {
+            '@media (max-width: 800px)': {
                 fontSize: '32px',
+                fontWeight:'500'
+            },
+            '@media (max-width: 600px)': {
+                fontSize: '25px',
+                fontWeight:'500'
             }
         }
     }),

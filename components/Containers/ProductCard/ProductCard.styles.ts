@@ -9,7 +9,7 @@ const styles = {
         padding: '10px',
         gap: '30px',
         width: '300px',
-        height: '500px',
+        height: '520px',
         backgroundColor: '#FFFFF',
         boxShadow: '0px 4px 4px rgba(0,0,0,0.25)',
         borderRadius: '8px',
@@ -32,7 +32,7 @@ const styles = {
         display:'flex',
         justifyContent:'center',
         $nest: {
-            '@media (max-width: 400px)' : {
+            '@media (max-width: 440px)' : {
                 height:'60px',
             },
         }
