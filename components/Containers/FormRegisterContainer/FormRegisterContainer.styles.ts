@@ -10,7 +10,6 @@ const styles = {
             }}
     }),
     errorMsg: style({
-        color:'red',
         marginLeft:'10px'
     })
 }

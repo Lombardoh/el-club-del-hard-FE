@@ -11,7 +11,7 @@ function ProductCardRowButtons(props: {
         <div
             className = {styles.container}
         >
-            <ButtonWishlist product_pk={props.product_pk}/>
+            {/* <ButtonWishlist product_pk={props.product_pk}/> */}
             <ButtonCart product_pk={props.product_pk}/>
         </div>
     );

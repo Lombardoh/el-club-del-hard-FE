@@ -1,18 +1,26 @@
+import { useEffect, useRef, useState } from 'react';
 import styles from './FormRegisterContainer.styles';
 import UserAccessIC from '../UserAccessIC/UserAccessIC';
 import UserAccessSC from '../UserAccessSC/UserAccessSC';
 import L_Text20P from '../../Texts/Left/20P/L_Text20P';
-
 import InputGeneric from '../../InputGeneric/InputGeneric';
 import ButtonPasswordEye from '../../ButtonPasswordEye/ButtonPasswordEye';
 import ButtonBlue from '../../ButtonBlue/ButtonBlue';
-import { useRef, useState } from 'react';
-
 import Link from '../../../node_modules/next/link';
 import Text16P_B from '../../Texts/Center/16P_Bold/Text16P_B';
+import { useRouter } from '../../../node_modules/next/router';
 
 function FormRegisterContainer(){
     const axios = require('axios').default;
+    const router = useRouter();
+    const [usernameMessage, setUsernameMessage] = useState('')
+    const [emailMessage, setEmailMessage] = useState('')
+    const [usernameColor, setUsernameColor] = useState('')
+    const [emailColor, setEmailColor] = useState('')
+    const [usernameAvailable, setUsernameAvailable] = useState(false)
+    const [emailAvailable, setEmailAvailable] = useState(false)
+    const [messageChanged, setMessageChanged] = useState(true)
+    const [buttonDisabled, setButtonDisabled] = useState(true)
     const usernameError = useRef(null);
     const emailError = useRef(null);
     const [data, setData] = useState({
@@ -21,10 +29,55 @@ function FormRegisterContainer(){
         password2: '',
         username: '',
     });
+
+    useEffect(()=>{
+        usernameError.current.innerHTML = usernameMessage
+        emailError.current.innerHTML = emailMessage
+        if(usernameAvailable && emailAvailable){
+            setButtonDisabled(false)
+        }
+        setMessageChanged(true)
+    }, [messageChanged])
+
     const handleInputChange = (event) => {
         setData({
             ...data,
             [event.target.name] : event.target.value
+        })
+    }
+
+    const checkUsername = (username) =>{
+        axios.get(`${process.env.BACKEND_URL}/accounts/account_available/` + username)
+        .then(res =>{
+            console.log(res.data['message'])
+            setUsernameMessage(res.data['message'])
+            setUsernameAvailable(true)
+            setMessageChanged(false)
+            setUsernameColor('green')
+        })
+        .catch(err => {
+            setUsernameMessage(err.response.data['message'])
+            console.log(err.response.data['message'])
+            setMessageChanged(false)
+            setUsernameColor('red')
+        })
+    }
+
+    const checkEmail = (email) =>{
+        axios.get(`${process.env.BACKEND_URL}/accounts/email_available/` + email)
+        .then(res =>{
+            console.log(res.data['message'])
+            setEmailAvailable(true)
+            setEmailMessage(res.data['message'])
+            setMessageChanged(false)
+            setEmailColor('green')
+        })
+        .catch(err => {
+            setEmailAvailable(false)
+            setEmailMessage(err.response.data['message'])
+            console.log(err.response.data['message'])
+            setMessageChanged(false)
+            setEmailColor('red')
         })
     }
 
@@ -43,9 +96,10 @@ function FormRegisterContainer(){
                 'Content-Type': 'application/json',
                 }
             })
-        .then(function (response) {
-            // handle success
-            console.log(response);
+        .then(function (res) {
+            localStorage.setItem('token', res.data.token);
+            localStorage.setItem('username', res.data.username);
+            router.reload()
         })
         .catch(function (error) {
             // handle error
@@ -58,6 +112,17 @@ function FormRegisterContainer(){
     const onChangeValueHandler = (event) => {
         handleInputChange(event);
     }
+
+    const usernameValueHandler = (event) => {
+        handleInputChange(event)
+        checkUsername(event.target.value)
+    }
+
+    const emailValueHandler = (event) => {
+        handleInputChange(event)
+        checkEmail(event.target.value)
+    }
+
     return (
             <form className={styles.container} 
             onSubmit={sendData}
@@ -68,22 +133,22 @@ function FormRegisterContainer(){
                         <InputGeneric 
                             type='text' 
                             name='username' 
-                            onChangeValue={onChangeValueHandler} 
+                            onChangeValue={usernameValueHandler} 
                             value={data.username}
                             required={true}
                         />
-                        <div ref={usernameError} className={styles.errorMsg} />
+                        <div ref={usernameError} className={styles.errorMsg} style={{color: `${usernameColor}`}}/>
                     </UserAccessIC>
                     <UserAccessIC style='container'>
                         <L_Text20P text='Correo Electrónico'/>
                         <InputGeneric 
                             type='email' 
                             name='email' 
-                            onChangeValue={onChangeValueHandler} 
+                            onChangeValue={emailValueHandler} 
                             value={data.email}
                             required={true}
                         />
-                        <div ref={emailError} className={styles.errorMsg} />
+                        <div ref={emailError} className={styles.errorMsg} style={{color: `${emailColor}`}}/>
                     </UserAccessIC>
                     <UserAccessIC style='container'>
                         <L_Text20P text='Contraseña'/>
@@ -137,7 +202,7 @@ function FormRegisterContainer(){
                         justifyContent:'center',
                         marginTop:'30px'
                     }}>
-                        <ButtonBlue text='Registrarme' type='submit' style='add' />
+                        <ButtonBlue text='Registrarme' type='submit' style='add' disabled={buttonDisabled}/>
                     </div>
                 </UserAccessSC>
             </form>

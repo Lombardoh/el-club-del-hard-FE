@@ -18,10 +18,12 @@ const styles = {
         padding: '5px 20px',
         gap: '100px',
         $nest: {
-            '@media (max-width: 800px)': {
-                width: '70%',
+            '@media (max-width: 700px)': {
+                width: '80%',
+                height: '100vh',
                 background: '#ffffff',
                 flexDirection: 'column',
+                justifyContent: 'start',
                 position: 'fixed',
                 zIndex: 10,
                 gap: '40px',
