@@ -127,25 +127,25 @@ const ProductCategory: NextPage = () => {
                     */}
 
                     <ProductCategoryMC>
-                    {data ? data.map((product, key) => {
-                        return (<>
-                            {product.image ? 
-                                <div key={`${key}`}>
-                                    <ProductCard
-                                        product_pk={product.pk}
-                                        labelPromo={product.label} 
-                                        labelPromoStyle={'onSale'} 
-                                        labelPromoDisabled={product.label != '' ? false : true}
-                                        labelStock={'En Stock'}
-                                        labelStockStyle={'onStock'}
-                                        imageURL={product.image}
-                                        imageAlt={product.alt}
-                                        productName={product.name}
-                                        price={`$ ${product.price}`}
-                                    />
-                                </div> : null}
-                        </>)
-                    }) : 'Loading...'}
+                        {data ? data.map((product, key) => {
+                            return (<>
+                                {product.image ? 
+                                    <div key={`${key}`}>
+                                        <ProductCard
+                                            product_pk={product.pk}
+                                            labelPromo={product.label} 
+                                            labelPromoStyle={'onSale'} 
+                                            labelPromoDisabled={product.label != '' ? false : true}
+                                            labelStock={'En Stock'}
+                                            labelStockStyle={'onStock'}
+                                            imageURL={product.image}
+                                            imageAlt={product.alt}
+                                            productName={product.name}
+                                            price={`$ ${product.price}`}
+                                        />
+                                    </div> : null}
+                            </>)
+                        }) : 'Loading...'}
                     </ProductCategoryMC>
                     
                     {/*

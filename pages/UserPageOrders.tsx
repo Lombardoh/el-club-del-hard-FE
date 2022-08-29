@@ -40,7 +40,7 @@ const UserPageOrders: NextPage = () => {
             {windowWidth<770  ?
                 <div style={{display:'flex',flexDirection:'column',width:'65%',gap:'10px'}}>
                     <UserPageOCM style='column'
-                        order='0000000000001'
+                        order='0000000001'
                         date='01/06/2022'
                         price='$ 999999'
                         state='Confirmada'
@@ -49,7 +49,7 @@ const UserPageOrders: NextPage = () => {
                         tracking='SD67088274'
                     />
                     <UserPageOCM style='column'
-                        order='0000000000002'
+                        order='0000000002'
                         date='01/06/2022'
                         price='$ 999999'
                         state='Cancelada'
@@ -58,7 +58,7 @@ const UserPageOrders: NextPage = () => {
                         tracking='SD67088274'
                     />
                     <UserPageOCM style='column'
-                        order='0000000000003'
+                        order='0000000003'
                         date='01/06/2022'
                         price='$ 999999'
                         state='Confirmada'
@@ -67,7 +67,7 @@ const UserPageOrders: NextPage = () => {
                         tracking='SD67088274'
                     />
                     <UserPageOCM style='column'
-                        order='0000000000004'
+                        order='0000000004'
                         date='01/06/2022'
                         price='$ 999999'
                         state='Confirmada'
