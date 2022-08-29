@@ -18,7 +18,7 @@ const styles = {
         padding: '5px 20px',
         gap: '100px',
         $nest: {
-            '@media (max-width: 700px)': {
+            '@media (max-width: 800px)': {
                 width: '80%',
                 height: '100vh',
                 background: '#ffffff',
@@ -65,11 +65,14 @@ const styles = {
             },
             '@media (max-width: 800px)': {
                 fontSize: '32px',
-                fontWeight:'500'
+                fontWeight:'500',
+                marginRight:'80px'
             },
             '@media (max-width: 600px)': {
-                fontSize: '25px',
-                fontWeight:'500'
+                marginRight:'40px'
+            },
+            '@media (max-width: 490px)': {
+                fontSize: '26px',
             }
         }
     }),

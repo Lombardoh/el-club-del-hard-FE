@@ -22,8 +22,8 @@ const styles = {
                 width: '180px',
                 height: '500px',
             },
-            '@media (max-width: 360px)' : {
-                width:'150px',
+            '@media (max-width: 470px)' : {
+                width:'155px',
             },
         }
     }),

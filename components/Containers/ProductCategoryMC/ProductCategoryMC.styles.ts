@@ -19,7 +19,7 @@ const styles = {
                 padding: "0 65px",
             },
             '@media (min-width: 1350px)': {
-                padding: "0 145px",
+                padding: "0 130px",
             },
             '@media (min-width: 1920px)': {
                 padding: "0 140px",
