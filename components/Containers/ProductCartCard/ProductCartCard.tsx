@@ -34,8 +34,8 @@ function ProductCartCard(props: {
     let price : number  = Number(props.price);
 
     const sendData = (action) => {        
+    console.log(action)
     let quantity = action === '+' ? 1 : action === '-' ? -1: 0;
-    console.log('quantity', cartQuantity)
     axios.post(`${process.env.BACKEND_URL}/api/cart/cart/`,
         {   
             product: props.product_id,
@@ -53,14 +53,19 @@ function ProductCartCard(props: {
             if(cartQuantity + quantity < 1){
                 handleDeleteConfirmation() ? Router.reload(): null;
             }
-            setTotalPrice(eval(totalPrice + action + price))
+            setTotalPrice(eval(`${totalPrice} ${action} ${price}`))
         })
         .catch(err => console.log(err))
     }
 
     const handleClick = (action : string) => {
-        props.childToParent(price)
-        sendData(action)
+        console.log(eval(`${cartQuantity} ${action} 1`))
+        if(eval(`${cartQuantity} ${action} 1`)<1)
+            handleDelete()
+        else if((eval(`${cartQuantity} ${action} 1`)>0)){
+            props.childToParent(price, action)
+            sendData(action)
+        }
     }
 
     const handleDeleteConfirmation = () => {

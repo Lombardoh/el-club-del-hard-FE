@@ -6,12 +6,10 @@ import CartSubtotalCard from '../components/Containers/CartSubtotalCard/index';
 import React, { useState, useEffect } from 'react';
 
 const Cart: NextPage = () => {
-
     const [data, setData] = useState([])
     const [dataFetched, setDataFetched] = useState(false)
     const [cartTotal, setCartTotal] = useState(0)
     const axios = require('axios').default;
-
     
     const getData = () => {        
         axios.get(`${process.env.BACKEND_URL}/api/cart/cart/`,
@@ -29,9 +27,8 @@ const Cart: NextPage = () => {
         .catch(err => console.log(err))
     } 
 
-    const childToParent = (price : number) => {
-        setCartTotal(cartTotal + price)
-        console.log('child data', price)
+    const childToParent = (price : number, action :string) => {
+        setCartTotal(eval(`${cartTotal} ${action} ${price}`))
     }
 
 
