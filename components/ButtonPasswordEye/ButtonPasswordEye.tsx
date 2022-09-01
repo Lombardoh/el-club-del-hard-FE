@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 import {IconContext} from 'react-icons';
 
 function ButtonPasswordEye(props: {
-    handlePasswordVisible: any
+    handlePasswordVisible?: any
 }){
     const [shown, setShown] = useState<boolean>(false)
 
