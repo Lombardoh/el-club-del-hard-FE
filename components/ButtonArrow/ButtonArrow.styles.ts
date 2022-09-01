@@ -50,6 +50,10 @@ const styles = {
             '&:hover':{
                 cursor: 'pointer'
             },
+            '@media (max-width: 800px)': {
+                width:'25px',
+                height:'35px',
+            }
         }
     }),
     disabled: style({

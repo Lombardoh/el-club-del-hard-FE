@@ -5,6 +5,9 @@ import ProductCartCard from '../components/Containers/ProductCartCard/ProductCar
 import CartSubtotalCard from '../components/Containers/CartSubtotalCard/index';
 import React, { useState, useEffect } from 'react';
 
+import CartMC from '../components/Containers/CartMC/CartMC';
+import SubtotalCardMC from '../components/Containers/SubtotalCardMC/SubtotalCardMC';
+
 const Cart: NextPage = () => {
     const [data, setData] = useState([])
     const [dataFetched, setDataFetched] = useState(false)
@@ -39,7 +42,7 @@ const Cart: NextPage = () => {
     return (<>
         <DivP10_F_Center style='column'>
             <PageTitle title='Carrito de Compras' style='center' />
-            <div style={{width:'100%',display:'flex',justifyContent:'center', padding:'0px 50px 100px',gap:'50px'}}>
+            <CartMC style='row'>
                 <div style={{display:'flex',flexDirection:'column',gap:'20px'}}>
                     {data ? data.map((cartItem, key) => {
                         return (<> 
@@ -66,10 +69,10 @@ const Cart: NextPage = () => {
                         </>)
                     }) : 'Loading...'}
                 </div>
-                <div style={{height:'450px',width:'450px',display:'flex',justifyContent:'center'}}>
+                <SubtotalCardMC>
                     <CartSubtotalCard title='Total de Productos' price={cartTotal.toString()}/>
-                </div>
-            </div>
+                </SubtotalCardMC>
+            </CartMC>
         </DivP10_F_Center>
     </>)
 }
