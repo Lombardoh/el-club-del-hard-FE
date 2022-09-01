@@ -59,7 +59,23 @@ const OtherCheckout: NextPage = () => {
     getPriceData();
   }, [priceFetched]);
 
-  const sendData = () => {
+  const sendOrderData = () => {      
+      axios.post(`${process.env.BACKEND_URL}/api/orders/order/`,
+      {},
+      {
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'Authorization': `Token  ${localStorage.getItem('token')}`
+          },   
+      })
+      .then(res => {
+          console.log(res)
+      })
+      .catch(err => console.log(err))
+  }
+
+  const sendAccountData = () => {
     axios.put(`${process.env.BACKEND_URL}/api/accounts/accounts/`,
     {
       data
@@ -70,7 +86,10 @@ const OtherCheckout: NextPage = () => {
             'Content-Type': 'application/json',
             'Authorization': `Token  ${localStorage.getItem('token')}`
         },  
-    }).then(res =>console.log(res.data['message']))
+    }).then(res =>{
+      console.log(res.data['message'])
+      sendOrderData();
+    })
   } 
   
   useEffect(() => {
@@ -94,7 +113,7 @@ const OtherCheckout: NextPage = () => {
   }
 
   const handleClick = () => {
-    sendData();
+    sendAccountData();
   }
 
   return (<>
@@ -254,8 +273,7 @@ const OtherCheckout: NextPage = () => {
           <L_Text20P_B text='Precio Final:' />
           <div>{price}</div>
       </div>
-      <ButtonBlue  text='Finalizar Compra' style={'add'} type='button'/> 
-      {/* onClick={handleClick} */}
+      <ButtonBlue  text='Finalizar Compra' onClick={handleClick} style={'add'} type='button'/> 
     </div>
   </UserPageMC>
    : 'Loading'}

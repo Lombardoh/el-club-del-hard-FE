@@ -9,6 +9,7 @@ function ButtonBlue(props: {
     disabled?: boolean
 }){
     let currentStyle = props.style
+    
     return (
         <button
             className = {currentStyle=='add' ? styles.add : styles.unavaible}
