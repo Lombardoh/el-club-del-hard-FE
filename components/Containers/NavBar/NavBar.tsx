@@ -33,17 +33,14 @@ function NavBar(props:{
                 </NextLink>
                 {user ? 
                     <NextLink href='/UserPageInfo' >
+                    {/* <a className={styles.text}>Bienvenido {user}</a> */}
                     <a className={styles.text}>Bienvenido {user}</a>
                     </NextLink>
                     :
                     <NextLink href='/Login' >
                         <a className={styles.text}>Ingresar</a>
-                    </NextLink>
-                    
+                    </NextLink>  
                 }
-                <NextLink href='/help' >
-                    <a className={styles.text}>Ayuda</a>
-                </NextLink>
                 {user ?
                 <NextLink href='/' >
                 <a className={styles.text} onClick={handleClick}>Salir</a>

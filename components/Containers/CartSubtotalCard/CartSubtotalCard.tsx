@@ -31,7 +31,7 @@ function ProductWishlistCard(props: {
                     <option value='tarjeta'>Tarjeta</option>
                 </SelectGeneric>
             </div>
-            <ButtonBlue text='Finalizar la Compra' onClick={()=>router.push(checkoutType)}style='add' type='button'/>
+            <ButtonBlue text='Finalizar la Compra' onClick={()=>router.push(checkoutType)} style='add' type='button'/>
         </div>
     );
 }

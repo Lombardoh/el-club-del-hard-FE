@@ -75,7 +75,7 @@ const styles = {
         gap:"0px",
         $nest: {
             '@media only screen and (max-width: 800px)': {
-                display: 'none',
+                
             },
         },
     }),

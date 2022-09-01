@@ -19,7 +19,8 @@ function FormLoginContainer(props: {
 }){
     const router = useRouter();
     const axios = require('axios').default;
-    const usernameError = useRef(null);
+    const error = useRef(null);
+    const [inputType, setInputType] = useState<'text' | 'password'>('password');
     const [data, setData] = useState({
         username: '',
         password: ''
@@ -50,11 +51,18 @@ function FormLoginContainer(props: {
             localStorage.setItem('username', res.data.username);
             router.reload()
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            error.current.innerHTML = err.response.data.message;
+            console.log(err)
+        })
     }
 
     const onChangeValueHandler = (event) => {
         handleInputChange(event);
+    }
+
+    const handlePasswordVisible = () =>{
+        setInputType(inputType == 'password' ? 'text' : 'password')
     }
 
     useEffect(() => {
@@ -70,13 +78,12 @@ function FormLoginContainer(props: {
                     <UserAccessIC style='container'>
                         <L_Text20P text='Nombre de Usuario'/>
                         <InputGeneric 
-                            type='text' 
+                            type='text'
                             name='username' 
                             onChangeValue={onChangeValueHandler} 
                             value={data.username}
                             required={true}
                         />
-                        <div ref={usernameError} className={styles.errorMsg} />
                     </UserAccessIC>
                     <UserAccessIC style='container'>
                         <L_Text20P text='Contraseña'/>
@@ -88,14 +95,15 @@ function FormLoginContainer(props: {
                             margin:'-5px 0px',
                         }}>
                             <InputLoginRegister 
-                                type='password' 
+                                type={`${inputType}`}  
                                 name='password'
                                 onChangeValue={onChangeValueHandler}
                                 value={data.password}
                                 required={true}
                                 />
-                            <ButtonPasswordEye />
+                            <ButtonPasswordEye handlePasswordVisible={handlePasswordVisible}/>
                         </div>
+                        <div ref={error} className={styles.errorMsg} />
                     </UserAccessIC>
                     <div style={{
                         display:'flex',

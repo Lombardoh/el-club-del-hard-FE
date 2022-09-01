@@ -5,8 +5,7 @@ import styles from './TopBar.styles'
 
 function TopBar(){
     const [open, setOpen] = useState(false)
-
-    const handleClick = (event) => {
+    const handleClick = () => {
         setOpen(!open)
     }
     return (
