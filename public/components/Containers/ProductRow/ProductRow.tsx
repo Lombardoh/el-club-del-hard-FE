@@ -16,7 +16,7 @@ function ProductRow(props: {
     let displacement = 320;
 
     const getData = () => {        
-        fetch(`${process.env.BACKEND_URL}/api/store/products/`, {
+        fetch(`${process.env.BACKEND_URL}/store/products/`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',

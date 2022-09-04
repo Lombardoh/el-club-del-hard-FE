@@ -4,6 +4,7 @@ import TopBar from '../public/components/Containers/TopBar/TopBar'
 import FooterFullContainer from '../public/components/Containers/FooterFullContainer/FooterFullContainer'
 import Image from '../node_modules/next/image';
 import {useState, useEffect } from 'react';
+import Head from 'next/head'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [windowWidth, setWindowWidth] = useState(0);
@@ -18,6 +19,10 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   let mobile = windowWidth > 700 ? false : true;
   return <>
+  <Head>
+        <title>El club del hard</title>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+      </Head>
   <TopBar />
   {mobile ?
   <Image
