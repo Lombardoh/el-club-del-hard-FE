@@ -1,12 +1,12 @@
 import { NextPage } from 'next';
-import DivP10_F_Center from '../components/Containers/GenericContainers/DivP10_F_Center/DivP10_F_Center';
-import PageTitle from '../components/Containers/PageTitle/PageTitle';
-import ProductCartCard from '../components/Containers/ProductCartCard/ProductCartCard';
-import CartSubtotalCard from '../components/Containers/CartSubtotalCard/index';
+import DivP10_F_Center from '../public/components/Containers/GenericContainers/DivP10_F_Center/DivP10_F_Center';
+import PageTitle from '../public/components/Containers/PageTitle/PageTitle';
+import ProductCartCard from '../public/components/Containers/ProductCartCard/ProductCartCard';
+import CartSubtotalCard from '../public/components/Containers/CartSubtotalCard/index';
 import React, { useState, useEffect } from 'react';
 
-import CartMC from '../components/Containers/CartMC/CartMC';
-import SubtotalCardMC from '../components/Containers/SubtotalCardMC/SubtotalCardMC';
+import CartMC from '../public/components/Containers/CartMC/CartMC';
+import SubtotalCardMC from '../public/components/Containers/SubtotalCardMC/SubtotalCardMC';
 
 const Cart: NextPage = () => {
     const [data, setData] = useState([])

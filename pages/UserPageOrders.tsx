@@ -1,17 +1,17 @@
 import { NextPage } from 'next';
 import { useRef, useState, useEffect } from 'react';
 
-import UserPageMC from '../components/Containers/UserPageMC/UserPageMC';
-import UserPageSC from '../components/Containers/UserPageSC/UserPageSC';
-import UserPageOCD from '../components/Containers/UserPageOCD/UserPageOCD';
-import UserPageOCM from '../components/Containers/UserPageOCM/index';
+import UserPageMC from '../public/components/Containers/UserPageMC/UserPageMC';
+import UserPageSC from '../public/components/Containers/UserPageSC/UserPageSC';
+import UserPageOCD from '../public/components/Containers/UserPageOCD/UserPageOCD';
+import UserPageOCM from '../public/components/Containers/UserPageOCM/index';
 
-import DivP0_F_Center from '../components/Containers/GenericContainers/DivP0_F_Center/DivP0_F_Center';
+import DivP0_F_Center from '../public/components/Containers/GenericContainers/DivP0_F_Center/DivP0_F_Center';
 
-import L_Text20P_B from '../components/Texts/Left/20P_Bold/L_Text20P_B';
+import L_Text20P_B from '../public/components/Texts/Left/20P_Bold/L_Text20P_B';
 
-import ButtonUserPageBrowsing from '../components/ButtonUserPageBrowsing/ButtonUserPageBrowsing';
-import Div_UserOrder from '../components/Containers/GenericContainers/Div_UserOrder/Div_UserOrder';
+import ButtonUserPageBrowsing from '../public/components/ButtonUserPageBrowsing/ButtonUserPageBrowsing';
+import Div_UserOrder from '../public/components/Containers/GenericContainers/Div_UserOrder/Div_UserOrder';
 
 const UserPageOrders: NextPage = () => {
   const [windowWidth, setWindowWidth] = useState(0);

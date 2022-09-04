@@ -1,6 +1,6 @@
 import styles from './NavBar.styles';
 import {useEffect, useState} from 'react';
-import NextLink from '../../../node_modules/next/link';
+import NextLink from '../../../../node_modules/next/link';
 
 function NavBar(props:{
     open?: boolean

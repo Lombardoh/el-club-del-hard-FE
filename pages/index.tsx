@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
-import ProductRow from '../components/Containers/ProductRow/ProductRow';
-import LabelBreaker from '../components/LabelBreaker/index';
+import ProductRow from '../public/components/Containers/ProductRow/ProductRow';
+import LabelBreaker from '../public/components/LabelBreaker/index';
 
 const Home: NextPage = () => {
   return (<>

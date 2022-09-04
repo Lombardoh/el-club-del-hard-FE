@@ -1,5 +1,5 @@
 import styles from './ProductCard.styles';
-import Image from '../../../node_modules/next/image';
+import Image from '../../../../node_modules/next/image';
 import ProductCardRow from '../ProductCardRow/ProductCardRow';
 import LabelPromo from '../../LabelPromo/LabelPromo';
 import LabelStock from '../../LabelStock/LabelStock';
@@ -7,7 +7,7 @@ import Text14P_B from '../../Texts/Center/14P_B/Text14P_B';
 import Text18P_B from '../../Texts/Center/18P_B/Text18P_B';
 import Text18P_B_Price from '../../Texts/Center/18P_B_Price/Text18P_B_Price';
 import Text22P_B_Price from '../../Texts/Center/22P_B_Price/Text22P_B_Price';
-import Link from '../../../node_modules/next/link';
+import Link from '../../../../node_modules/next/link';
 import ProductCardRowButtons from '../ProductCardRowButtons/index';
 import {useState, useEffect} from 'react';
 

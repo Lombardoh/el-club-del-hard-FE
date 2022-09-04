@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import FormUploadProduct from '../components/Containers/FormUploadProduct/index';
+import FormUploadProduct from '../public/components/Containers/FormUploadProduct/index';
 
 const UploadProductForm: NextPage = () => {
     return (<>

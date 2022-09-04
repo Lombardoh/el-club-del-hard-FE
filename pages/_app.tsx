@@ -1,7 +1,7 @@
 import { AppProps } from '../node_modules/next/app'
 import '../styles/globals.css'
-import TopBar from '../components/Containers/TopBar/TopBar'
-import FooterFullContainer from '../components/Containers/FooterFullContainer/FooterFullContainer'
+import TopBar from '../public/components/Containers/TopBar/TopBar'
+import FooterFullContainer from '../public/components/Containers/FooterFullContainer/FooterFullContainer'
 import Image from '../node_modules/next/image';
 import {useState, useEffect } from 'react';
 

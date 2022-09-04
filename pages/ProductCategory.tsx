@@ -1,21 +1,21 @@
 import { NextPage } from 'next';
 
-import PageTitle from '../components/Containers/PageTitle/PageTitle';
-import DefaultMainContainer from '../components/Containers/DefaultMainContainer/DefaultMainContainer';
-import PageNavigationContainer from '../components/Containers/PageNavigationContainer/PageNavigationContainer';
-import ButtonPageNumber from '../components/ButtonPageNumber/ButtonPageNumber';
-import ProductRowCategory from '../components/Containers/ProductRowCategory/ProductRowCategory';
-import ProductFilterContainer from '../components/Containers/ProductFilterContainer/index';
-import InsideFilterContainers from '../components/Containers/InsideFilterContainers/InsideFilterContainers';
-import ButtonFilterSelector from '../components/ButtonFilterSelector/ButtonFilterSelector';
-import BrandFilterContainer from '../components/Containers/BrandFilterContainer/BrandFilterContainer';
-import Text20P from '../components/Texts/Center/20P/Text20P';
-import Text32P from '../components/Texts/Center/32P/Text32P';
+import PageTitle from '../public/components/Containers/PageTitle/PageTitle';
+import DefaultMainContainer from '../public/components/Containers/DefaultMainContainer/DefaultMainContainer';
+import PageNavigationContainer from '../public/components/Containers/PageNavigationContainer/PageNavigationContainer';
+import ButtonPageNumber from '../public/components/ButtonPageNumber/ButtonPageNumber';
+import ProductRowCategory from '../public/components/Containers/ProductRowCategory/ProductRowCategory';
+import ProductFilterContainer from '../public/components/Containers/ProductFilterContainer/index';
+import InsideFilterContainers from '../public/components/Containers/InsideFilterContainers/InsideFilterContainers';
+import ButtonFilterSelector from '../public/components/ButtonFilterSelector/ButtonFilterSelector';
+import BrandFilterContainer from '../public/components/Containers/BrandFilterContainer/BrandFilterContainer';
+import Text20P from '../public/components/Texts/Center/20P/Text20P';
+import Text32P from '../public/components/Texts/Center/32P/Text32P';
 
-import ProductCategoryMC from '../components/Containers/ProductCategoryMC/ProductCategoryMC';
+import ProductCategoryMC from '../public/components/Containers/ProductCategoryMC/ProductCategoryMC';
 
 import { useEffect, useState } from 'react';
-import ProductCard from '../components/Containers/ProductCard/ProductCard';
+import ProductCard from '../public/components/Containers/ProductCard/ProductCard';
 
 const ProductCategory: NextPage = () => {
     const [data, setData] = useState([])

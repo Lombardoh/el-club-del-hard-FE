@@ -2,8 +2,8 @@ import styles from './HeaderTop.styles';
 import ButtonCartHeader from '../../ButtonCartHeader/ButtonCartHeader';
 import ButtonWishHeader from '../../ButtonWishHeader/ButtonWishHeader';
 import ButtonSearchHeader from '../../ButtonSearchHeader/ButtonSearchHeader';
-import Image from '../../../node_modules/next/image';
-import HamburgerMenu from '../../Containers/HamburgerMenu/HamburgerMenu';
+import Image from '../../../../node_modules/next/image';
+import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
 import Link from 'next/link';
 
 function HeaderTop(props: {

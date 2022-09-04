@@ -1,5 +1,5 @@
 import styles from './ProductWishlistCard.styles';
-import Image from '../../../node_modules/next/image';
+import Image from '../../../../node_modules/next/image';
 import ProductCardRow from '../ProductCardRow/ProductCardRow';
 import LabelPromo from '../../LabelPromo/LabelPromo';
 import LabelStock from '../../LabelStock/LabelStock';

@@ -6,9 +6,9 @@ import L_Text20P from '../../Texts/Left/20P/L_Text20P';
 import InputGeneric from '../../InputGeneric/InputGeneric';
 import ButtonPasswordEye from '../../ButtonPasswordEye/ButtonPasswordEye';
 import ButtonBlue from '../../ButtonBlue/ButtonBlue';
-import Link from '../../../node_modules/next/link';
+import Link from '../../../../node_modules/next/link';
 import Text16P_B from '../../Texts/Center/16P_Bold/Text16P_B';
-import { useRouter } from '../../../node_modules/next/router';
+import { useRouter } from '../../../../node_modules/next/router';
 
 function FormRegisterContainer(){
     const axios = require('axios').default;

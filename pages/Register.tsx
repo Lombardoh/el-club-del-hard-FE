@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
-import UserAccessMC from '../components/Containers/UserAccessMC/UserAccessMC';
-import PageTitle from '../components/Containers/PageTitle/PageTitle';
-import FormRegisterContainer from '../components/Containers/FormRegisterContainer/FormRegisterContainer';
+import UserAccessMC from '../public/components/Containers/UserAccessMC/UserAccessMC';
+import PageTitle from '../public/components/Containers/PageTitle/PageTitle';
+import FormRegisterContainer from '../public/components/Containers/FormRegisterContainer/FormRegisterContainer';
 
 const Register: NextPage = () => {
     return (<>

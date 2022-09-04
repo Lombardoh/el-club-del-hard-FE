@@ -1,8 +1,8 @@
 import { NextPage } from 'next';
-import DivP10_F_Center from '../components/Containers/GenericContainers/DivP10_F_Center/DivP10_F_Center';
-import PageTitle from '../components/Containers/PageTitle/PageTitle';
-import ProductWishlistCard from '../components/Containers/ProductWishlistCard/ProductWishlistCard';
-import WishlistMC from '../components/Containers/WishlistMC/WishlistMC';
+import DivP10_F_Center from '../public/components/Containers/GenericContainers/DivP10_F_Center/DivP10_F_Center';
+import PageTitle from '../public/components/Containers/PageTitle/PageTitle';
+import ProductWishlistCard from '../public/components/Containers/ProductWishlistCard/ProductWishlistCard';
+import WishlistMC from '../public/components/Containers/WishlistMC/WishlistMC';
 
 const Wishlist: NextPage = () => {
     return (<>

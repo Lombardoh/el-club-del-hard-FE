@@ -1,15 +1,15 @@
 import { NextPage } from 'next';
 import { useState, useEffect } from 'react';
-import User from '../components/interfaces/interfaces'
-import UserPageMC from '../components/Containers/UserPageMC/UserPageMC';
-import UserPageSC from '../components/Containers/UserPageSC/UserPageSC';
-import UserAccessIC from '../components/Containers/UserAccessIC/UserAccessIC';
-import DivP0_F_Center_nh from '../components/Containers/GenericContainers/DivP0_F_Center_nh/DivP0_F_Center_nh';
-import InputGeneric from '../components/InputGeneric/InputGeneric';
-import L_Text20P from '../components/Texts/Left/20P/L_Text20P';
-import LabelBreakerCheckout from '../components/LabelBreakerCheckout/LabelBreakerCheckout';
-import ButtonBlue from '../components/ButtonBlue/ButtonBlue';
-import L_Text20P_B from '../components/Texts/Left/20P_Bold/L_Text20P_B';
+import User from '../public/components/interfaces/interfaces'
+import UserPageMC from '../public/components/Containers/UserPageMC/UserPageMC';
+import UserPageSC from '../public/components/Containers/UserPageSC/UserPageSC';
+import UserAccessIC from '../public/components/Containers/UserAccessIC/UserAccessIC';
+import DivP0_F_Center_nh from '../public/components/Containers/GenericContainers/DivP0_F_Center_nh/DivP0_F_Center_nh';
+import InputGeneric from '../public/components/InputGeneric/InputGeneric';
+import L_Text20P from '../public/components/Texts/Left/20P/L_Text20P';
+import LabelBreakerCheckout from '../public/components/LabelBreakerCheckout/LabelBreakerCheckout';
+import ButtonBlue from '../public/components/ButtonBlue/ButtonBlue';
+import L_Text20P_B from '../public/components/Texts/Left/20P_Bold/L_Text20P_B';
 
 const MPCheckout: NextPage = () => {
   const [data, setData] = useState<User>()

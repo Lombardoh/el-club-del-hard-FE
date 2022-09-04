@@ -1,8 +1,8 @@
 import { NextPage } from 'next';
-import LabelBreaker from '../components/LabelBreaker/index';
-import ProductDetailedCard from '../components/Containers/ProductDetailedCard/ProductDetailedCard';
-import ProductRow from '../components/Containers/ProductRow/ProductRow';
-import DivP10_F_Center from '../components/Containers/GenericContainers/DivP10_F_Center/DivP10_F_Center';
+import LabelBreaker from '../public/components/LabelBreaker/index';
+import ProductDetailedCard from '../public/components/Containers/ProductDetailedCard/ProductDetailedCard';
+import ProductRow from '../public/components/Containers/ProductRow/ProductRow';
+import DivP10_F_Center from '../public/components/Containers/GenericContainers/DivP10_F_Center/DivP10_F_Center';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 

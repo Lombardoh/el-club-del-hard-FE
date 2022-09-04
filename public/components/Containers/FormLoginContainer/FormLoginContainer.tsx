@@ -10,9 +10,9 @@ import ButtonBoxCheck from '../../ButtonBoxCheck/ButtonBoxCheck';
 import Text16P from '../../Texts/Center/16P/Text16P';
 import Text16P_B from '../../Texts/Center/16P_Bold/Text16P_B';
 import { useEffect, useRef, useState } from 'react';
-import { useRouter } from '../../../node_modules/next/router';
+import { useRouter } from '../../../../node_modules/next/router';
 import InputGeneric from '../../InputGeneric/InputGeneric';
-import Link from '../../../node_modules/next/link';
+import Link from '../../../../node_modules/next/link';
 
 function FormLoginContainer(props: {
     style: string;
@@ -63,6 +63,7 @@ function FormLoginContainer(props: {
 
     const handlePasswordVisible = () =>{
         setInputType(inputType == 'password' ? 'text' : 'password')
+        
     }
 
     useEffect(() => {

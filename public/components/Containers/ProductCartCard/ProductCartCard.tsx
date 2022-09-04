@@ -1,5 +1,5 @@
 import styles from './ProductCartCard.styles';
-import Image from '../../../node_modules/next/image';
+import Image from '../../../../node_modules/next/image';
 import L_Text20P_B from '../../Texts/Left/20P_Bold/L_Text20P_B';
 import L_Text24P_B from '../../Texts/Left/24P_Bold/L_Text24P_B';
 import L_Text20P from '../../Texts/Left/20P/L_Text20P';

@@ -1,8 +1,8 @@
 import { NextPage } from 'next';
-import UserAccessMC from '../components/Containers/UserAccessMC/UserAccessMC';
-import PageTitle from '../components/Containers/PageTitle/PageTitle';
+import UserAccessMC from '../public/components/Containers/UserAccessMC/UserAccessMC';
+import PageTitle from '../public/components/Containers/PageTitle/PageTitle';
 
-import FormLoginContainer from '../components/Containers/FormLoginContainer/FormLoginContainer';
+import FormLoginContainer from '../public/components/Containers/FormLoginContainer/FormLoginContainer';
 
 const Login: NextPage = () => {
     return (<>

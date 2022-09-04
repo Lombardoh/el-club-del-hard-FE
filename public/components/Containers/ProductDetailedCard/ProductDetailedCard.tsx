@@ -1,5 +1,5 @@
 import styles from './ProductDetailedCard.styles';
-import Image from '../../../node_modules/next/image';
+import Image from '../../../../node_modules/next/image';
 import ProductCardRow from '../ProductCardRow/ProductCardRow';
 import LabelPromo from '../../LabelPromo/LabelPromo';
 import LabelPromo2nd from '../../LabelPromo2nd/LabelPromo2nd';

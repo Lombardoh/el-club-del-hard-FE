@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styles from './BannerContainer.styles';
-import Image from '../../../node_modules/next/image';
+import Image from '../../../../node_modules/next/image';
 
 export const  CarouselItem = (props: {
   src: string
