@@ -12,8 +12,16 @@ const styles = {
         display:'flex',
         flexDirection:'row-reverse',
         alignItems:'center',
-        gap:'50px',
+        justifyContent:'space-around',
         padding:'0px 20px 0px 20px',
+        width:'70%',
+        $nest: {
+            '@media (max-width: 800px)': {
+                width:'60%',
+                padding:'0px',
+                alignItems:'space-between',
+            }
+        }
     })
 }
 

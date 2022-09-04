@@ -5,10 +5,13 @@ const styles = {
         display:'flex',
         flexDirection:'row',
         gap:'20px',
-        justifyContent:'flex-end',
+        justifyContent:'center',
         alignItems:'center',
         padding:'10px',
-        height:'100%'
+        height:'100%',
+        '@media (max-width: 800px)': {
+            gap:'10px'
+        }
     })
 }
 

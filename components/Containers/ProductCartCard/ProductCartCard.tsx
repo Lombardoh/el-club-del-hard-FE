@@ -1,13 +1,14 @@
 import styles from './ProductCartCard.styles';
 import Image from '../../../node_modules/next/image';
-import Text24P_B from '../../Texts/Center/24P_Bold/Text24P_B';
-import DivP10_F_Center from '../GenericContainers/DivP10_F_Center/DivP10_F_Center';
+import L_Text20P_B from '../../Texts/Left/20P_Bold/L_Text20P_B';
+import L_Text24P_B from '../../Texts/Left/24P_Bold/L_Text24P_B';
+import L_Text20P from '../../Texts/Left/20P/L_Text20P';
 import L_Text24P from '../../Texts/Left/24P/L_Text24P';
 import ButtonBlueDelete from '../../ButtonBlueDelete/ButtonBlueDelete';
 import ButtonArrow from '../../ButtonArrow/ButtonArrow';
 import WishlistPC from '../WishlistPC/WishlistPC';
 import WishlistBC from '../WishlistBC/WishlistBC';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Router from "next/router";
 
 function ProductCartCard(props: {
@@ -32,6 +33,7 @@ function ProductCartCard(props: {
     const [cartQuantity, setCartQuantity] = useState(props.quantity);
     const [totalPrice, setTotalPrice ] = useState(props.total_price)
     let price : number  = Number(props.price);
+    const [windowWidth, setWindowWidth] = useState(0);
 
     const sendData = (action) => {        
     console.log(action)
@@ -80,6 +82,15 @@ function ProductCartCard(props: {
         }
     }
 
+    useEffect(() => {
+        setWindowWidth(window.innerWidth);
+        if(windowWidth){
+            window.addEventListener('resize', () => {
+                setWindowWidth(window.innerWidth);
+            });
+        }
+    }, [windowWidth]);
+
     return (
         <div
             className = {styles.container}
@@ -92,14 +103,18 @@ function ProductCartCard(props: {
                     height={100}
                 />
             </div>
-            <div>
-                <DivP10_F_Center style='row'>
+            <div className={styles.itemName}>
+                {windowWidth<1400 ? 
+                    <L_Text20P text={props.productName} />:
                     <L_Text24P text={props.productName} />
-                </DivP10_F_Center>
+                }
             </div>
-            <div style={{display:'flex'}}>
+            <div className={styles.priceArea}>
                 <WishlistPC style='row'>
-                    <Text24P_B text={totalPrice.toString()} />
+                    {windowWidth<1400 ? 
+                        <L_Text20P_B text={totalPrice.toString()} /> :
+                        <L_Text24P_B text={totalPrice.toString()} />
+                    }
                     <WishlistBC>
                         <ButtonArrow 
                             text={'-'}
@@ -113,21 +128,15 @@ function ProductCartCard(props: {
                             onClick={() => handleClick('+')}
                         />
                     </WishlistBC>
-                </WishlistPC>
-                        
-                <div style={{
-                    width:'300px',
-                    height:'200px',
-                }}>
-                    <WishlistBC>
-                        <ButtonBlueDelete 
-                            text='Eliminar del Carrito' 
-                            alert='Producto Eliminado' 
-                            onClick={handleDelete} 
-                            style={props.wishButtonStyle} 
-                            type='button'
-                            />
-                    </WishlistBC>
+                </WishlistPC> 
+                <div className={styles.buttonArea}>
+                    <ButtonBlueDelete 
+                        text='Eliminar del Carrito' 
+                        alert='Producto Eliminado' 
+                        onClick={handleDelete} 
+                        style={props.wishButtonStyle} 
+                        type='button'
+                    />
                 </div>
             </div>
         </div>
