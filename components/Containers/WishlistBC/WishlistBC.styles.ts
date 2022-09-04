@@ -9,8 +9,10 @@ const styles = {
         alignItems:'center',
         padding:'10px',
         height:'100%',
+        $nest: {
         '@media (max-width: 800px)': {
             gap:'10px'
+            }
         }
     })
 }
