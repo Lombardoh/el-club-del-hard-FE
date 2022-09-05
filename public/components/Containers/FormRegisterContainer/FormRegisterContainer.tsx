@@ -102,7 +102,6 @@ function FormRegisterContainer(){
             router.reload()
         })
         .catch(function (error) {
-            // handle error
             console.log(error.response.status);
             emailError.current.innerHTML = error.response.data.email
             usernameError.current.innerHTML = error.response.data.username;
