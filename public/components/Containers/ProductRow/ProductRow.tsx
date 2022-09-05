@@ -15,8 +15,8 @@ function ProductRow(props: {
     const [windowWidth, setWindowWidth] = useState(0);
     let displacement = 320;
 
-    const getData = () => {        
-        fetch(`${process.env.BACKEND_URL}/store/products/`, {
+    const getData = () => {       
+        fetch(`${process.env.BACKEND_URL_API}store/products/`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',

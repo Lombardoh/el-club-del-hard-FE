@@ -10,7 +10,7 @@ function ButtonCart(props: {
     const axios = require('axios').default;
 
     const sendData = () => {      
-        axios.post(`${process.env.BACKEND_URL}/api/cart/cart/`,
+        axios.post(`${process.env.BACKEND_URL_API}cart/cart/`,
         {
             product: props.product_pk,
             quantity: 1

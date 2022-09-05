@@ -15,7 +15,7 @@ const Cart: NextPage = () => {
     const axios = require('axios').default;
     
     const getData = () => {        
-        axios.get(`${process.env.BACKEND_URL}/api/cart/cart/`,
+        axios.get(`${process.env.BACKEND_URL_API}cart/cart/`,
         {
             headers: {
                 'Accept': 'application/json',

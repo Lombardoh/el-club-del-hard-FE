@@ -35,7 +35,7 @@ function FormLoginContainer(props: {
 
     const sendData = (event) => {        
         event.preventDefault()
-        axios.post(`${process.env.BACKEND_URL}/accounts/login`,
+        axios.post(`${process.env.BACKEND_URL}accounts/login`,
         {
             username: data.username,
             password: data.password

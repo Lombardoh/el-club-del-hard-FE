@@ -20,7 +20,7 @@ const UserPageInfo: NextPage = () => {
   const [windowWidth, setWindowWidth] = useState(0);
 
   const getData = () => {    
-    axios.get(`${process.env.BACKEND_URL}/api/accounts/accounts/`,
+    axios.get(`${process.env.BACKEND_URL_API}accounts/accounts/`,
     {
         headers: {
             'Accept': 'application/json',
@@ -39,7 +39,7 @@ const UserPageInfo: NextPage = () => {
   }, [dataFetched]);
 
   const sendData = () => {
-    axios.put(`${process.env.BACKEND_URL}/api/accounts/accounts/`,
+    axios.put(`${process.env.BACKEND_URL_API}/accounts/accounts/`,
     {
       data
     },

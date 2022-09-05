@@ -22,7 +22,7 @@ const OtherCheckout: NextPage = () => {
   const [windowWidth, setWindowWidth] = useState(0);
 
   const getUserData = () => {    
-    axios.get(`${process.env.BACKEND_URL}/api/accounts/accounts/`,
+    axios.get(`${process.env.BACKEND_URL_API}accounts/accounts/`,
     {
         headers: {
             'Accept': 'application/json',
@@ -41,7 +41,7 @@ const OtherCheckout: NextPage = () => {
   }, [dataFetched]);
 
   const getPriceData = () => {    
-    axios.get(`${process.env.BACKEND_URL}/api/cart/cart/`,
+    axios.get(`${process.env.BACKEND_URL_API}cart/cart/`,
     {
         headers: {
             'Accept': 'application/json',
@@ -60,7 +60,7 @@ const OtherCheckout: NextPage = () => {
   }, [priceFetched]);
 
   const sendOrderData = () => {      
-      axios.post(`${process.env.BACKEND_URL}/api/orders/order/`,
+      axios.post(`${process.env.BACKEND_URL_API}orders/order/`,
       {},
       {
           headers: {
@@ -76,7 +76,7 @@ const OtherCheckout: NextPage = () => {
   }
 
   const sendAccountData = () => {
-    axios.put(`${process.env.BACKEND_URL}/api/accounts/accounts/`,
+    axios.put(`${process.env.BACKEND_URL_API}accounts/accounts/`,
     {
       data
     },

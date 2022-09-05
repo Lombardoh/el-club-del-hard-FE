@@ -8,6 +8,7 @@ const nextConfig = {
   },
   env: {
     BACKEND_URL: process.env.BACKEND_URL,
+    BACKEND_URL_API: process.env.BACKEND_URL_API,
     ALLOW_BACKEND_IMAGE_URL: process.env.ALLOW_BACKEND_IMAGE_URL,
   },
   exportPathMap: async function(

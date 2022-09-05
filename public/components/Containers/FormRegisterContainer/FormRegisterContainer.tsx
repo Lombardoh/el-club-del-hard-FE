@@ -39,7 +39,7 @@ function FormRegisterContainer(){
         setMessageChanged(true)
     }, [messageChanged])
 
-    const handleInputChange = (event) => {
+    const handleInputChange = (event : any) => {
         setData({
             ...data,
             [event.target.name] : event.target.value
@@ -47,7 +47,7 @@ function FormRegisterContainer(){
     }
 
     const checkUsername = (username) =>{
-        axios.get(`${process.env.BACKEND_URL}/accounts/account_available/` + username)
+        axios.get(`${process.env.BACKEND_URL}accounts/account_available/` + username)
         .then(res =>{
             console.log(res.data['message'])
             setUsernameMessage(res.data['message'])
@@ -64,7 +64,7 @@ function FormRegisterContainer(){
     }
 
     const checkEmail = (email) =>{
-        axios.get(`${process.env.BACKEND_URL}/accounts/email_available/` + email)
+        axios.get(`${process.env.BACKEND_URL}accounts/email_available/` + email)
         .then(res =>{
             console.log(res.data['message'])
             setEmailAvailable(true)
