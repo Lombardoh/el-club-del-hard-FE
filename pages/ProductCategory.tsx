@@ -20,7 +20,7 @@ import ProductCard from '../public/components/Containers/ProductCard/ProductCard
 const ProductCategory: NextPage = () => {
     const [data, setData] = useState([])
     const getData = () => {        
-        fetch(`${process.env.BACKEND_URL}/api/store/products/`, {
+        fetch(`${process.env.BACKEND_URL_API}store/products/`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
