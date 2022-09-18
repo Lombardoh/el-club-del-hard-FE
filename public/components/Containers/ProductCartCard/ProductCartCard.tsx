@@ -36,9 +36,8 @@ function ProductCartCard(props: {
     const [windowWidth, setWindowWidth] = useState(0);
 
     const sendData = (action) => {        
-    console.log(action)
     let quantity = action === '+' ? 1 : action === '-' ? -1: 0;
-    axios.post(`${process.env.BACKEND_URL}/api/cart/cart/`,
+    axios.post(`${process.env.BACKEND_URL}api/cart/cart/`,
         {   
             product: props.product_id,
             quantity: quantity

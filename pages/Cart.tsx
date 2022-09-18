@@ -34,7 +34,6 @@ const Cart: NextPage = () => {
         setCartTotal(eval(`${cartTotal} ${action} ${price}`))
     }
 
-
     useEffect(() => {
         getData();
     }, [dataFetched]);

@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 function ProductRow(props: {
     title: string,
     style: string,
+    cartClicked: any
 }){
     let currentStyle = props.style
     const [activeIndex, setActiveIndex] = useState(0);
@@ -88,6 +89,7 @@ function ProductRow(props: {
                                 transform: `translateX(-${activeIndex*displacement}px)`,}}>
                                     <ProductCard
                                         key={key}
+                                        cartClicked={props.cartClicked}
                                         product_pk={product.pk}
                                         labelPromo={product.label} 
                                         labelPromoStyle={'onSale'} 

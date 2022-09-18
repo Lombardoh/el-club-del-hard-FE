@@ -83,7 +83,7 @@ function FormRegisterContainer(){
 
     const sendData = (event) => {        
         event.preventDefault()
-        axios.post(`${process.env.BACKEND_URL}/accounts/register`, 
+        axios.post(`${process.env.BACKEND_URL}accounts/register`, 
         {   
             email: data.email, 
             username: data.username,
@@ -121,6 +121,10 @@ function FormRegisterContainer(){
         handleInputChange(event)
         checkEmail(event.target.value)
     }
+
+    useEffect(() => {
+        localStorage.getItem('token') ? router.push('/') : null;
+    });
 
     return (
             <form className={styles.container} 

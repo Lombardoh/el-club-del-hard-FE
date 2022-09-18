@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return <>
   <Head>
         <title>El club del hard</title>
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+        <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
       </Head>
   <TopBar />
   {mobile ?

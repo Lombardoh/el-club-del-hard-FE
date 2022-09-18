@@ -22,6 +22,7 @@ function ProductCard(props: {
     imageAlt?: string,
     productName: string,
     price: string,
+    cartClicked: any
 })
 {
     const [windowWidth, setWindowWidth] = useState(0);
@@ -70,7 +71,7 @@ function ProductCard(props: {
                     <Text18P_B_Price text={props.price} /> :
                     <Text22P_B_Price text={props.price} /> 
                 }
-                <ProductCardRowButtons product_pk={props.product_pk} />
+                <ProductCardRowButtons cartClicked={props.cartClicked} product_pk={props.product_pk} />
             </ProductCardRow>
         </div>
     );

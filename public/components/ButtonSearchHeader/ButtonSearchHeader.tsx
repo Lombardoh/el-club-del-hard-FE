@@ -5,7 +5,7 @@ import {IconContext} from 'react-icons';
 
 function ButtonSearchHeader(){
         return (
-            <div style={{marginTop: '15px;'}}>
+            <div style={{marginTop: '15px'}}>
                 <IconContext.Provider value={{className: styles.searchBar}}>          
                     <BsSearch />
                 </IconContext.Provider>

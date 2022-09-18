@@ -5,6 +5,7 @@ import {IconContext} from 'react-icons';
 
 function ButtonCart(props: {
     product_pk: number,
+    cartClicked: any
 }){
     const [onCart, setOnCart] = useState<boolean>(false)
     const axios = require('axios').default;
@@ -29,7 +30,7 @@ function ButtonCart(props: {
     }
 
     const handleClick = () => {
-        setOnCart(!onCart)
+        props.cartClicked()
         sendData();
     }
 
@@ -39,7 +40,7 @@ function ButtonCart(props: {
                 onClick = {handleClick}
                 className = {styles.cart}
             >
-                {onCart ? <BsFillCartCheckFill /> : <BsCartPlus />}
+                <BsCartPlus />
             </div>
         </IconContext.Provider>
     );
