@@ -122,7 +122,7 @@ function FormLoginContainer(props: {
                         </ClickableContainer>
                     </div>
                     <div style={{display:'flex',flexDirection:'column',alignItems:'flex-end',gap:'10px'}}>
-                        <Link href={'/Register'}>
+                        <Link href={'/register'}>
                             <a>
                                 <Text16P_B text='¿No tenés Cuenta? ¡Resgistrate aquí!' />
                             </a>
