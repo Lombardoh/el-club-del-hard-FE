@@ -10,6 +10,8 @@ const ProductPage: NextPage = () => {
     const [data, setData] = useState([])
     const [dataFetched, setDataFetched] = useState(false)
     const router = useRouter();
+    const [showMessage, setShowMessage] = useState<boolean>(false)
+    const [messageVisible, setMessageVisible] = useState<boolean>(false)
     let product_pk = router.query.product_pk;
 
     const getData = () => {        
@@ -32,6 +34,21 @@ const ProductPage: NextPage = () => {
         getData()
     }, [dataFetched]);
 
+
+  const handleMessage = () =>{
+    setShowMessage(true)
+    setMessageVisible(true)
+  }
+
+  useEffect(() => {
+    if(showMessage){
+      const interval = setInterval(() => {
+        setShowMessage(false)
+      }, 4000);
+      setMessageVisible(false)
+    }
+  }, [messageVisible])
+
     return (<>
         <DivP10_F_Center style='column'>
             {dataFetched ? 
@@ -50,7 +67,7 @@ const ProductPage: NextPage = () => {
                 labelStockStyle={'onStock'}
             /> : <div>Loading...</div>}
             <LabelBreaker style={'horizontalBreaker'} />
-            <ProductRow title={'Productos Similares'} style='center'/>
+            <ProductRow cartClicked={handleMessage} title={'Productos Similares'} style='center'/>
         </DivP10_F_Center>
     </>)
 }

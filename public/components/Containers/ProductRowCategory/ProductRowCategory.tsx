@@ -18,6 +18,7 @@ function ProductRowCategory(props: {}){
             }}>
                 <ProductCard 
                     product_pk={1}
+                    cartClicked={Function}
                     labelPromo={'En Oferta'} 
                     labelPromoStyle={'onSale'} 
                     labelPromoDisabled={false}
@@ -30,6 +31,7 @@ function ProductRowCategory(props: {}){
                 />
                 <ProductCard 
                     product_pk={1}
+                    cartClicked={Function}
                     labelPromo={'Más Vendidos'} 
                     labelPromoStyle={'mostSold'} 
                     labelPromoDisabled={false}
@@ -42,6 +44,7 @@ function ProductRowCategory(props: {}){
                 />
                 <ProductCard 
                     product_pk={1}
+                    cartClicked={Function}
                     labelPromo={'En Oferta'} 
                     labelPromoStyle={'onSale'}
                     labelPromoDisabled={true}
@@ -54,6 +57,7 @@ function ProductRowCategory(props: {}){
                 />
                 <ProductCard 
                     product_pk={1}  
+                    cartClicked={Function}
                     labelPromo={'En Oferta'} 
                     labelPromoStyle={'onSale'} 
                     labelPromoDisabled={false}
