@@ -28,7 +28,7 @@ function NavBar(props:{
     return (
         <div className = {styles.container}>
             <div className={currentNavStyle}>
-            <NextLink href='/ProductCategory' className={styles.link} >
+            <NextLink href='/productscategory' className={styles.link} >
                     <a className={styles.text}>Categorias</a>
                 </NextLink>
                 {user ? 
