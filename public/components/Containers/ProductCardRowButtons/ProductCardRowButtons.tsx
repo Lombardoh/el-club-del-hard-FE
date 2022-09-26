@@ -5,6 +5,7 @@ import ButtonCart from '../../ButtonCart/ButtonCart';
 function ProductCardRowButtons(props: {
     children?: any,
     product_pk: number,
+    quantity: number,
     cartClicked: any
 })
 {
@@ -13,7 +14,7 @@ function ProductCardRowButtons(props: {
             className = {styles.container}
         >
             {/* <ButtonWishlist product_pk={props.product_pk}/> */}
-            <ButtonCart cartClicked={props.cartClicked} product_pk={props.product_pk}/>
+            <ButtonCart quantity={props.quantity} cartClicked={props.cartClicked} product_pk={props.product_pk}/>
         </div>
     );
 }

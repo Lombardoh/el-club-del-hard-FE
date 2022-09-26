@@ -11,6 +11,7 @@ import L_Text20P from '../public/components/Texts/Left/20P/L_Text20P';
 import LabelBreakerCheckout from '../public/components/LabelBreakerCheckout/LabelBreakerCheckout';
 import ButtonBlue from '../public/components/ButtonBlue/ButtonBlue';
 import L_Text20P_B from '../public/components/Texts/Left/20P_Bold/L_Text20P_B';
+import { useRouter } from '../node_modules/next/router'
 
 
 const OtherCheckout: NextPage = () => {
@@ -20,6 +21,7 @@ const OtherCheckout: NextPage = () => {
   const [priceFetched, setPriceFetched] = useState<boolean>(false)
   const axios = require('axios').default;
   const [windowWidth, setWindowWidth] = useState(0);
+  const router = useRouter();
 
   const getUserData = () => {    
     axios.get(`${process.env.BACKEND_URL_API}accounts/accounts/`,
@@ -71,6 +73,7 @@ const OtherCheckout: NextPage = () => {
       })
       .then(res => {
           console.log(res)
+          router.push('/successful_purchase')
       })
       .catch(err => console.log(err))
   }

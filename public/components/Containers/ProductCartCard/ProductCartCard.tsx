@@ -60,7 +60,6 @@ function ProductCartCard(props: {
     }
 
     const handleClick = (action : string) => {
-        console.log(eval(`${cartQuantity} ${action} 1`))
         if(eval(`${cartQuantity} ${action} 1`)<1)
             handleDelete()
         else if((eval(`${cartQuantity} ${action} 1`)>0)){

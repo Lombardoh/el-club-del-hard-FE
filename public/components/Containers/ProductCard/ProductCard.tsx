@@ -71,7 +71,7 @@ function ProductCard(props: {
                     <Text18P_B_Price text={props.price} /> :
                     <Text22P_B_Price text={props.price} /> 
                 }
-                <ProductCardRowButtons cartClicked={props.cartClicked} product_pk={props.product_pk} />
+                <ProductCardRowButtons quantity={1} cartClicked={props.cartClicked} product_pk={props.product_pk} />
             </ProductCardRow>
         </div>
     );

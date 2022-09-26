@@ -10,9 +10,9 @@ function ProductRow(props: {
     cartClicked: any
 }){
     let currentStyle = props.style
-    const [activeIndex, setActiveIndex] = useState(0);
+    const [activeIndex, setActiveIndex] = useState<number>(0);
     const [data, setData] = useState([])
-    const [dataFetched, setDataFecthed] = useState(false)
+    const [dataFetched, setDataFetched] = useState(false)
     const [windowWidth, setWindowWidth] = useState(0);
     let displacement = 320;
 
@@ -23,35 +23,25 @@ function ProductRow(props: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
-        }).then(res => res.json())
+        })
+        .then(res => res.json())
         .then(data => {
             setData(data.results)
-            setDataFecthed(true)
+            setDataFetched(true)
         })
         .catch(err => console.log(err))
     }   
 
-    const handleClick = (index: number, limit: number) => {
-        if (index >= limit){
-        index = 0
-        }
-        setActiveIndex(index);
+    const handleClick = (action) => {
+        console.log(activeIndex, 'test')
+        setActiveIndex(eval(`${activeIndex} ${action} 1`))
+        if (activeIndex > 4) setActiveIndex(0);
+        if (activeIndex < 0) setActiveIndex(4);
     }
 
     useEffect(() => {
         getData();
     }, [dataFetched])
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            handleClick(activeIndex + 1, data.length-4);
-        }, 3000);
-        return () => {
-            if(interval){
-                clearInterval(interval);
-            }
-        };
-    });
     
     useEffect(() => {
         setWindowWidth(window.innerWidth);
@@ -79,7 +69,7 @@ function ProductRow(props: {
                 <ButtonArrow 
                     text={'◀'}
                     style={'buttonArrow'}
-                    onClick={Function}
+                    onClick={() => handleClick('-')}
                 />
                 <div className={styles.carousel}>
                     {data ? data.map((product, key) => {
@@ -111,7 +101,7 @@ function ProductRow(props: {
                     right={true}
                     text={'▶'}
                     style={'buttonArrow'}
-                    onClick={Function}
+                    onClick={() => handleClick('+')}
                 />
             </div>
         </div>

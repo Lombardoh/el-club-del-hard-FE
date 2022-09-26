@@ -33,7 +33,7 @@ const styles = {
         justifyContent:'center',
         $nest: {
             '@media (max-width: 440px)' : {
-                height:'60px',
+                height:'100px',
             },
         }
     }),

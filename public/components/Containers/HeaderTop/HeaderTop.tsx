@@ -1,14 +1,29 @@
 import styles from './HeaderTop.styles';
 import ButtonCartHeader from '../../ButtonCartHeader/ButtonCartHeader';
-import ButtonWishHeader from '../../ButtonWishHeader/ButtonWishHeader';
 import ButtonSearchHeader from '../../ButtonSearchHeader/ButtonSearchHeader';
 import Image from '../../../../node_modules/next/image';
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
 import Link from 'next/link';
+import NextLink from '../../../../node_modules/next/link';
+import {useEffect, useState} from 'react';
 
 function HeaderTop(props: {
     onClick?: any
     }){
+
+    const [user, setUser] = useState(null);
+    const [buttonTextDisabled, setButtonTextDisabled] = useState(false);
+
+    useEffect(() => {
+        setButtonTextDisabled(window.innerWidth < 495);
+        if(window.innerWidth){
+            setUser(localStorage.getItem('username'))
+            window.addEventListener('resize', () => {
+                setButtonTextDisabled(window.innerWidth < 495);
+            });
+        }
+    }, [buttonTextDisabled]); 
+    
     return (
         <div
             className = {styles.container}
@@ -33,6 +48,16 @@ function HeaderTop(props: {
                     {/* <ButtonWishHeader /> */}
                     <ButtonSearchHeader />
                     <ButtonCartHeader />
+                    {user ? 
+                      <NextLink href='/UserPageInfo' >
+                      {/* <a className={styles.text}>Bienvenido {user}</a> */}
+                      <a className={styles.text}>Bienvenido</a>
+                      </NextLink>
+                      :
+                      <NextLink href='/Login' >
+                          <a className={styles.text}>Ingresar</a>
+                      </NextLink>  
+                    }
                 </div>
                 <div className={styles.hamburgerMenu}>
                     <HamburgerMenu onClick={props.onClick}/>

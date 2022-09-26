@@ -79,6 +79,26 @@ const styles = {
             },
         },
     }),
+    text: style({
+        display: 'flex',
+        $nest: {
+            '@media (min-width: 800px)': {
+                fontSize: "24px",
+                fontFamily: '',
+                fontWeight: "400",
+                padding: "10px",
+            },
+            '@media (max-width: 800px)': {
+                fontSize: '24px',
+                fontWeight:'500',
+            },
+            '@media (max-width: 600px)': {
+                marginRight: '10px',
+                paddingTop: '1.2rem',
+                fontSize: '16px',
+            }
+        }
+    }),
 }
 
 export default styles;

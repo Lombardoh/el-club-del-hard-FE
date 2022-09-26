@@ -5,7 +5,8 @@ import {IconContext} from 'react-icons';
 
 function ButtonCart(props: {
     product_pk: number,
-    cartClicked: any
+    cartClicked: any,
+    quantity: number
 }){
     const [onCart, setOnCart] = useState<boolean>(false)
     const axios = require('axios').default;
@@ -14,7 +15,7 @@ function ButtonCart(props: {
         axios.post(`${process.env.BACKEND_URL_API}cart/cart/`,
         {
             product: props.product_pk,
-            quantity: 1
+            quantity: props.quantity
         },
         {
             headers: {
