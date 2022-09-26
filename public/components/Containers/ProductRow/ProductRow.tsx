@@ -86,7 +86,7 @@ function ProductRow(props: {
                                         labelPromoDisabled={product.label != '' ? false : true}
                                         labelStock={'En Stock'}
                                         labelStockStyle={'onStock'}
-                                        imageURL={product.image.replace(':8000','')}
+                                        imageURL={product.image.replace(':8080','')}
                                         imageAlt={product.alt}
                                         productName={product.name}
                                         price={`$ ${product.price}`}
