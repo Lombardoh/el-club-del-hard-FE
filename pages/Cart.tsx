@@ -55,7 +55,7 @@ const Cart: NextPage = () => {
                                         labelPromoDisabled={cartItem.product.label != '' ? false : true}
                                         labelStock={'En Stock'}
                                         labelStockStyle={'onStock'}
-                                        imageURL={cartItem.product.image}
+                                        imageURL={cartItem.product.image.replace(':8080','')}
                                         imageAlt={cartItem.product.alt}
                                         productName={cartItem.product.name}
                                         total_price={cartItem.product_total}
