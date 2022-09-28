@@ -62,7 +62,7 @@ const ProductPage: NextPage = () => {
                 imageAlt={productData['alt']}
                 description={productData['description']}
                 price={productData['price']}
-                imageURL={productData['image']}
+                imageURL={productData['image'].replace(':8080','')}
                 labelPromo={productData['label']} 
                 labelPromoStyle={'onSale'}
                 labelPromo2nd={'Más Vendidos'} 
