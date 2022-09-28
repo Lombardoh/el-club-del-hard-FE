@@ -10,15 +10,15 @@ import { useEffect, useState } from 'react';
 const ProductPage: NextPage = () => {
   const [productData, setProductData] = useState([])
   const [dataFetched, setDataFetched] = useState(false)
-  const [productPk, setProductPk] = useState()
+  const [productPk, setProductPk] = useState<number>()
   const router = useRouter();
   const [showMessage, setShowMessage] = useState<boolean>(false)
   const [messageVisible, setMessageVisible] = useState<boolean>(false)
 
   useEffect(() => {
     console.log(productPk, router.query.product_pk)
-    if(router.query.product_pk && dataFetched == false || router.query.product_pk != productPk){
-      setProductPk(router.query.product_pk)
+    if(router.query.product_pk && dataFetched == false || Number(router.query.product_pk) != productPk){
+      setProductPk(Number(router.query.product_pk))
       getData(router.query.product_pk)
     } 
   });

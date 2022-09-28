@@ -13,7 +13,7 @@ import { useState, useEffect } from 'react';
 import ButtonCart from '../../ButtonCart/ButtonCart';
 
 function ProductDetailedCard(props: {
-		cartClicked:any,
+	 cartClicked:any,
     product_pk: number,
     labelPromo: string,
     labelPromoStyle: string,
@@ -26,10 +26,12 @@ function ProductDetailedCard(props: {
     imageAlt?: string,
     productName: string,
     description?: string,
-    price: string,
+    price: number,
 })
 {
     const [quantity, setQuantity] = useState<number>(1)
+    const price:number = props.price
+    const [product_pk, setProduct_PK] = useState<number>(props.product_pk)
 
     const checkQuantity = (action) => {
         fetch(`${process.env.BACKEND_URL_API}store/products/${props.product_pk}`, {
@@ -53,10 +55,11 @@ function ProductDetailedCard(props: {
         checkQuantity(action)
     }
 
-		const addToCart = () => {
-
-		}
-
+    useEffect(() => {
+      setQuantity(1)
+      setProduct_PK(product_pk)
+    }, [product_pk == props.product_pk])
+  
     return (
         <div
             className = {styles.container}
@@ -108,7 +111,7 @@ function ProductDetailedCard(props: {
                 </div>
 
                 <div style={{display:'flex',flexDirection:'row',gap:'50px',justifyContent:'center',alignItems:'center'}}>
-                    <Text24P_B text={props.price} />
+                    <Text24P_B text={`${price * quantity}.00`} />
                     <div style={{display:'flex',flexDirection:'row',gap:'20px',justifyContent:'center',alignItems:'center'}}>
                         <ButtonArrow 
                             text={'-'}
