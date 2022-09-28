@@ -39,6 +39,7 @@ const UserPageInfo: NextPage = () => {
   }, [dataFetched]);
 
   const sendData = () => {
+    console.log(`${process.env.BACKEND_URL_API}accounts/accounts/`)
     axios.put(`${process.env.BACKEND_URL_API}accounts/accounts/`,
     {
       data
