@@ -10,19 +10,20 @@ import { useEffect, useState } from 'react';
 const ProductPage: NextPage = () => {
   const [productData, setProductData] = useState([])
   const [dataFetched, setDataFetched] = useState(false)
+  const [productPk, setProductPk] = useState()
   const router = useRouter();
   const [showMessage, setShowMessage] = useState<boolean>(false)
   const [messageVisible, setMessageVisible] = useState<boolean>(false)
-  let product_pk: number = 0;
 
   useEffect(() => {
-    if(router.query.product_pk && dataFetched == false){
-      product_pk = Number(router.query.product_pk);
-      getData()
+    console.log(productPk, router.query.product_pk)
+    if(router.query.product_pk && dataFetched == false || router.query.product_pk != productPk){
+      setProductPk(router.query.product_pk)
+      getData(router.query.product_pk)
     } 
   });
 
-  const getData = () => {
+  const getData = (product_pk) => {
     fetch(`${process.env.BACKEND_URL_API}store/products/${product_pk}`, {
       method: 'GET',
       headers: {
@@ -61,7 +62,7 @@ const ProductPage: NextPage = () => {
                 imageAlt={productData['alt']}
                 description={productData['description']}
                 price={productData['price']}
-                imageURL={productData['image'].replace(':8080','')}
+                imageURL={productData['image']}
                 labelPromo={productData['label']} 
                 labelPromoStyle={'onSale'}
                 labelPromo2nd={'Más Vendidos'} 
