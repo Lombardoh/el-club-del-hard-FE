@@ -51,7 +51,7 @@ function HeaderTop(props: {
                     {user ? 
                       <NextLink href='/UserPageInfo' >
                       {/* <a className={styles.text}>Bienvenido {user}</a> */}
-                      <a className={styles.text}>Bienvenido</a>
+                      <a className={styles.text}>{user}</a>
                       </NextLink>
                       :
                       <NextLink href='/Login' >
