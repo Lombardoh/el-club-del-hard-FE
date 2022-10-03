@@ -23,7 +23,7 @@ const styles = {
                 height: '500px',
             },
             '@media (max-width: 470px)' : {
-                width:'155px',
+                width:'130px',
             },
         }
     }),

@@ -58,7 +58,7 @@ function ProductDetailedCard(props: {
     useEffect(() => {
       setQuantity(1)
       setProduct_PK(product_pk)
-    }, [product_pk == props.product_pk])
+    }, [props.product_pk])
   
     return (
         <div
@@ -106,7 +106,7 @@ function ProductDetailedCard(props: {
                     <L_Text40P_B text={props.productName} />
                 </DivP10_F_Center>
                 
-                <div style={{padding:'25px 100px'}}>
+                <div className={styles.productText}>
                     <L_Text24P text={props.description} />
                 </div>
 
@@ -126,8 +126,7 @@ function ProductDetailedCard(props: {
                         />
                     </div>
 
-                    <div style={{display:'flex',flexDirection:'row',gap:'50px',padding:'0px 100px'}}>
-                        {/* <ButtonWishlist product_pk={1} /> */}
+                    <div className={styles.cartButtons}>
                         <ButtonCart quantity={quantity} cartClicked={props.cartClicked} product_pk={props.product_pk}/>
                     </div>
                 </div>

@@ -13,11 +13,10 @@ export default function useProduct(pageNumber){
             url: `https://clubdelhard.ar/api/store/products/`,
             params: {page: pageNumber}
         }).then(res => {
-            console.log('res.data.results')
             setProducts(prevProducts => {
                 return [...prevProducts, ...res.data.results.map(product =>
-                    { return {...product}
-                    })]
+                    { return {...product}}
+                    )]
             })
             setHasmore(res.data.next !== null)
             setLoading(false)

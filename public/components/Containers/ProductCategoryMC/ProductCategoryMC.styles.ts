@@ -11,8 +11,12 @@ const styles = {
         padding:'0px 50px',
         gap:'15px',
         $nest: {
+            '@media (min-width: 400px)': {                
+                padding: "0 0",
+                gap:'5px',
+            },
             '@media (min-width: 768px)': {
-                padding: "0 70px",
+                padding: "0 0",
                 gap:'30px',
             },
             '@media (min-width: 1200px)': {

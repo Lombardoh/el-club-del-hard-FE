@@ -2,7 +2,8 @@ import styles from './ProductRow.styles';
 import Text36P_L from '../../Texts/Left/36P_Bold/L_Text36P_B';
 import ProductCard from '../ProductCard/ProductCard';
 import ButtonArrow from '../../ButtonArrow/ButtonArrow';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
+import { Console } from 'console';
 
 function ProductRow(props: {
     title: string,
@@ -11,10 +12,25 @@ function ProductRow(props: {
 }){
     let currentStyle = props.style
     const [activeIndex, setActiveIndex] = useState<number>(0);
+    const [mouseX, setMouseX] = useState<number>(0)
     const [data, setData] = useState([])
     const [dataFetched, setDataFetched] = useState(false)
     const [windowWidth, setWindowWidth] = useState(0);
     let displacement = 320;
+
+    const slider = useRef(null);
+    
+    const handleMouseScroll = (event) =>{
+        setMouseX(event.scrollX)
+        setActiveIndex(activeIndex+1)
+        console.log(activeIndex, mouseX)
+    }
+
+    useEffect(() => {
+      if(slider && slider.current){
+        slider.current.addEventListener('touchmove', e => handleMouseScroll(e));
+      }
+    }, [])
 
     const getData = () => {       
         fetch(`${process.env.BACKEND_URL_API}store/products/`, {
@@ -33,7 +49,6 @@ function ProductRow(props: {
     }   
 
     const handleClick = (action) => {
-        console.log(activeIndex, 'test')
         setActiveIndex(eval(`${activeIndex} ${action} 1`))
         if (activeIndex > 4) setActiveIndex(0);
         if (activeIndex < 0) setActiveIndex(4);
@@ -94,7 +109,7 @@ function ProductRow(props: {
                                 </div> : null}
                         </>)
                     }) : 'Loading...'}
-                </div>
+                </div>                
                 <ButtonArrow 
                     right={true}
                     text={'▶'}
@@ -102,6 +117,7 @@ function ProductRow(props: {
                     onClick={() => handleClick('+')}
                 />
             </div>
+            <div style={{width: '100%', display: 'flex', justifyContent:'center'}} ref={slider}>Slider</div>
         </div>
     );
 }

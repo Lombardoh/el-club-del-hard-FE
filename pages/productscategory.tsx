@@ -50,7 +50,7 @@ const ProductCategory: NextPage = () => {
         alignItems:'center',
         padding: '0px 10px'
       }}>
-        <PageTitle title={'Product Category'} style='center' />
+        <PageTitle title={'Ver todos nuestros productos'} style='center' />
         <DefaultMainContainer>
           <div style={{
             display:'flex',
