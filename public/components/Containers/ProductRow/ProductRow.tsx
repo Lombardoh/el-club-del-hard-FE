@@ -3,7 +3,6 @@ import Text36P_L from '../../Texts/Left/36P_Bold/L_Text36P_B';
 import ProductCard from '../ProductCard/ProductCard';
 import ButtonArrow from '../../ButtonArrow/ButtonArrow';
 import { useEffect, useState, useRef } from 'react';
-import { Console } from 'console';
 
 function ProductRow(props: {
     title: string,
@@ -23,7 +22,7 @@ function ProductRow(props: {
     const handleMouseScroll = (event) =>{
         setMouseX(event.scrollX)
         setActiveIndex(activeIndex+1)
-        console.log(activeIndex, mouseX)
+        console.log(mouseX)
     }
 
     useEffect(() => {
