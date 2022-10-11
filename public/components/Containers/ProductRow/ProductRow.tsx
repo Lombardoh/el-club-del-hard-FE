@@ -40,7 +40,7 @@ function ProductRow(props: {
   const touchMovesHandler = (e) => {
     if(!e.targetTouches[0]) return
     setTouchStartPos(e.targetTouches[0].clientX)
-    setDisplacement((previous) => previous + (touchEndPos - touchStartPos)/25)
+    setDisplacement((previous) => previous + (touchEndPos - touchStartPos)/10)
   }
 
   const touchEndHandler = (e) => {
