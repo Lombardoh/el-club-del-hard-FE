@@ -30,11 +30,11 @@ const Home: NextPage = () => {
       alignItems:'center',
       margin:'25px 20px',
     }}>
-      <ProductRow cartClicked={handleMessage} title={'Destacados'} style='left' />
+      <ProductRow cartClicked={handleMessage} pageNumber={1} title={'Destacados'} style='left' />
       <LabelBreaker style={'horizontalBreaker'} />
-      <ProductRow cartClicked={handleMessage} title={'Recomendados'} style='left' />
+      <ProductRow cartClicked={handleMessage} pageNumber={2} title={'Recomendados'} style='left' />
       <LabelBreaker style={'horizontalBreaker'} />
-      <ProductRow cartClicked={handleMessage} title={'Ofertas'} style='left' />
+      <ProductRow cartClicked={handleMessage} pageNumber={3} title={'Ofertas'} style='left' />
       <TempMessage enabled={showMessage} />
     </div>
     </>)

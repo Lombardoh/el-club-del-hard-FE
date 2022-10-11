@@ -10,7 +10,7 @@ export default function useProduct(pageNumber){
     useEffect(() => {
         axios({
             method: 'GET',
-            url: `https://clubdelhard.ar/api/store/products/`,
+            url: `${process.env.BACKEND_URL_API}store/products/`,
             params: {page: pageNumber}
         }).then(res => {
             setProducts(prevProducts => {

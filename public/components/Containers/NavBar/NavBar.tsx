@@ -32,7 +32,7 @@ function NavBar(props:{
           <a className={styles.text}>Home</a>
         </NextLink>
         <NextLink href='/productscategory' className={styles.link} >
-          <a className={styles.text}>Categorias</a>
+          <a className={styles.text}>Productos</a>
         </NextLink>
         {user ?
           <NextLink href='/' >
