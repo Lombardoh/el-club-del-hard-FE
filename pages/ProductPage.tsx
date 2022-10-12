@@ -16,7 +16,6 @@ const ProductPage: NextPage = () => {
   const [messageVisible, setMessageVisible] = useState<boolean>(false)
 
   useEffect(() => {
-    console.log(productPk, router.query.product_pk)
     if(router.query.product_pk && dataFetched == false || Number(router.query.product_pk) != productPk){
       setProductPk(Number(router.query.product_pk))
       getData(router.query.product_pk)

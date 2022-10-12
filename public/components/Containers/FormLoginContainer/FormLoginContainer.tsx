@@ -17,124 +17,123 @@ import Link from '../../../../node_modules/next/link';
 function FormLoginContainer(props: {
     style: string;
 }){
-    const router = useRouter();
-    const axios = require('axios').default;
-    const error = useRef(null);
-    const [inputType, setInputType] = useState<'text' | 'password'>('password');
-    const [data, setData] = useState({
-        username: '',
-        password: ''
-    });
+  const router = useRouter();
+  const axios = require('axios').default;
+  const error = useRef(null);
+  const [inputType, setInputType] = useState<'text' | 'password'>('password');
+  const [data, setData] = useState({
+      username: '',
+      password: ''
+  });
 
-    const handleInputChange = (event) => {
-        setData({
-            ...data,
-            [event.target.name] : event.target.value
-        })
-    }
+  const handleInputChange = (event) => {
+      setData({
+          ...data,
+          [event.target.name] : event.target.value
+      })
+  }
 
-    const sendData = (event) => {        
-        event.preventDefault()
-        axios.post(`${process.env.BACKEND_URL}accounts/login`,
-        {
-            username: data.username,
-            password: data.password
-        },
-        {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },   
-        })
-        .then(res => {
-            localStorage.setItem('token', res.data.token);
-            localStorage.setItem('username', res.data.username);
-            router.reload()
-        })
-        .catch(err => {
-            error.current.innerHTML = err.response.data.message;
-            console.log(err)
-        })
-    }
+  const sendData = (event) => {        
+    event.preventDefault()
+    axios.post(`${process.env.BACKEND_URL}accounts/login`,
+    {
+      username: data.username,
+      password: data.password
+    },
+    {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },   
+    })
+    .then(res => {
+      localStorage.setItem('token', res.data.token);
+      localStorage.setItem('username', res.data.username);
+      router.reload()
+    })
+    .catch(err => {
+      error.current.innerHTML = err.response.data.message;
+      console.log(err)
+    })
+  }
 
-    const onChangeValueHandler = (event) => {
-        handleInputChange(event);
-    }
+  const onChangeValueHandler = (event) => {
+    handleInputChange(event);
+  }
 
-    const handlePasswordVisible = () =>{
-        setInputType(inputType == 'password' ? 'text' : 'password')
-        
-    }
+  const handlePasswordVisible = () =>{
+    setInputType(inputType == 'password' ? 'text' : 'password')
+  }
 
-    useEffect(() => {
-        localStorage.getItem('token') ? router.push('/') : null;
-    });
+  useEffect(() => {
+    localStorage.getItem('token') ? router.push('/') : null;
+  });
 
-    return (
-            <form
-                className = {styles.container}
-                onSubmit={sendData}
-            >
-                <UserAccessSC>
-                    <UserAccessIC style='container'>
-                        <L_Text20P text='Nombre de Usuario'/>
-                        <InputGeneric 
-                            type='text'
-                            name='username' 
-                            onChangeValue={onChangeValueHandler} 
-                            value={data.username}
-                            required={true}
+  return (
+      <form
+        className = {styles.container}
+        onSubmit={sendData}
+      >
+        <UserAccessSC>
+          <UserAccessIC style='container'>
+          <L_Text20P text='Nombre de Usuario'/>
+          <InputGeneric 
+              type='text'
+              name='username' 
+              onChangeValue={onChangeValueHandler} 
+              value={data.username}
+              required={true}
+          />
+          </UserAccessIC>
+            <UserAccessIC style='container'>
+                <L_Text20P text='Contraseña'/>
+                <div style={{
+                    display:'flex',
+                    alignItems:'center',
+                    width:'100%',
+                    padding:'0px',
+                    margin:'-5px 0px',
+                }}>
+                    <InputLoginRegister 
+                        type={`${inputType}`}  
+                        name='password'
+                        onChangeValue={onChangeValueHandler}
+                        value={data.password}
+                        required={true}
                         />
-                    </UserAccessIC>
-                    <UserAccessIC style='container'>
-                        <L_Text20P text='Contraseña'/>
-                        <div style={{
-                            display:'flex',
-                            alignItems:'center',
-                            width:'100%',
-                            padding:'0px',
-                            margin:'-5px 0px',
-                        }}>
-                            <InputLoginRegister 
-                                type={`${inputType}`}  
-                                name='password'
-                                onChangeValue={onChangeValueHandler}
-                                value={data.password}
-                                required={true}
-                                />
-                            <ButtonPasswordEye handlePasswordVisible={handlePasswordVisible}/>
-                        </div>
-                        <div ref={error} className={styles.errorMsg} />
-                    </UserAccessIC>
-                    <div style={{
-                        display:'flex',
-                        flexDirection:'row',
-                        alignItems:'center',
-                        justifyContent:'flex-start',
-                        marginTop:'20px',
-                        marginRight:'auto',
-                        gap:'30px'
-                    }}>
-                        <ButtonBlue type='submit' text='Login' style='add'  />
-                        <ClickableContainer style='row'>
-                            <ButtonBoxCheck />
-                            <Text16P text='Recuérdame' />
-                        </ClickableContainer>
-                    </div>
-                    <div style={{display:'flex',flexDirection:'column',alignItems:'flex-end',gap:'10px'}}>
-                        <Link href={'/register'}>
-                            <a>
-                                <Text16P_B text='¿No tenés Cuenta? ¡Resgistrate aquí!' />
-                            </a>
-                        </Link>
-                        <ClickableContainer style='current'>
-                            <Text16P_B text='¿Olvidaste tu contraseña?' />
-                        </ClickableContainer>
-                    </div>
-                    
-                </UserAccessSC>
-            </form>
-        );
-    }
+                    <ButtonPasswordEye handlePasswordVisible={handlePasswordVisible}/>
+                </div>
+                <div ref={error} className={styles.errorMsg} />
+            </UserAccessIC>
+            <div style={{
+                display:'flex',
+                flexDirection:'row',
+                alignItems:'center',
+                justifyContent:'flex-start',
+                marginTop:'20px',
+                marginRight:'auto',
+                gap:'30px'
+            }}>
+                <ButtonBlue type='submit' text='Login' style='add'  />
+                <ClickableContainer style='row'>
+                    <ButtonBoxCheck />
+                    <Text16P text='Recuérdame' />
+                </ClickableContainer>
+            </div>
+            <div style={{display:'flex',flexDirection:'column',alignItems:'flex-end',gap:'10px'}}>
+                <Link href={'/register'}>
+                    <a><Text16P_B text='¿No tenés Cuenta? ¡Resgistrate aquí!' /></a>
+                </Link>
+                <ClickableContainer style='current'>
+                  <Link href="/password-recover">
+                    <a><Text16P_B text='¿Olvidaste tu contraseña?' /></a>
+                  </Link>
+                </ClickableContainer>
+            </div>
+            
+        </UserAccessSC>
+      </form>
+    );
+  }
 
 export default FormLoginContainer;

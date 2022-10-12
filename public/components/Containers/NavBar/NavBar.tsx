@@ -1,11 +1,10 @@
 import styles from './NavBar.styles';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import NextLink from '../../../../node_modules/next/link';
 
 function NavBar(props:{
     open?: boolean
 }){
-
   const [user, setUser] = useState(null);
     const [buttonTextDisabled, setButtonTextDisabled] = useState(false);
 
@@ -23,7 +22,9 @@ function NavBar(props:{
     localStorage.removeItem('username');
     localStorage.removeItem('token');
     setUser(null);
-}
+    window.location.reload();
+  }
+
   let currentNavStyle = props.open ? styles.nav + ' ' + styles.open : styles.nav;
   return (
     <div className = {styles.container}>
