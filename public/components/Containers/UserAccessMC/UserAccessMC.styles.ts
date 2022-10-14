@@ -9,6 +9,7 @@ const styles = {
         padding: '10px',
         width: '100%',
         backgroundColor: '#FFFFFF',
+        marginBottom: '100px'
     })
 }
 

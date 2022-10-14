@@ -13,6 +13,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useRouter } from '../../../../node_modules/next/router';
 import InputGeneric from '../../InputGeneric/InputGeneric';
 import Link from '../../../../node_modules/next/link';
+import useUserData from '../../useUserData/index';
 
 function FormLoginContainer(props: {
     style: string;
@@ -49,11 +50,12 @@ function FormLoginContainer(props: {
     .then(res => {
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('username', res.data.username);
+      localStorage.setItem('is_admin', res.data.is_admin);
       router.reload()
     })
     .catch(err => {
-      error.current.innerHTML = err.response.data.message;
       console.log(err)
+      error.current.innerHTML = err.response.data.message;
     })
   }
 
