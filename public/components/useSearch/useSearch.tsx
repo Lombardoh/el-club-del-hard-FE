@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function useProduct(query, pageNumber){
+export default function useSearch(query, pageNumber){
     const axios = require('axios').default;
     const [loading, setLoading] = useState<boolean>(true)
     const [error, setError] = useState<boolean>(false)

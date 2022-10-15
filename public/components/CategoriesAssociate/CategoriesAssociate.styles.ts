@@ -8,7 +8,7 @@ const styles = {
     alignItems: 'center',
     width: '80%',
     height: '100%',
-    margin: 'auto auto',
+    margin: '40px auto',
     $nest: {
       '@media (max-width: 700px)': {
       }
@@ -17,14 +17,28 @@ const styles = {
   row: style({
     display: 'flex',
     width: '100%',
+    justifyContent: 'space-around',
+    gap: '20px',
+    margin: '20px auto',
     $nest: {
       '@media (max-width: 700px)': {
       }
     }
   }),
   select: style({
-    overflow: 'auto',
-    height: '100px',
+    width: '100%',
+    height: '200px',
+    borderRadius: '5px',
+    $nest: {
+      '@media (max-width: 700px)': {
+      }
+    }
+  }),
+  arrowContainer: style({
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    gap: '10px',
     $nest: {
       '@media (max-width: 700px)': {
       }

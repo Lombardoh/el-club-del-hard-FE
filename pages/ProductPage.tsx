@@ -22,20 +22,20 @@ const ProductPage: NextPage = () => {
     } 
   });
 
-  const getData = (product_pk) => {
-    fetch(`${process.env.BACKEND_URL_API}store/products/${product_pk}`, {
-      method: 'GET',
-      headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          },
-      })
-      .then(res => res.json())
-      .then(data => {
-          setProductData(data)
-          setDataFetched(true)
-      })
-      .catch(err => console.log(err))
+const getData = (product_pk) => {
+  fetch(`${process.env.BACKEND_URL_API}store/products/${product_pk}`, {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      },
+    })
+    .then(res => res.json())
+    .then(data => {
+      setProductData(data)
+      setDataFetched(true)
+    })
+    .catch(err => console.log(err))
   }
 
   const handleMessage = () =>{
@@ -52,29 +52,29 @@ const ProductPage: NextPage = () => {
     }
   }, [messageVisible])
 
-    return (<>
-        <DivP10_F_Center style='column'>
-            {dataFetched ? 
-            <ProductDetailedCard
-                product_pk = {productData['pk']}
-                productName={productData['name']}
-                imageAlt={productData['alt']}
-                description={productData['description']}
-                price={productData['price']}
-                imageURL={productData['image'].replace(':8080','')}
-                labelPromo={productData['label']} 
-                labelPromoStyle={'onSale'}
-                labelPromo2nd={'Más Vendidos'} 
-                labelPromo2ndStyle={'mostSold'} 
-                labelPromoDisabled={false}
-                labelStock={'En Stock'}
-                labelStockStyle={'onStock'}
-                cartClicked={handleMessage}
-            /> : <div>Cargando...</div>}
-            <LabelBreaker style={'horizontalBreaker'} />
-            <ProductRow cartClicked={handleMessage} pageNumber={1} title={'Productos Similares'} style='center'/>
-        </DivP10_F_Center>
-        <TempMessage enabled={showMessage} />
-    </>)
+  return (<>
+    <DivP10_F_Center style='column'>
+      {dataFetched ? 
+      <ProductDetailedCard
+        product_pk = {productData['pk']}
+        productName={productData['name']}
+        imageAlt={productData['alt']}
+        description={productData['description']}
+        price={productData['price']}
+        imageURL={productData['image'].replace(':8080','')}
+        labelPromo={productData['label']} 
+        labelPromoStyle={'onSale'}
+        labelPromo2nd={'Más Vendidos'} 
+        labelPromo2ndStyle={'mostSold'} 
+        labelPromoDisabled={false}
+        labelStock={'En Stock'}
+        labelStockStyle={'onStock'}
+        cartClicked={handleMessage}
+      /> : <div>Cargando...</div>}
+      <LabelBreaker style={'horizontalBreaker'} />
+      <ProductRow cartClicked={handleMessage} pageNumber={1} title={'Productos Similares'} style='center'/>
+    </DivP10_F_Center>
+    <TempMessage enabled={showMessage} />
+  </>)
 }
 export default ProductPage; 

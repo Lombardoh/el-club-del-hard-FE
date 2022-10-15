@@ -5,10 +5,10 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     textAlign: 'center',
-    fontWeight: '400',
+    fontWeight: '500',
     lineHeight: '23px',
     color: '#000000',
-    margin: 'auto auto',
+    margin: '20px auto',
   }),
 };
 
