@@ -1,6 +1,6 @@
 import styles from './ButtonBlueDelete.styles';
-import Text14P_W from '../Texts/Center/14P_White/Text14P_W';
-import Text16P_W from '../Texts/Center/16P_White/Text16P_W';
+import Text14P_W from '../../Texts/Center/14P_White/Text14P_W';
+import Text16P_W from '../../Texts/Center/16P_White/Text16P_W';
 import { useState, useEffect } from 'react';
 
 function ButtonBlueDelete(props: {

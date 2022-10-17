@@ -1,6 +1,6 @@
 import styles from './CategoriesCreate.styles';
 import { useEffect, useState } from 'react';
-import useCategories from '../useCategories/useCategories';
+import useCategories from '../hooks/useCategories/useCategories';
 
 function CategoriesCreate(props:{
 }){

@@ -1,5 +1,5 @@
 import styles from './ButtonPageNumber.styles';
-import Text16P_W from '../Texts/Center/16P_White/Text16P_W';
+import Text16P_W from '../../Texts/Center/16P_White/Text16P_W';
 function ButtonPageNumber(props: {
     indexNumber: string;
     style: string;

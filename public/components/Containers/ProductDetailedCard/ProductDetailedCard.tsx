@@ -8,9 +8,9 @@ import Text24P_B from '../../Texts/Center/24P_Bold/Text24P_B';
 import L_Text40P_B from '../../Texts/Left/40P_Bold/L_Text40P_B';
 import DivP10_F_Center from '../GenericContainers/DivP10_F_Center/DivP10_F_Center';
 import L_Text24P from '../../Texts/Left/24P/L_Text24P';
-import ButtonArrow from '../../ButtonArrow/ButtonArrow';
+import ButtonArrow from '../../buttons/ButtonArrow/ButtonArrow';
 import { useState, useEffect } from 'react';
-import ButtonCart from '../../ButtonCart/ButtonCart';
+import ButtonCart from '../../buttons/ButtonCart/ButtonCart';
 
 function ProductDetailedCard(props: {
 	 cartClicked:any,

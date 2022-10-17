@@ -7,7 +7,7 @@ import DivP0_F_Center from '../GenericContainers/DivP0_F_Center/DivP0_F_Center';
 
 import L_Text20P from '../../Texts/Left/20P/L_Text20P';
 import InputGeneric from '../../InputGeneric/InputGeneric';
-import ButtonBlue from '../../ButtonBlue/ButtonBlue';
+import ButtonBlue from '../../buttons/ButtonBlue/ButtonBlue';
 
 import SelectorLabel from '../../SelectorLabel/SelectorLabel';
 

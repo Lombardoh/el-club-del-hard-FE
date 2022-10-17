@@ -1,70 +1,68 @@
 import styles from './HeaderTop.styles';
-import ButtonCartHeader from '../../ButtonCartHeader/ButtonCartHeader';
-import ButtonSearchHeader from '../../ButtonSearchHeader/ButtonSearchHeader';
+import ButtonCartHeader from '../../buttons/ButtonCartHeader/ButtonCartHeader';
+import ButtonSearchHeader from '../../buttons/ButtonSearchHeader/ButtonSearchHeader';
 import Image from '../../../../node_modules/next/image';
-import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
+import HamburgerMenu from '../../icons/HamburgerMenu/HamburgerMenu';
 import Link from 'next/link';
 import NextLink from '../../../../node_modules/next/link';
 import {useEffect, useState} from 'react';
 
 function HeaderTop(props: {
-    onClick?: any
-    }){
+  onClick?: any
+  }){
 
-    const [user, setUser] = useState(null);
-    const [buttonTextDisabled, setButtonTextDisabled] = useState(false);
+  const [user, setUser] = useState(null);
+  const [buttonTextDisabled, setButtonTextDisabled] = useState(false);
 
-    useEffect(() => {
+  useEffect(() => {
+    setButtonTextDisabled(window.innerWidth < 495);
+    if(window.innerWidth){
+      setUser(localStorage.getItem('username'))
+      window.addEventListener('resize', () => {
         setButtonTextDisabled(window.innerWidth < 495);
-        if(window.innerWidth){
-            setUser(localStorage.getItem('username'))
-            window.addEventListener('resize', () => {
-                setButtonTextDisabled(window.innerWidth < 495);
-            });
-        }
-    }, [buttonTextDisabled]); 
+      });
+    }
+  }, [buttonTextDisabled]); 
     
-    return (
-        <div
-            className = {styles.container}
-        >            
-            <div className={styles.logoContainer}>
-            <Link href="/">
-                <a>
-                    <Image
-                        src={require('./LogoCDH.png')}
-                        alt={'logo'}
-                        className={styles.logo}
-                    />  
-                </a>
-            </Link>
-                
-            </div>
-            <div className={styles.rightContainer}>
-                <div className={styles.searchBar}>
-                    {/* <ButtonSearchHeader /> */}
-                </div>
-                <div className={styles.rightMenu}>
-                    {/* <ButtonWishHeader /> */}
-                    <ButtonSearchHeader />
-                    <ButtonCartHeader />
-                    {user ? 
-                      <NextLink href='/UserPageInfo' >
-                      {/* <a className={styles.text}>Bienvenido {user}</a> */}
-                      <a className={styles.text}>{user}</a>
-                      </NextLink>
-                      :
-                      <NextLink href='/Login' >
-                          <a className={styles.text}>Ingresar</a>
-                      </NextLink>  
-                    }
-                </div>
-                <div className={styles.hamburgerMenu}>
-                    <HamburgerMenu onClick={props.onClick}/>
-                </div>
-            </div>
+  return (
+    <div className = {styles.container}>            
+      <div className={styles.logoContainer}>
+        <Link href="/">
+          <a>
+            <Image
+              src={require('./LogoCDH.png')}
+              alt={'logo'}
+              className={styles.logo}
+            />  
+          </a>
+        </Link>
+      </div>
+
+      <div className={styles.rightContainer}>
+        <div className={styles.searchBar}>
+          {/* <ButtonSearchHeader /> */}
         </div>
-    );
+        <div className={styles.rightMenu}>
+          {/* <ButtonWishHeader /> */}
+          <ButtonSearchHeader />
+          <ButtonCartHeader />
+          {user ? 
+            <NextLink href='/UserPageInfo' >
+              {/* <a className={styles.text}>Bienvenido {user}</a> */}
+              <a className={styles.text}>{user}</a>
+            </NextLink>
+            :
+            <NextLink href='/Login' >
+              <a className={styles.text}>Ingresar</a>
+            </NextLink>  
+          }
+        </div>
+        <div className={styles.hamburgerMenu}>
+          <HamburgerMenu onClick={props.onClick}/>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default HeaderTop;

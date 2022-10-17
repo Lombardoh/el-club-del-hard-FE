@@ -7,11 +7,11 @@ import UserAccessIC from '../public/components/Containers/UserAccessIC/UserAcces
 import DivP0_F_Center from '../public/components/Containers/GenericContainers/DivP0_F_Center/DivP0_F_Center';
 import DivP0_F_Center_nh from '../public/components/Containers/GenericContainers/DivP0_F_Center_nh/DivP0_F_Center_nh';
 import InputGeneric from '../public/components/InputGeneric/InputGeneric';
-import ButtonPasswordEye from '../public/components/ButtonPasswordEye/ButtonPasswordEye';
+import ButtonPasswordEye from '../public/components/buttons/ButtonPasswordEye/ButtonPasswordEye';
 import L_Text20P from '../public/components/Texts/Left/20P/L_Text20P';
 import LabelBreakerCheckout from '../public/components/LabelBreakerCheckout/LabelBreakerCheckout';
-import ButtonBlue from '../public/components/ButtonBlue/ButtonBlue';
-import ButtonUserPageBrowsing from '../public/components/ButtonUserPageBrowsing/ButtonUserPageBrowsing';
+import ButtonBlue from '../public/components/buttons/ButtonBlue/ButtonBlue';
+import ButtonUserPageBrowsing from '../public/components/buttons/ButtonUserPageBrowsing/ButtonUserPageBrowsing';
 import L_Text20P_B from '../public/components/Texts/Left/20P_Bold/L_Text20P_B';
 
 const UserPageInfo: NextPage = () => {

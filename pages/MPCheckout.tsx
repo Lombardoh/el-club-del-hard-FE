@@ -8,7 +8,7 @@ import DivP0_F_Center_nh from '../public/components/Containers/GenericContainers
 import InputGeneric from '../public/components/InputGeneric/InputGeneric';
 import L_Text20P from '../public/components/Texts/Left/20P/L_Text20P';
 import LabelBreakerCheckout from '../public/components/LabelBreakerCheckout/LabelBreakerCheckout';
-import ButtonBlue from '../public/components/ButtonBlue/ButtonBlue';
+import ButtonBlue from '../public/components/buttons/ButtonBlue/ButtonBlue';
 import L_Text20P_B from '../public/components/Texts/Left/20P_Bold/L_Text20P_B';
 
 const MPCheckout: NextPage = () => {

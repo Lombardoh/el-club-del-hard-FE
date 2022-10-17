@@ -1,7 +1,7 @@
 import styles from './CartSubtotalCard.styles';
 import Text24P_B from '../../Texts/Center/24P_Bold/Text24P_B';
 import Text32P_B from '../../Texts/Center/28P_B/Text28P_B';
-import ButtonBlue from '../../ButtonBlue/ButtonBlue';
+import ButtonBlue from '../../buttons/ButtonBlue/ButtonBlue';
 import { useRouter} from '../../../../node_modules/next/router';
 import SelectGeneric from '../../SelectGeneric/SelectGeneric';
 import { useState, useEffect } from 'react';

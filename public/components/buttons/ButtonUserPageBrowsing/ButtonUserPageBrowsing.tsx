@@ -1,5 +1,5 @@
 import styles from './ButtonUserPageBrowsing.styles';
-import NextLink from '../../../node_modules/next/link'
+import NextLink from '../../../../node_modules/next/link';
 
 function ButtonUserPageBrowsing(props: {
     text: string;

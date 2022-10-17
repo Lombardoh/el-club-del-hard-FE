@@ -6,14 +6,12 @@ function FooterFullContainer(props: {
     children?: any,
 }){
 
-    return (
-        <div
-            className = {styles.container}
-        >
-            <FooterTop />
-            <FooterBottom copyrightText='© Copyright'/>
-        </div>
-    );
+  return (
+    <div className = {styles.container}>
+      <FooterTop />
+      <FooterBottom copyrightText='© Copyright'/>
+    </div>
+  );
 }
 
 export default FooterFullContainer;

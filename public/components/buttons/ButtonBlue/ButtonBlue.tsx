@@ -1,6 +1,6 @@
 import styles from './ButtonBlue.styles';
-import Text20P_W from '../Texts/Center/20P_White/Text20P_W';
-import Text24P_W from '../Texts/Center/24P_White/Text24P_W';
+import Text20P_W from '../../Texts/Center/20P_White/Text20P_W';
+import Text24P_W from '../../Texts/Center/24P_White/Text24P_W';
 import { useState, useEffect } from 'react';
 
 function ButtonBlue(props: {

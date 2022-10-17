@@ -1,6 +1,6 @@
 import styles from './CategoriesAssociate.styles';
 import { useEffect, useState, useRef, useCallback } from 'react';
-import useCategories from '../useCategories/useCategories';
+import useCategories from '../hooks/useCategories/useCategories';
 import useProduct from '../useProduct/useProduct';
 import useProductsInCategories from '../useProductsInCategories/useProductsInCategories';
 import ButtonArrow from '../../../out/components/ButtonArrow/ButtonArrow';

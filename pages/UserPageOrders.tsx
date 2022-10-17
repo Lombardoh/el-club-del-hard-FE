@@ -10,7 +10,7 @@ import DivP0_F_Center from '../public/components/Containers/GenericContainers/Di
 
 import L_Text20P_B from '../public/components/Texts/Left/20P_Bold/L_Text20P_B';
 
-import ButtonUserPageBrowsing from '../public/components/ButtonUserPageBrowsing/ButtonUserPageBrowsing';
+import ButtonUserPageBrowsing from '../public/components/buttons/ButtonUserPageBrowsing/ButtonUserPageBrowsing';
 import Div_UserOrder from '../public/components/Containers/GenericContainers/Div_UserOrder/Div_UserOrder';
 
 const UserPageOrders: NextPage = () => {

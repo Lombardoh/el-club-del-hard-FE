@@ -6,9 +6,9 @@ import LabelStock from '../../LabelStock/LabelStock';
 import Text24P_B from '../../Texts/Center/24P_Bold/Text24P_B';
 import DivP10_F_Center from '../GenericContainers/DivP10_F_Center/DivP10_F_Center';
 import L_Text24P from '../../Texts/Left/24P/L_Text24P';
-import ButtonBlue from '../../ButtonBlue/ButtonBlue';
-import ButtonBlueDelete from '../../ButtonBlueDelete/ButtonBlueDelete';
-import ButtonArrow from '../../ButtonArrow/ButtonArrow';
+import ButtonBlue from '../../buttons/ButtonBlue/ButtonBlue';
+import ButtonBlueDelete from '../../buttons/ButtonBlueDelete/ButtonBlueDelete';
+import ButtonArrow from '../../buttons/ButtonArrow/ButtonArrow';
 
 import WishlistPC from '../WishlistPC/WishlistPC';
 import WishlistBC from '../WishlistBC/WishlistBC';

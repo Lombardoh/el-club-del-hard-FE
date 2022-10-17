@@ -2,8 +2,8 @@ import styles from './ButtonSearchHeader.styles';
 import { BsSearch } from 'react-icons/bs';
 import React, {useState, useRef, useEffect} from 'react';
 import {IconContext} from 'react-icons';
-import useSearch from '../useSearch/index';
-import { useRouter } from '../../../node_modules/next/router';
+import useSearch from '../../hooks/useSearch/useSearch';
+import { useRouter } from '../../../../node_modules/next/router';
 
 function ButtonSearchHeader(){
   const [open, setOpen] = useState<boolean>(false)

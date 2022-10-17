@@ -11,18 +11,18 @@ function MyApp({ Component, pageProps }: AppProps) {
     useEffect(() => {
         setWindowWidth(window.innerWidth);
         if(windowWidth){
-            window.addEventListener('resize', () => {
-                setWindowWidth(window.innerWidth);
-            });
+          window.addEventListener('resize', () => {
+            setWindowWidth(window.innerWidth);
+          });
         }
     }, [windowWidth]);
 
   let mobile = windowWidth > 700 ? false : true;
-  return <>
+  return (<>
   <Head>
-        <title>El club del hard</title>
-        <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-      </Head>
+    <title>El club del hard</title>
+    {/* <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" /> */}
+  </Head>
   <TopBar />
   {mobile ?
   <Image
@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   <Component {...pageProps}/>
   <FooterFullContainer />
-  </>
+  </>)
 }
 
 export default MyApp

@@ -8,21 +8,16 @@ function FooterInsideTop(props: {
     content2?: string,
     content3?: string,
 }){
-
-    return (
-        <div
-            className = {styles.container}
-        >
-            <Text36P text={props.title} />
-            
-            <div>
-                <Text24P_L text={props.content1} /><br></br> 
-                <Text24P_L text={props.content2} /><br></br> 
-                <Text24P_L text={props.content3} /><br></br>
-            </div>
-
-        </div>
-    );
+  return (
+    <div className = {styles.container}>
+      <Text36P text={props.title} />
+      <div>
+        <Text24P_L text={props.content1} /><br></br> 
+        <Text24P_L text={props.content2} /><br></br> 
+        <Text24P_L text={props.content3} /><br></br>
+      </div>
+    </div>
+  );
 }
 
 export default FooterInsideTop;
