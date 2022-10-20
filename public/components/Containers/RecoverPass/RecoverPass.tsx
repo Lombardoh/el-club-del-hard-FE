@@ -1,5 +1,5 @@
 import styles from './RecoverPass.styles'
-import ButtonBlue from '../../../../out/components/ButtonBlue/ButtonBlue';
+import ButtonBlue from '../../buttons/ButtonBlue/ButtonBlue';
 import InputGeneric from '../../InputGeneric/InputGeneric';
 import { useState } from 'react';
 

@@ -2,7 +2,7 @@ import styles from './ProductRow.styles';
 import Text36P_L from '../../Texts/Left/36P_Bold/L_Text36P_B';
 import ProductCard from '../ProductCard/ProductCard';
 import ButtonArrow from '../../buttons/ButtonArrow/ButtonArrow';
-import useProduct from '../../../../out/components/useProduct/useProduct';
+import useProduct from '../../hooks/useProduct/useProduct';
 import { useEffect, useState, useRef } from 'react';
 
 function ProductRow(props: {

@@ -3,7 +3,8 @@ import { useState, useRef, useCallback } from 'react';
 import useCategories from '../hooks/useCategories/useCategories';
 import useProduct from '../hooks/useProduct/useProduct';
 import useProductsInCategories from '../hooks/useProductsInCategories/useProductsInCategories';
-import ButtonArrow from '../../../out/components/ButtonArrow/ButtonArrow';
+import ButtonArrow from '../buttons/ButtonArrow/ButtonArrow';
+
 function CategoriesAssociate(props:{
 }){
   const [pageNumber, setPageNumber] = useState<number>(1)

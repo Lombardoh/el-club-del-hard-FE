@@ -1,5 +1,5 @@
 import styles from './ResetPass.styles'
-import ButtonBlue from '../../../../out/components/ButtonBlue/ButtonBlue';
+import ButtonBlue from '../../buttons/ButtonBlue/ButtonBlue';
 import InputGeneric from '../../InputGeneric/InputGeneric';
 import { useState } from 'react';
 import { useRouter } from '../../../../node_modules/next/router';
