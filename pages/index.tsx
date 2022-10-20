@@ -33,6 +33,7 @@ const Home: NextPage = () => {
       margin:'25px 20px',
     }}>
       {categories?.map((category, index)=>{
+        if (index === 0) return
         return <>
           <ProductRow key={index} cartClicked={handleMessage} category_pk={category.id} title={category.name} style='left' />  
           <LabelBreaker style={'horizontalBreaker'} />
