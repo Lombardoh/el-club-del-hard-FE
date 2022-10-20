@@ -5,7 +5,7 @@ import ProductCategoryMC from '../public/components/Containers/ProductCategoryMC
 import { useEffect, useState, useRef, useCallback } from 'react';
 import ProductCard from '../public/components/Containers/ProductCard/ProductCard';
 import TempMessage from '../public/components/TempMessage/TempMessage';
-import useProduct from '../public/components/useProduct/useProduct';
+import useProduct from '../public/components/hooks/useProduct/useProduct';
 
 const ProductCategory: NextPage = () => {
   const [showMessage, setShowMessage] = useState<boolean>(false)

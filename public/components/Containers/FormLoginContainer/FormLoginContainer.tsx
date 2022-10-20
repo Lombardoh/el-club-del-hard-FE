@@ -13,7 +13,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useRouter } from '../../../../node_modules/next/router';
 import InputGeneric from '../../InputGeneric/InputGeneric';
 import Link from '../../../../node_modules/next/link';
-import useUserData from '../../useUserData/index';
+import useUserData from '../../hooks/useUserData/useUserData';
 
 function FormLoginContainer(props: {
     style: string;

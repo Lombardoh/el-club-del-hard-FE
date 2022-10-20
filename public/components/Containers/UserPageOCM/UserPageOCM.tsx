@@ -5,7 +5,7 @@ import Text16P_G from '../../Texts/Center/16P_Green/Text16P_G';
 import Text16P_R from '../../Texts/Center/16P_Red/Text16P_R';
 import Text16P_B from '../../Texts/Center/16P_Bold/Text16P_B';
 
-import LabelBreakerUserOrder from '../../LabelBreakerUserOrder/LabelBreakerUserOrder';
+import LabelBreakerUserOrder from '../../separators/LabelBreakerUserOrder/LabelBreakerUserOrder';
 
 function UserPageOCD(props: {
     children?: any,

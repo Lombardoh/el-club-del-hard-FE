@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import LabelBreaker from '../public/components/LabelBreaker/index';
+import LabelBreaker from '../public/components/separators/LabelBreaker/index';
 import ProductDetailedCard from '../public/components/Containers/ProductDetailedCard/ProductDetailedCard';
 import ProductRow from '../public/components/Containers/ProductRow/ProductRow';
 import DivP10_F_Center from '../public/components/Containers/GenericContainers/DivP10_F_Center/DivP10_F_Center';

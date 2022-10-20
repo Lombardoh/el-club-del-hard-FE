@@ -9,7 +9,7 @@ import DivP0_F_Center_nh from '../public/components/Containers/GenericContainers
 import InputGeneric from '../public/components/InputGeneric/InputGeneric';
 import ButtonPasswordEye from '../public/components/buttons/ButtonPasswordEye/ButtonPasswordEye';
 import L_Text20P from '../public/components/Texts/Left/20P/L_Text20P';
-import LabelBreakerUserData from '../public/components/LabelBreakerUserData/LabelBreakerUserData';
+import LabelBreakerUserData from '../public/components/separators/LabelBreakerUserData/LabelBreakerUserData';
 import ButtonBlue from '../public/components/buttons/ButtonBlue/ButtonBlue';
 import ButtonUserPageBrowsing from '../public/components/buttons/ButtonUserPageBrowsing/ButtonUserPageBrowsing';
 

@@ -8,7 +8,7 @@ function Instagram(props: {
   }){
   return (
     <button onClick={props.onClick} className={styles.noStyle} type='button'>
-      <NextLink href='https://instagram.com/clubdelhard?igshid=YmMyMTA2M2Y='>
+      <NextLink href={process.env.INSTAGRAM_URL}>
         <a>
         <IconContext.Provider value={{className: styles.hamburgerMenu}}>
           <BsInstagram color={'#FFFFFF'} />

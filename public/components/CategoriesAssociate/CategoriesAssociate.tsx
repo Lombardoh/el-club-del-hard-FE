@@ -1,8 +1,8 @@
 import styles from './CategoriesAssociate.styles';
-import { useEffect, useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import useCategories from '../hooks/useCategories/useCategories';
-import useProduct from '../useProduct/useProduct';
-import useProductsInCategories from '../useProductsInCategories/useProductsInCategories';
+import useProduct from '../hooks/useProduct/useProduct';
+import useProductsInCategories from '../hooks/useProductsInCategories/useProductsInCategories';
 import ButtonArrow from '../../../out/components/ButtonArrow/ButtonArrow';
 function CategoriesAssociate(props:{
 }){

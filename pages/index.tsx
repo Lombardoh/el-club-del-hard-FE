@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import ProductRow from '../public/components/Containers/ProductRow/ProductRow';
-import LabelBreaker from '../public/components/LabelBreaker/index';
+import LabelBreaker from '../public/components/separators/LabelBreaker/index';
 import TempMessage from '../public/components/TempMessage/TempMessage';
 import {useEffect, useState} from 'react';
 
