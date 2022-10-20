@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function useCategories(){
+export default function useCategories(principal: boolean = false){
   const axios = require('axios').default;
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<boolean>(false)
@@ -10,6 +10,7 @@ export default function useCategories(){
     axios({
       method: 'GET',
       url: `${process.env.BACKEND_URL_API}store/categories/`,
+      params: {principal: principal}
     }).then(res => {
       setCategories(prevCategories => {
         return [new Set(...prevCategories), ...res.data.map(category => category)]

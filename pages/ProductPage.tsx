@@ -72,7 +72,7 @@ const getData = (product_pk) => {
         cartClicked={handleMessage}
       /> : <div>Cargando...</div>}
       <LabelBreaker style={'horizontalBreaker'} />
-      <ProductRow cartClicked={handleMessage} pageNumber={1} title={'Productos Similares'} style='center'/>
+      <ProductRow cartClicked={handleMessage} category_pk={1} title={'Productos Similares'} style='center'/>
     </DivP10_F_Center>
     <TempMessage enabled={showMessage} />
   </>)

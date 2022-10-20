@@ -3,11 +3,13 @@ import ProductRow from '../public/components/Containers/ProductRow/ProductRow';
 import LabelBreaker from '../public/components/separators/LabelBreaker/index';
 import TempMessage from '../public/components/TempMessage/TempMessage';
 import {useEffect, useState} from 'react';
+import useCategories from '../public/components/hooks/useCategories/useCategories';
 
 const Home: NextPage = () => {
   const [showMessage, setShowMessage] = useState<boolean>(false)
   const [messageVisible, setMessageVisible] = useState<boolean>(false)
-
+  const {categories} = useCategories(true)
+  console.log(categories)
   const handleMessage = () =>{
     setShowMessage(true)
     setMessageVisible(true)
@@ -30,11 +32,12 @@ const Home: NextPage = () => {
       alignItems:'center',
       margin:'25px 20px',
     }}>
-      <ProductRow cartClicked={handleMessage} pageNumber={1} title={'Destacados'} style='left' />
-      <LabelBreaker style={'horizontalBreaker'} />
-      <ProductRow cartClicked={handleMessage} pageNumber={2} title={'Recomendados'} style='left' />
-      <LabelBreaker style={'horizontalBreaker'} />
-      <ProductRow cartClicked={handleMessage} pageNumber={3} title={'Ofertas'} style='left' />
+      {categories?.map((category, index)=>{
+        return <>
+          <ProductRow key={index} cartClicked={handleMessage} category_pk={category.id} title={category.name} style='left' />  
+          <LabelBreaker style={'horizontalBreaker'} />
+        </>
+      })}
       <TempMessage enabled={showMessage} />
     </div>
     </>)

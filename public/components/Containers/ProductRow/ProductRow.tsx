@@ -2,14 +2,14 @@ import styles from './ProductRow.styles';
 import Text36P_L from '../../Texts/Left/36P_Bold/L_Text36P_B';
 import ProductCard from '../ProductCard/ProductCard';
 import ButtonArrow from '../../buttons/ButtonArrow/ButtonArrow';
-import useProduct from '../../hooks/useProduct/useProduct';
 import { useEffect, useState, useRef } from 'react';
+import useProductsInCategories from '../../hooks/useProductsInCategories/useProductsInCategories';
 
 function ProductRow(props: {
   title: string,
   style: string,
   cartClicked: any,
-  pageNumber: number
+  category_pk: number
 }){
   let currentStyle = props.style
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -18,11 +18,10 @@ function ProductRow(props: {
   const [touchEndPos, setTouchEndPos] = useState<number>(0);
   const [displacement, setDisplacement] = useState<number>(0)
   const [touched, setTouched] = useState<boolean>(false)
-  const [swiped, setSwiped] = useState<boolean>(false)
 
   let cardWidth = 320;
 
-  const { loading, hasMore, products, error } = useProduct(props.pageNumber)
+  const productsInCategory = useProductsInCategories(props.category_pk)
 
   const handleClick = (action) => {
       setActiveIndex(eval(`${activeIndex} ${action} 1`))
@@ -75,7 +74,7 @@ function ProductRow(props: {
           onClick={() => handleClick('-')}
         />
           <div className={styles.carousel}>
-            {products?.map((product, key) => {
+            {productsInCategory?.map((product, key) => {
               return (<>
                 {product.image ? 
                 <div key={`${key}`} style={{transition: 'transform 0.3s',
